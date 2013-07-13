@@ -13,6 +13,7 @@
         a1 r
         e1 r
         b1 r
+        d1 r
         c'1 r
         c1
         \bar "|."
@@ -61,5 +62,55 @@
         piece = "Etude"
     }
 }
+
+\pageBreak
+
+\score {
+    \transpose c c'' {
+        c8 (e d e c d c e)
+        d (f e f d e d f)
+        e (g f g e f e g)
+        f (a g a f g f a)
+        g (b a b g a g b)
+        c' (g e g c2)
+        \bar "|."
+    }
+    \header {
+        piece = "Clarion Register"
+    }
+}
+
+\score {
+    \transpose c c' {
+        c'8 (b a b c' b a c')
+        b (a g a b a g b)
+        a (g f g a g f a)
+        g (b c' d' e' c' a g)
+        c1
+        \bar "|."
+    }
+    \header {
+        piece = "Pushing Air"
+    }
+}
+
+\score {
+    \transpose f c' {
+        f8 (c') c'-. c'-.
+        d' (c') c'-. c'-.
+        g (c') c'-. c'-.
+        d' (c') c'-. c'-.
+        a (c') c'-. f'-.
+        f' (e') e'-. f'-.
+        g' (f') e'-. d'-.
+        c'2
+        \bar "|."
+    }
+    \header {
+        piece = "Articulation"
+    }
+}
+
+
 
 \version "2.15.39"  % necessary for upgrading to future LilyPond versions.
