@@ -96,6 +96,11 @@
 
 \score {
     \transpose f c' {
+        c'2-. c'-.
+        c'4-. c'-. c'-. c'-.
+        c'8-. c'-. c'-. c'-. c'-. c'-. c'-. c'-.
+        c'1
+        \bar "||"
         f8 (c') c'-. c'-.
         d' (c') c'-. c'-.
         g (c') c'-. c'-.
