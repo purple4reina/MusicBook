@@ -8,6 +8,7 @@
 
 \score {
     \transpose c c' {
+        \key c \major
         g1 r
         f1 r
         a1 r
@@ -25,6 +26,7 @@
 
 \score {
     \transpose c c' {
+        \key c \major
         c4 (d8 e f g a b
         c'4 b8 a g f e d) 
         c4 (e g c') g (e c g, c1)
@@ -37,6 +39,7 @@
 
 \score {
     \transpose c c' {
+        \key c \major
         c8 e d f e g f a g b a c' b d' c' a b g a f g e f d e c d b, c2
         \bar "|."
     }
@@ -47,6 +50,7 @@
 
 \score {
     \transpose c c' {
+        \key c \major
         c4. (e8 g4. f8
         e8 f) d-. e-.
         c4. (e8 a4. g8
@@ -63,39 +67,9 @@
     }
 }
 
-\pageBreak
-
-\score {
-    \transpose c c'' {
-        c8 (e d e c d c e)
-        d (f e f d e d f)
-        e (g f g e f e g)
-        f (a g a f g f a)
-        g (b a b g a g b)
-        c' (g e g c2)
-        \bar "|."
-    }
-    \header {
-        piece = "Clarion Register"
-    }
-}
-
-\score {
-    \transpose c c' {
-        c'8 (b a b c' b a c')
-        b (a g a b a g b)
-        a (g f g a g f a)
-        g (b c' d' e' c' a g)
-        c1
-        \bar "|."
-    }
-    \header {
-        piece = "Pushing Air"
-    }
-}
-
 \score {
     \transpose f c' {
+        \key c \major
         c'2-. c'-.
         c'4-. c'-. c'-. c'-.
         c'8-. c'-. c'-. c'-. c'-. c'-. c'-. c'-.
