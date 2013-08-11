@@ -58,6 +58,35 @@
     }
 }
 
+\markup {
+    \column {
+        \null
+        \null
+        \null
+        \line { One of my favorite effects that Mozart uses is the alberti bass. }
+        \null
+        \null
+    }
+}
 
+% alberti from end of expo
+\score {
+    \transpose c c' {
+        \repeat unfold 3 {
+            g,16 d b, d
+            a,16 d c d
+            g,16 d b, d
+            fis,16 d a, d
+        }
+        g,16 d b, d
+        fis,16 d a, d
+        g,16 d b, d
+        fis,16 d a, d
+        g,16
+    }
+    \layout {
+        indent = #0
+    }
+}
 
 \version "2.16.2"
