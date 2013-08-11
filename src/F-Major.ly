@@ -1,6 +1,6 @@
 
 
-%%% F MAJOR FOR SOREN  %%%%
+%%%% F MAJOR FOR SOREN  %%%%
 
 
 \header{
@@ -11,6 +11,7 @@
 \score {
     \transpose c f' {
         \key c \major
+        \tempo 8 = 92
         g1 r
         f1 r
         a1 r
