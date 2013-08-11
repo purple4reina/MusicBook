@@ -12,22 +12,21 @@
   c\f e d g
  a g g2 
  cis,4 bes' a g 
-f8 e f d d4 e8 
- c c4 c8 g c4 
+f8 e f d c4 e8 c
+ c4 c8 g c4 
 c g c e g 
 \bar "||" 
-
-
 
 \tempo "Andante" 4 = 92
 r2 
 c,4\mp e 
 
 d b c8 d e f 
-\bar "|:" 
 g2 e4 c
 c1
-\bar ":|" 
+g'2 e4 c
+c1
+\bar "||" 
 
 \tempo "Moderato" 4 = 112
 c'4\f d f f8 g
@@ -35,13 +34,17 @@ a4 a,8 b c d c,4
 e c2.
 \bar "||"
 
-d8 e\staccato e8 f\staccato d8 d\staccato e8 f g e f r e4 e\staccato
+d8 e\staccato e8 f\staccato d8 d\staccato e8 f g e f e e4 e\staccato
 \bar "||"
 
 \tempo "Allegro" 4 = 140
 e d c d 
-e c2.
-\bar "|." 
+e c2.\f
+\bar "||" 
+
+a'4 e c2\fermata
+\bar "|."
+
 }
 \midi { } 
 \layout { } 
@@ -49,4 +52,4 @@ e c2.
 }
 
 
-\version "2.16.0"  % necessary for upgrading to future LilyPond versions.
+\version "2.16.2" 
