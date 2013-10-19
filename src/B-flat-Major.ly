@@ -3,7 +3,7 @@
 %%%% B-flat MAJOR FOR SOREN  %%%%
 
 
-\header{
+\header {
     title = "B-flat Major"
 }
 
@@ -125,5 +125,34 @@
     }
 }
 
+\pageBreak
+
+% articulation etude
+\score {
+    \transpose c bes' {
+        \key c \major
+        c'8 (g) g-. g-. g-. g-. b (g)
+        c'8 (g) g-. g-. g-. g-. b (g)
+        c'8 (g) b (g) c' (g) b (g)
+        c'8 (g) b (g) c' (b) a-. gis-.
+        \bar "||"
+        \mark \default
+        a8 (e) e-. e-. e-. e-. gis (e)
+        a8 (e) e-. e-. e-. e-. gis (e)
+        a8 (e) gis (e) a (e) gis (e)
+        a8 (e) gis (e) a (g) a-. b-.
+        \bar "||"
+        \mark \default
+        c'8 (g) g-. g-. g-. g-. f (g)
+        e8 (g) g-. g-. g-. g-. b (g)
+        c'8 (g) g-. g-. g-. g-. f (g)
+        e8 (g) g-. g-. g-. g-. b (g)
+        c'2 r
+        \bar "|."
+    }
+    \header {
+        piece = "Articulation Etude - From Kroepsch 416 Studies for Clarinet"
+    }
+}
 
 \version "2.15.39"  % necessary for upgrading to future LilyPond versions.
