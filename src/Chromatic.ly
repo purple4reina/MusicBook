@@ -1,9 +1,8 @@
 
-%%% D MAJOR FOR SOREN  %%%%
+%%%% CHROMATIC MAJOR FOR SOREN  %%%%
 
-
-\header{
-    title = "D Major"
+\header {
+    title = "Chromatic Scale"
 }
 
 % study tips
@@ -27,13 +26,22 @@
 \score {
     \transpose c c' {
         \key c \major
+        \tempo 4 = 76
         e,1 (f, fis, g,)
+        r1
+        gis,1 (a, ais, b,)
         r1
         c1 (cis d dis)
         r1
         e1 (f fis g)
         r1
         gis1 (a ais b)
+        r1
+        c'1 (cis' d' dis')
+        r1
+        e'1 (f' fis' g')
+        r1
+        gis'1 (a' ais' b')
         \bar "|."
     }
     \header {
@@ -43,47 +51,21 @@
 
 %scale full range
 \score {
-    \transpose c d' {
-        \key c \major
-        c8 (d e f g a b c'
-        d'8 e' f' g' a' g'
-        f'8 e' d' c' b a g f
-        e d c b, a, g, f, e, d, e,
-        f,8 g, a, b, c2)
-        c4 (e g c') g (e c g, c1)
+    \transpose c c' {
+        e,8 (f, fis, g, gis, a, ais, b,)
+        c (cis d dis e8 f fis g)
+        gis (a ais b c' cis' d' dis')
+        e'8 (f' fis' g' gis' a' ais' b')
+        c'' (b' bes' a' aes' g' ges' f')
+        e' (es' d' des' c' b bes a)
+        aes (g ges f e es d des)
+        c (b, bes, a, aes, g, ges, f,)
+        e,1
         \bar "|."
     }
     \header {
-        piece = "Scale"
+        piece = "Chromatic Scale"
     }
 }
-
-%scale in thirds
-\score {
-    \transpose c d' {
-        \key c \major
-        c8 (e d f e g f a g b a c' b d' c' a b g a f g e f d e c d b, c2)
-        \bar "|."
-    }
-    \header {
-        piece = "Scale in Thirds"
-    }
-}
-
-% articulation
-\score {
-    \transpose f d' {
-        \key f \major
-        \repeat unfold 4 {f4-.}
-        \repeat unfold 8 {f8-.}
-        \repeat unfold 16 {f16-.}
-        \repeat unfold 1 {f1}
-        \bar "|."
-    }
-    \header {
-        piece = "Articulation"
-    }
-}
-
 
 \version "2.15.39"  % necessary for upgrading to future LilyPond versions.
