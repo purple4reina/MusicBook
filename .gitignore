@@ -3,5 +3,6 @@
 *.midi
 *.mid
 *.log
+*.swp
 *~
 .DS_Store
