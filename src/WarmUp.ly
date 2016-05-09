@@ -13,6 +13,10 @@
     }
     \layout {
         indent = #0
+        \context {
+            \Score
+            \override BarNumber.break-visibility = ##(#f #f #f)
+        }
     }
 
     \transpose c c {
@@ -24,7 +28,7 @@
         gis' (a' ais' b') r
         c'' (cis'' d'' dis'') r
         e'' (f'' fis'' g'') r
-        gis'' (a'' ais'' b'') r
+        gis'' (a'' ais'' b'')
         \bar "||"
     }
 }
@@ -38,6 +42,10 @@
     }
     \layout {
         indent = #0
+        \context {
+            \Score
+            \override BarNumber.break-visibility = ##(#f #f #f)
+        }
     }
 
     \transpose c c {
@@ -66,6 +74,10 @@
     \layout {
         indent = #0
         ragged-last = ##f
+        \context {
+            \Score
+            \override BarNumber.break-visibility = ##(#f #f #f)
+        }
     }
 
     \transpose c c' {
@@ -80,6 +92,7 @@
 
         g2. r4
         g2. r4
+        g16-. r8. g16-. r8. g16-. r8. g16-. r8.
         g16-. r8. g16-. r8. g16-. r8. g16-. r8.
         g2. r4
         \bar "||"
