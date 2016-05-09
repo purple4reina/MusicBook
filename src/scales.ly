@@ -1,7 +1,10 @@
-
 \header{
     title = "Clarinet Scales"
     tagline = "Reina B Abolofia -- 503.515.9787 -- purple4reina@gmail.com"
+}
+
+\paper {
+    page-count = 1
 }
 
 % C MAJOR
@@ -168,6 +171,35 @@
         e16 fis gis a b cis dis e fis gis a b cis dis e fis gis a b cis dis e
         fis e dis cis b a gis fis e dis cis b a gis fis e dis cis b a gis fis
         e4
+        \bar "||"
+        \break
+    }
+}
+
+% CHROMATIC
+\score {
+    \header {
+        piece = "Chromatic"
+    }
+    \layout {
+        indent = #0
+        ragged-last = ##f
+        \context {
+            \Score
+            \override NonMusicalPaperColumn.line-break-permission = ##f
+            \override BarNumber.break-visibility = ##(#f #f #f)
+        }
+    }
+    \relative {
+        \time 3/4
+        e16 f fis g gis a ais b c cis d dis
+        e   f fis g gis a ais b c cis d dis
+        e   f fis g gis a ais b c cis d dis
+        \break
+        e16 es d des c b bes a as g ges f
+        e   es d des c b bes a as g ges f
+        e   es d des c b bes a as g ges f
+        e2.
         \bar "||"
         \break
     }
