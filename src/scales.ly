@@ -73,8 +73,8 @@
     }
     \relative {
         \key bes \major
-        bes16 c d es f g a bes c d es f g a bes c d es f g f es d c bes a g f
-        es d c bes a g f es d c bes a g f g a bes4
+        bes16 c d es f g a bes c d es f g a bes c d es f es d c bes a g f
+        es d c bes a g f es d c bes a g f g a bes c bes4
         \bar "||"
         \break
     }
