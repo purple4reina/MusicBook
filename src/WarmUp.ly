@@ -20,7 +20,7 @@
     }
 
     \transpose c c {
-        \tempo 4 = 80
+        \tempo 4 = 60
         e1 (f fis g) r
         gis (a ais b) r
         c' (cis' d' dis') r
