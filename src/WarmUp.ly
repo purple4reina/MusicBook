@@ -100,6 +100,31 @@
 
 }
 
+\score {
+
+    \header {
+        piece = "Articulation"
+    }
+    \layout {
+        indent = #0
+        ragged-last = ##f
+        \context {
+            \Score
+            \override BarNumber.break-visibility = ##(#f #f #f)
+        }
+    }
+
+    \transpose c c' {
+        \repeat unfold 16 { f,16-. }
+        f, (g, a, bes, c d e f) f (e d c bes, a, g, f,)
+        \repeat unfold 16 { g,-. }
+        g, (a, b, c d e fis g) g (fis e d c b, a, g,)
+        \repeat unfold 16 { a,-. }
+        a, (b, cis d e fis gis a) a (gis fis e d cis b, a,) a,4--
+        \bar "||"
+    }
+}
+
 
 
 \version "2.16.2"  % necessary for upgrading to future LilyPond versions.
