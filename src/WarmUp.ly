@@ -2,7 +2,7 @@
 
 \header{
     title = "Clarinet Warm Ups"
-    tagline = "Rey Abolofia -- 503.515.9787 -- purple4reina@gmail.com"
+    tagline = "Rey Abolofia -- 503.515.9787 -- purple4reina@gmail.com -- v2.1.0"
 }
 
 %%% LONG TONES %%%
