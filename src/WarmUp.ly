@@ -115,12 +115,13 @@
     }
 
     \transpose c c' {
+        \key f \major
         \repeat unfold 16 { f,16-. }
         f, (g, a, bes, c d e f) f (e d c bes, a, g, f,)
         \repeat unfold 16 { g,-. }
-        g, (a, b, c d e fis g) g (fis e d c b, a, g,)
+        g, (a, bes, c d e f g) g (f e d c bes, a, g,)
         \repeat unfold 16 { a,-. }
-        a, (b, cis d e fis gis a) a (gis fis e d cis b, a,) a,4--
+        a, (bes, c d e f g a) a (g f e d c bes, a,) a,4--
         \bar "||"
     }
 }
