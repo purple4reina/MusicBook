@@ -87,4 +87,4 @@
 }
 
 
-\version "3.16.2"  % necessary for upgrading to future LilyPond versions.
+\version "2.18.2"  % necessary for upgrading to future LilyPond versions.
