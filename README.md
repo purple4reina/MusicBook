@@ -1,7 +1,7 @@
 MusicBook
 =========
 
-Music Book For Young Clarinetists
+Music Book For Young Clarinetists by Rey Abolofia
 
 + [About](about.md)
 + [Solos list](solos.md)
