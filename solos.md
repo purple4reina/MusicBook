@@ -6,7 +6,7 @@ nav_order: 3
 
 # Clarinet Solos
 
-Below is a list of solos for clarinet appropriate for high school and middle school players.
+Below is a list of solos appropriate for middle and high school age clarinet players.
 
 | Composer | Title | Recording | Sheet Music | Level |
 |----------|-------|-----------|-------------|------ |
