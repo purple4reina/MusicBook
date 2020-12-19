@@ -1,3 +1,9 @@
+---
+layout: default
+title: Clarinet Solos
+nav_order: 3
+---
+
 # Clarinet Solos
 
 Below is a list of solos for clarinet appropriate for high school and middle school players.

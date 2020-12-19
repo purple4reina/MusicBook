@@ -1,3 +1,9 @@
+---
+layout: default
+title: About
+nav_order: 1
+---
+
 # About
 
 Rey Abolofia is a clarinetist whose performance and teaching have enriched his
