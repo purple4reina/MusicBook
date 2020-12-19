@@ -1,3 +1,5 @@
+# About
+
 Rey Abolofia is a clarinetist whose performance and teaching have enriched his
 home community of Portland, Oregon. In 2008, he was presented with the Portland
 State University President's Award for Outstanding Community Engagement. This
