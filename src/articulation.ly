@@ -2,7 +2,7 @@
 
 \header{
     title = "Clarinet Articulation"
-    tagline = "Rey Abolofia -- 503.515.9787 -- purple4reina@gmail.com -- v1.0.0"
+    tagline = "Rey Abolofia -- 503.515.9787 -- purple4reina@gmail.com -- v1.1.0"
 }
 
 
@@ -75,13 +75,12 @@
     }
     \transpose c c' {
         \key f \major
-        \time 2/4
-        \repeat unfold 8 { f,16-. }
+        \repeat unfold 16 { f,16-. }
         f, (g, a, bes, c d e f) f (e d c bes, a, g, f,)
-        \repeat unfold 8 { f,16-. }
+        \repeat unfold 16 { f,16-. }
         f,-. g,-. a,-. bes,-. c-. d-. e-. f-.
         f-. e-. d-. c-. bes,-. a,-. g,-.  f,-.
-        f,2
+        f,1
         \bar "||"
     }
 }
