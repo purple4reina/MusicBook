@@ -2,7 +2,7 @@
 
 \header{
     title = "Clarinet Warm Ups"
-    tagline = "Rey Abolofia -- 503.515.9787 -- purple4reina@gmail.com -- v2.1.0"
+    tagline = "Rey Abolofia -- 503.515.9787 -- purple4reina@gmail.com -- v2.1.1"
 }
 
 %%% LONG TONES %%%
@@ -22,13 +22,13 @@
     \transpose c c {
         \tempo 4 = 60
         e1 (f fis g) r
-        gis (a ais b) r
+        gis (a bes b?) r
         c' (cis' d' dis') r
         e' (f' fis' g') r
-        gis' (a' ais' b') r
+        gis' (a' bes' b'?) r
         c'' (cis'' d'' dis'') r
         e'' (f'' fis'' g'') r
-        gis'' (a'' ais'' b'')
+        gis'' (a'' bes'' b''?)
         \bar "||"
     }
 }
