@@ -8,7 +8,7 @@ nav_order: 3
 
 Below is a list of solos appropriate for middle and high school age clarinet players.
 
-Audio links for piano accompaniment [can be found here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vRWvF_Vg-rt3He-uruxEScpu4nRVz9uR78JSwGqrYomk_6gRsCES1kmxnHhdDNT6BHr3YqJ5Atr070F/pubhtml)
+Audio links for piano accompaniment [can be found here.](https://docs.google.com/spreadsheets/d/e/2PACX-1vRWvF_Vg-rt3He-uruxEScpu4nRVz9uR78JSwGqrYomk_6gRsCES1kmxnHhdDNT6BHr3YqJ5Atr070F/pubhtml){:target="blank"}
 
 | Composer | Title | Recording | Sheet Music | Level |
 |----------|-------|-----------|-------------|------ |
