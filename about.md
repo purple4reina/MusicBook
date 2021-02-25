@@ -30,3 +30,26 @@ As well as performing and teaching, Rey has pursued graduate studies in music.
 His research has focused on the history of early music, particularly vocal
 music of the early 1400s, and the intersection between music theory and
 mathematics.
+
+Contact Rey at <!--
+-->p<!-- O           --><!--/_\      __  --><!-- | \    /_/  --><!-- |\      |   --><!-- / \     |,  --><!-- ~  ~   /|\
+-->u<!--|| | | ||| | ||| | | ||| | ||| | | ||| | ||| | | ||| | ||| | | ||--><!--||_|_|_|||_|_|||_|_|_|||_|_|||_|_|_|||_|_|||_|_|_|||_|_|||_|_|_||--><!--| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |--><!--|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|-->r<!--
+-->p<!--
+-->l<!--
+-->e<!--
+-->4<!--
+-->r<!--
+-->e<!--
+-->i<!--
+-->n<!--
+-->a<!--
+-->&#64;<!--
+-->g<!--
+-->m<!--
+-->a<!--
+-->i<!--
+-->l<!--
+-->&#46;<!--
+-->c<!--
+-->o<!--
+-->m
