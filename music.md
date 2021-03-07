@@ -8,6 +8,7 @@ nav_order: 2
 
 Follow the links below for the warm-ups and exercises I use with my students.
 
+[Fingering Chart](src/fingering-chart.jpeg){: .btn}{:target="blank"}
 [Warm Ups](src/warm-up.pdf){: .btn}{:target="blank"}
 [Articulation](src/articulation.pdf){: .btn}{:target="blank"}
 [Klose Scales](src/klose-scales.pdf){: .btn}{:target="blank"}
