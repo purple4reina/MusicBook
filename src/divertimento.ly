@@ -144,5 +144,29 @@
     }
 }
 
+\score {
+    \layout {
+        indent = #0
+        ragged-last = ##f
+    }
+    \transpose c c' {
+        \key c \major
+        \time 2/4
+
+        % m1
+        c8 r c r
+        b, r b, r
+        c4 a,8 f,
+        g,16 g, (b,) d g d b, g,
+        c,8 c c, c
+
+        % m6
+        c,16 (c) c c c c c c
+        g,8 g g, g
+        g,16 (g) g g g g g g
+        c (e) g c' c (e) g c'
+        f f, (a,) d f d a, f,
+    }
+}
 
 \version "2.20.0"  % necessary for upgrading to future LilyPond versions.
