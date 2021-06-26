@@ -190,6 +190,31 @@
         a8 r r16 a fis d
         g8 r r16 e c a,
         d d, (fis,) a, c a, fis, d,
+        \break
+
+        % m25
+        b,8 r r16 g d b,
+        a,8 r fis,16 a, d, fis,
+        g,8 r es, r
+        r16 d, (fis,) a, d a, fis, d,
+        bes,8 r bes, r
+        \break
+
+        % m30
+        a, r a, r
+        f, r f, r
+        bes, r bes, r
+        d, r d, r
+        es, r es, r
+        f, r f, r
+        \break
+
+        % m36
+        bes,-! r r16 bes f d
+        bes,8 r bes,16 f d bes,
+        a,8 r a,16 f d a,
+        gis,8 r gis, r
+        a, a a, a
     }
 }
 
