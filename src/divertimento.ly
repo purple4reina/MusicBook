@@ -423,6 +423,13 @@
         g, g8 g g g g g
         c4 c, r c
         f, f r f
+        \break
+
+        % m92
+        c r c c8. c16
+        g,4 g g, g,
+        \tuplet 3/2 4 { c8 c, e, g, e, g, c g, e, g, e, c, }
+        g,4 g g, g,
     }
 }
 
