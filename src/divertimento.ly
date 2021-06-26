@@ -297,6 +297,49 @@
         c,4 c16 (b, c b,) c4  r
         g r d r
         g, r g8 d a d
+        \break
+
+        % m16
+        b d a d g d fis d
+        g (d' b g) fis (a fis d)
+        g4 r g b16 (a g a)
+        \break
+
+        % m19
+        b8 b a a g g d d
+        g,4 r cis2
+        d8 fis d fis a16 (g fis g e8 g)
+        fis d d d cis2
+        \break
+
+        % m 23
+        d8 fis d fis a16 (g fis g e8 g)
+        fis d d d d d d d
+        g b a g d'4 d
+        g,8 g b g d4 d,
+        \break
+
+        % m27
+        g,8 g b g d4 d,
+        g,8 g b g d4 d,
+        g,8 g b g d4 d,
+        g2.\fermata r4
+        \break
+
+        % m31
+        c, r c, r
+        g, g g, r
+        g, r g, r
+        c, c c, c,8. (e,16
+        g,4) e,8. (g,16 c4) g,8. (c16
+        \break
+
+        % m36
+        e4 c2) r4
+        g, r g, r
+        c, c'16 (d' e' d') c'4 c,8. (e,16
+        g,4) e,8. (g,16 c4) g,8. (c16
+        e4 c2) r4
     }
 }
 
