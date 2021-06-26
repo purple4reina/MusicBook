@@ -71,6 +71,22 @@
         c: c: c,16 c c c c4:16
         c: c: c8 c' (b bes)
         \break
+
+        % m30
+        bes8. (a16) a8 r b,! g b, g
+        c c' f, f g, g g, g
+        g,4 (c8) r f4 g
+        c r g, g,
+        \bar "||"
+        \break
+
+        % m34
+        c4 b, a, d,
+        g,1
+        c4 b, a, d,
+        g,1
+        r8 c, e, g, c g, e, c,
+        \break
     }
 }
 
