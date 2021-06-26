@@ -340,6 +340,89 @@
         c, c'16 (d' e' d') c'4 c,8. (e,16
         g,4) e,8. (g,16 c4) g,8. (c16
         e4 c2) r4
+        \break
+
+        % m41
+        g,4 r g, r
+        c, c16 b, a, g, c8 c c16 b, a, g,
+        c4 c8 g, c g, c g,
+        \break
+
+        % m44
+        c4 c16 b, a, g, c8 c c16 b, a, g,
+        c4 c8 g, c g, c g,
+        c4 c,8. c,16 c,4 r
+        r c,8. c,16 c,4 r
+        \break
+
+        % m48
+        r c,8. c,16 c,4 r
+        r d,8. d,16 d,4 r
+        r g,8. g,16 g,4 r
+        r c,8. c,16 cis,4 r
+        r d,8. d,16 d,4 r
+        r dis,8. dis,16 dis,4 r
+        \break
+
+        % m54
+        e,8 g (fis e dis b, cis dis!)
+        e (g fis e dis b, cis dis!)
+        e2 r4\fermata r
+        e,8 e e e e e e e
+        \break
+
+        % m58
+        d,8 d d d d d d d
+        g, g g g g g g g
+        c4 c8. c16 e4 g
+        c' c8 c c c e c
+        \break
+
+        % m62
+        g,8 g, g8. g16 g4 c
+        b, g,8 g, g,2:8
+        c: c: f,: f,:
+        c8 c' c' c' c' c c c
+        \break
+
+        % m67
+        g,8 g g g g g, g, g,
+        c, c e c d4 d,
+        g,8 g b g d4 d,
+        g,8 g b g d4 d,
+        g,8 g b g d4 d,
+        \break
+
+        % m72
+        g,8 g b g d4 d,
+        g,8 g b g d4 d,
+        g,2.\fermata r4
+        c, r c, r
+        g, g g, r
+        \break
+
+        % m77
+        g,4 r g, r
+        c, c c, c,8. (e,16
+        g,4) e,8. (g,16 c4) g,8. (c16
+        e4 c2) r4
+        g, r g, r
+        \break
+
+        % m82
+        c,4 c'16 (d' e' d') c'4 c,8. (e,16
+        g,4) e,8. (g,16 c4) g,8. (c16
+        e4 c2) r4
+        g, r g, r
+        c, c8. c16 e4 g
+        \break
+
+        % m87
+        c' c r c
+        g, g,8. g,16 g,4 c
+        g, g8 g g g g g
+        c4 c, r c
+        f, f r f
     }
 }
 
