@@ -58,6 +58,13 @@
         g, g fis, fis g, g fis, fis
         g, r g,16 g g, r g, g g, r g, g g g
         \break
+
+        % m23
+        g2 c4 g,
+        g, (c,8) r c4 c
+        c r r c
+        r d c f,
+        \break
     }
 }
 
