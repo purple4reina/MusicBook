@@ -215,6 +215,55 @@
         a,8 r a,16 f d a,
         gis,8 r gis, r
         a, a a, a
+
+        % m41
+        d8 r e f
+        e r f r
+        d r e r
+        a,16 a e c a,8 r
+        e r e r
+        \break
+
+        % m46
+        f r f r
+        fis r fis r
+        g r g r
+        gis r gis r
+        a r d c
+        b, g, c a,
+        \break
+
+        % m52
+        fis, r fis, r
+        g, f,! e, d,
+        c, r c r
+        b, r b, r
+        c4 a,8 f,
+        g,16 g, (b,) d g d b, g,
+        \break
+
+        % m58
+        c,8 c c, c
+        c,16 (c) c c c c c c
+        g,8 g g, g
+        g,16 (g) g g g g g g
+        c (e) g c' c (e) g c'
+        \break
+
+        % m63
+        f16 f, (a,) d f d a, f,
+        g, (g) g, g, g,8 g,
+        a, r a, r
+        e, r e, r
+        f, r f, r
+        \break
+
+        % m68
+        g, r g, r
+        c,16 (e,) g, c g, (b,) d g
+        c (e) g c' g, (b,) d g
+        c8 r r4
+        \bar "|."
     }
 }
 
