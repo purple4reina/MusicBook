@@ -430,6 +430,15 @@
         g,4 g g, g,
         \tuplet 3/2 4 { c8 c, e, g, e, g, c g, e, g, e, c, }
         g,4 g g, g,
+        \break
+
+        % m96
+        \tuplet 3/2 4 { c,8 c e g e g c' g e g e c }
+        g,4 g g g
+        c r8 \tuplet 3/2 8 { g,16 (a, b, } c4) c
+        c r8 \tuplet 3/2 8 { g,16 (a, b, } c4) c
+        c2 r
+        \bar "|."
     }
 }
 
