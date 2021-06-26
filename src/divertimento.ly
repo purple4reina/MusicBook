@@ -267,4 +267,37 @@
     }
 }
 
+\score {
+    \layout {
+        indent = #0
+        ragged-last = ##f
+    }
+    \transpose c c' {
+        \key c \major
+
+        % m1
+        c,2 r
+        c,4 r c, r
+        g, g g, r
+        g, r g, r
+        c, c c, c,8. (e,16
+        \break
+
+        % m6
+        g,4) e,8. (g,16 c4) g,8. (c16
+        e4 c2) r4
+        g, r g, r
+        c,4 c'16 (d' e' d') c'4 c,8. (e,16
+        g,4) e,8. (g,16 c4) g,8. (c16
+        \break
+
+        % m11
+        e4 c2) r4
+        g, r g, r
+        c,4 c16 (b, c b,) c4  r
+        g r d r
+        g, r g8 d a d
+    }
+}
+
 \version "2.20.0"  % necessary for upgrading to future LilyPond versions.
