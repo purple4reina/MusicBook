@@ -102,6 +102,10 @@
         e, c (b, c d c b, c) a, c (b, c) f, c (b, c)
         e,8 e e e f, f f f
         g, g g g g g g g
+        \break
+
+        % m47
+        c-. c-. e,-. c-. f,-. c-. g,-. c-.
     }
 }
 
