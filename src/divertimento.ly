@@ -106,6 +106,10 @@
 
         % m47
         c-. c-. e,-. c-. f,-. c-. g,-. c-.
+        a, c e, c f, c g, c
+        a, c e, c f, c g, c
+        a, c e, c f, c g, c
+        \break
     }
 }
 
