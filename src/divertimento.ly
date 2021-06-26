@@ -1,6 +1,6 @@
 \header{
     title = "Divertimento"
-    %tagline = "Rey Abolofia -- 503.515.9787 -- purple4reina@gmail.com -- v1.0.1"
+    tagline = ""
 }
 
 %\paper {
@@ -124,6 +124,19 @@
         a, c e, c f, c g, c
         a, c e, c f, c g, c
         a, c e, c f, c g, c
+        \break
+
+        % m60
+        a, a a a d, d d d
+        g,4 r c r
+        f, r r f,
+        g, r r2
+        \break
+
+        % m64
+        g,2. (f,4)
+        e,16 (f, g, a, b, c d e) f4 r
+        g c'8 c' d' d' g g
         \break
     }
 }
