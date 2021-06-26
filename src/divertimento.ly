@@ -159,6 +159,7 @@
         c4 a,8 f,
         g,16 g, (b,) d g d b, g,
         c,8 c c, c
+        \break
 
         % m6
         c,16 (c) c c c c c c
@@ -166,6 +167,15 @@
         g,16 (g) g g g g g g
         c (e) g c' c (e) g c'
         f f, (a,) d f d a, f,
+        \break
+
+        % m11
+        g, (g) g, g, g,8 g,
+        c, c c, r
+        r16 g, b, (d) g d b, g,
+        r g, c (e) g d b, g,
+        d,8 d d, d
+        \break
     }
 }
 
