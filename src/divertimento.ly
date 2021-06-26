@@ -3,6 +3,9 @@
     tagline = ""
 }
 
+
+% MOVEMENT I
+
 \score {
     \layout {
         indent = #0
@@ -144,6 +147,9 @@
     }
 }
 
+
+% MOVEMENT II
+
 \score {
     \layout {
         indent = #0
@@ -266,6 +272,9 @@
         \bar "|."
     }
 }
+
+
+% MOVEMENT III
 
 \score {
     \layout {
