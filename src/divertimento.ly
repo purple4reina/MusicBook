@@ -92,6 +92,9 @@
         r16 c, d, e, f, g, a, b, c8 g, e, c,
         r d, f, a, d a, f, d,
         r16 g, a, b, c d e f g8 d b, g,
+
+        % m42
+        c,16 c (b, c d c b, c) a, c (b, c) f, c (b, c)
     }
 }
 
