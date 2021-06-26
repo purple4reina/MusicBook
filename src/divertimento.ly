@@ -176,6 +176,20 @@
         r g, c (e) g d b, g,
         d,8 d d, d
         \break
+
+        % m16
+        r16 g, b, (d) g d b, g,
+        e, g, b, e b, dis fis b
+        e e, (g,) b, e b, g, e,
+        g, (b,) e g a, (a) a, a,
+        \break
+
+        % m20
+        d d, (fis,) a, c a, fis, d,
+        b,8 r r16 b, d g
+        a8 r r16 a fis d
+        g8 r r16 e c a,
+        d d, (fis,) a, c a, fis, d,
     }
 }
 
