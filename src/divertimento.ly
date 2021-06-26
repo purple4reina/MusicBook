@@ -110,6 +110,21 @@
         a, c e, c f, c g, c
         a, c e, c f, c g, c
         \break
+
+        % m51
+        a, a a a d, d d d
+        g,4 r c r
+        f, r r f,
+        g, r g, r
+        c8-. c-. e,-. c-. f,-. c-. g,-. c-.
+        \break
+
+        % m56
+        a, c e, c f, c g, c
+        a, c e, c f, c g, c
+        a, c e, c f, c g, c
+        a, c e, c f, c g, c
+        \break
     }
 }
 
