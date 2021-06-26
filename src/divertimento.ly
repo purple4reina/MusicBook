@@ -65,6 +65,12 @@
         c r r c
         r d c f,
         \break
+
+        % m27
+        g,4. r8 c,16 c c c c4:16
+        c: c: c,16 c c c c4:16
+        c: c: c8 c' (b bes)
+        \break
     }
 }
 
