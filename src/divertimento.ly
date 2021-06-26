@@ -3,10 +3,6 @@
     tagline = ""
 }
 
-%\paper {
-%    page-count = 2
-%}
-
 \score {
     \layout {
         indent = #0
@@ -138,6 +134,13 @@
         e,16 (f, g, a, b, c d e) f4 r
         g c'8 c' d' d' g g
         \break
+
+        % m67
+        e,16 (f, g, a, b, c d e) f4 r
+        g c8 c d d g, g,
+        c,4 r c c
+        c2 r
+        \bar "|."
     }
 }
 
