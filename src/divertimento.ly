@@ -77,7 +77,7 @@
         g,4 (c8) r f4\f g
         c\> r\! g,\p g,
         \bar "||"
-        \break
+        \pageBreak
 
         % m34
         c4\f b, a, d,
@@ -144,6 +144,7 @@
         c,4 r c\f c
         c2 r
         \bar "|."
+        \pageBreak
     }
 }
 
@@ -247,7 +248,7 @@
         b, r b, r
         c4 a,8 f,
         g,16 g, (b,) d g d b, g,
-        \break
+        \pageBreak
 
         % m58
         c,8 c c, c
@@ -350,7 +351,7 @@
         c, c'16 (d' e' d') c'4 c,8. (e,16
         g,4) e,8. (g,16 c4) g,8. (c16
         e4 c2) r4
-        \break
+        \pageBreak
 
         % m41
         g,4 r g, r
