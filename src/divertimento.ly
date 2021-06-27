@@ -160,7 +160,7 @@
         \time 2/4
 
         % m1
-        c8 r c r
+        c8\p r c r
         b, r b, r
         c4 a,8 f,
         g,16 g, (b,) d g d b, g,
@@ -177,22 +177,22 @@
 
         % m11
         g, (g) g, g, g,8 g,
-        c, c c, r
-        r16 g, b, (d) g d b, g,
+        c,-! c-! c,-! r
+        r16 g,\mp b, (d) g d b, g,
         r g, c (e) g d b, g,
         d,8 d d, d
         \break
 
         % m16
         r16 g, b, (d) g d b, g,
-        e, g, b, e b, dis fis b
+        e,\p g, b, e b, dis fis b
         e e, (g,) b, e b, g, e,
         g, (b,) e g a, (a) a, a,
         \break
 
         % m20
         d d, (fis,) a, c a, fis, d,
-        b,8 r r16 b, d g
+        b,8\mf r r16 b, d g
         a8 r r16 a fis d
         g8 r r16 e c a,
         d d, (fis,) a, c a, fis, d,
@@ -202,8 +202,8 @@
         b,8 r r16 g d b,
         a,8 r fis,16 a, d, fis,
         g,8 r es, r
-        r16 d, (fis,) a, d a, fis, d,
-        bes,8 r bes, r
+        r16 d, (fis,) a, d\> a, fis, d,
+        bes,8\p r bes, r
         \break
 
         % m30
@@ -217,32 +217,33 @@
 
         % m36
         bes,-! r r16 bes f d
-        bes,8 r bes,16 f d bes,
-        a,8 r a,16 f d a,
+        bes,8\p r bes,16 f d bes,
+        a,8\cresc r a,16 f d a,
         gis,8 r gis, r
         a, a a, a
+        \break
 
         % m41
         d8 r e f
-        e r f r
+        e\mf r f r
         d r e r
-        a,16 a e c a,8 r
-        e r e r
+        a,16 a\> e c a,8\! r
+        e\p r e r
         \break
 
         % m46
         f r f r
         fis r fis r
         g r g r
-        gis r gis r
+        gis\cresc r gis r
         a r d c
-        b, g, c a,
+        b,\f g, c a,
         \break
 
         % m52
         fis, r fis, r
-        g, f,! e, d,
-        c, r c r
+        g,\> f,! e, d,\!
+        c,\p r c r
         b, r b, r
         c4 a,8 f,
         g,16 g, (b,) d g d b, g,
@@ -258,17 +259,17 @@
 
         % m63
         f16 f, (a,) d f d a, f,
-        g, (g) g, g, g,8 g,
-        a, r a, r
-        e, r e, r
+        g,\> (g) g, g, g,8 g,\!
+        a,\pp r a,\< r\!
+        e,\p r e, r
         f, r f, r
         \break
 
         % m68
         g, r g, r
         c,16 (e,) g, c g, (b,) d g
-        c (e) g c' g, (b,) d g
-        c8 r r4
+        c (e) g c' g, (b,) d\> g\!
+        c8\pp r r4
         \bar "|."
     }
 }
