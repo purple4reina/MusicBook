@@ -469,7 +469,7 @@
         % m92
         c r c c8. c16
         g,4 g g, g,
-        \tuplet 3/2 4 { c8\mf c, e, g, e, g, c g, e, g, e, c, }
+        \tuplet 3/2 4 { \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #3 c8\mf \newSpacingSection \revert Score.SpacingSpanner.spacing-increment c, e, g, e, g, c g, e, g, e, c, }
         g,4 g g, g,
         \break
 
