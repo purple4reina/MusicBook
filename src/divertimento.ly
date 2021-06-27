@@ -10,6 +10,7 @@
 
 \paper {
     print-all-headers = ##t
+    page-count = #5
 }
 
 \layout {
@@ -34,7 +35,7 @@
         \key c \major
 
         % m1
-        \partial 2 r2
+        \partial 2 r2^\markup { \bold Larghetto }
         r2 c4\p c
         c r r c
         r d c f,
@@ -99,7 +100,7 @@
         \pageBreak
 
         % m34
-        c4\f b, a, d,
+        c4\f^\markup { \bold Allegro } b, a, d,
         g,1
         c4\p b, a, d,
         g,1
@@ -185,7 +186,7 @@
         \time 2/4
 
         % m1
-        c8\p r c r
+        c8\p^\markup { \bold Andante } r c r
         b, r b, r
         c4 a,8 f,
         g,16 g, (b,) d g d b, g,
@@ -316,7 +317,7 @@
         \key c \major
 
         % m1
-        c,2\f r
+        c,2\f^\markup { \bold "Allegro vivace" }  r
         c,4\p r c, r
         g, g g, r
         g, r g, r
