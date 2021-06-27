@@ -16,66 +16,66 @@
 
         % m1
         \partial 2 r2
-        r2 c4 c
+        r2 c4\p c
         c r r c
         r d c f,
-        g,4. r8 c,16 c c c c4:16
+        g,4. r8 c,16\p c c c c4:16
         \break
 
         % m5
-        c: c: c,16 c c c c4:16
-        c: c: c8 c' (b bes)
+        c:\sf c:\p c,16 c c c c4:16
+        c:\sf c:\p c8 c' (b bes)
         bes8. (a16) a8 r b,! g b, g
         \break
 
         % m8
         c c' f, f g, g g, g
-        g,4 (c8) r f4 g
-        c r g, g,
-        c16 g, c g, c g, b,16. (c32) d8-. (b,-. g,-. b,-.)
+        g,4 (c8) r f4\f g
+        c\> r\! g,\p g,
+        c16\< g, c g, c g, b,16. (c32) d8-.\mf (b,-. g,-. b,-.)
         \break
 
         % m12
-        c8 r c r b, r g, b,
-        c16 g, c g, c (d32 c b,16 c) d8-. (b,-. g,-. b,-.)
-        c8 r c r b, r g, b,
+        c8\p r c r b, r g, b,
+        c16\< g, c g, c (d32 c b,16 c) d8-.\mf (b,-. g,-. b,-.)
+        c8\p r c r b, r g, b,
         \break
 
         % m15
-        r c16. c32 c8 r r c16. c32 c8 r
-        r b,16. b,32 b,8 r c16 c, c c c c c c
+        r c16. c32 c8 r r c16.\cresc c32 c8 r
+        r b,16. b,32 b,8 r \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #2 c16\mf \newSpacingSection \revert Score.SpacingSpanner.spacing-increment c, c c c c c c
         cis cis, cis cis cis cis cis cis d8 d d, r
         \break
 
         % m18
-        g,8. (a,64 b, c d e8 d c b, a, d,)
-        g,8. (a,64 b, c d e8 d c b, a, d,)
-        g, r fis, r g, r fis, r
+        g,8.\sfp (a,64 b, c d e8 d c b, a, d,)
+        g,8.\sfp (a,64 b, c d e8 d c b, a, d,)
+        g,\mf r fis, r g, r fis, r
         \break
 
         % m21
-        g, g fis, fis g, g fis, fis
-        g, r g,16 g g, r g, g g, r g, g g g
+        g,\p g fis, fis g, g fis, fis
+        g, r g,16\cresc g g, r g, g g, r g,\f g g g
         \break
 
         % m23
-        g2 c4 g,
+        g2\> c4\p g,
         g, (c,8) r c4 c
         c r r c
         r d c f,
         \break
 
         % m27
-        g,4. r8 c,16 c c c c4:16
-        c: c: c,16 c c c c4:16
-        c: c: c8 c' (b bes)
+        g,4. r8 c,16\p c c c c4:16
+        c:\sf c:\p c,16 c c c c4:16
+        c:\sf c:\p c8 c' (b bes)
         \break
 
         % m30
         bes8. (a16) a8 r b,! g b, g
         c c' f, f g, g g, g
-        g,4 (c8) r f4 g
-        c r g, g,
+        g,4 (c8) r f4\f g
+        c\> r\! g,\p g,
         \bar "||"
         \break
 
