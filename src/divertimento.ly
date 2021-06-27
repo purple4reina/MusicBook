@@ -1,6 +1,15 @@
-\header{
+\header {
     title = "Divertimento"
-    tagline = ""
+    subtitle = "\"Die Hochzeit des Figaro\""
+    composer = "Wolfgang Amadeus Mozart"
+    arranger = "herausgegeben vom Trio di Clarone"
+    poet = "Bass Clarinet"
+    copyright = #(strftime "transcribed by Rey Abolofia, %Y" (localtime (current-time)))
+    tagline = ##f
+}
+
+\paper {
+    print-all-headers = ##t
 }
 
 
@@ -10,6 +19,15 @@
     \layout {
         indent = #0
         ragged-last = ##f
+    }
+    \header {
+        title = "I"
+        subtitle = "Rondo \"Al desio di chi t'adora\""
+        subsubtitle = "(\"Sieh mein Sehnen, des Herzens Bangen\")"
+        opus = "nach KV 577 (4. Akt, Szene X)"
+        composer = ##f
+        arranger = ##f
+        poet = ##f
     }
     \transpose c c' {
         \key c \major
@@ -156,6 +174,15 @@
         indent = #0
         ragged-last = ##f
     }
+    \header {
+        title = "II"
+        subtitle = "Arietta \"Voi che sapete\""
+        subsubtitle = "(\"Sagt, holde Frauen\")"
+        opus = "nach KV 492 (2. Akt, Szene III)"
+        composer = ##f
+        arranger = ##f
+        poet = ##f
+    }
     \transpose c c' {
         \key c \major
         \time 2/4
@@ -282,6 +309,15 @@
     \layout {
         indent = #0
         ragged-last = ##f
+    }
+    \header {
+        title = "III"
+        subtitle = "Aria \"Non più andrai, farfallone amoroso\""
+        subsubtitle = "(\"Nun vergiß leises Flehn, süßes Kosen\")"
+        opus = "nach KV 492 (1. Akt, Szene VIII)"
+        composer = ##f
+        arranger = ##f
+        poet = ##f
     }
     \transpose c c' {
         \key c \major
