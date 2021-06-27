@@ -36,7 +36,7 @@
 
         % m1
         \partial 2 r2^\markup { \bold Larghetto }
-        r2 c4\p c
+        r2 c4-\markup { \dynamic p \italic dolce } c
         c r r c
         r d c f,
         g,4. r8 c,16\p c c c c4:16
@@ -79,7 +79,7 @@
         \break
 
         % m23
-        g2\> c4\p g,
+        g2\>^\markup { \italic "poco rit." } c4\p^\markup { \italic "a tempo" } g,
         g, (c,8) r c4 c
         c r r c
         r d c f,
@@ -125,7 +125,7 @@
 
         % m47
         c-. c-.\p e,-. c-. f,-. c-. g,-. c-.
-        a, c e, c f, c g, c
+        a,^\markup { \italic stacc. } c e, c f, c g, c
         a, c e, c f, c g, c
         a, c e, c f, c g, c
         \break
@@ -139,7 +139,7 @@
         \break
 
         % m56
-        a, c e, c f, c g, c
+        a,^\markup { \italic stacc. } c e, c f, c g, c
         a, c e, c f, c g, c
         a,\cresc c e, c f, c g, c
         a, c e, c f, c g, c
@@ -186,7 +186,7 @@
         \time 2/4
 
         % m1
-        c8\p^\markup { \bold Andante } r c r
+        c8^\markup { \bold Andante }-\markup { \dynamic p \italic dolce } r c r
         b, r b, r
         c4 a,8 f,
         g,16 g, (b,) d g d b, g,
@@ -268,8 +268,8 @@
 
         % m52
         fis, r fis, r
-        g,\> f,! e, d,\!
-        c,\p r c r
+        g,\>^\markup { \italic "poco rit." } f,! e, d,\!
+        c,\p^\markup { \italic "a tempo" } r c r
         b, r b, r
         c4 a,8 f,
         g,16 g, (b,) d g d b, g,
@@ -325,15 +325,15 @@
         \break
 
         % m6
-        g,4) e,8. (g,16 c4) g,8. (c16
-        e4\fp c2) r4
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
+        e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
         c,4 c'16 (d' e' d') c'4 c,8.\mf (e,16
-        g,4) e,8. (g,16 c4) g,8. (c16
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. (c16
         \break
 
         % m11
-        e4\fp c2) r4
+        e4_\markup { \dynamic mfp } c2) r4
         g, r g, r
         c,4 c16 (b, c b,) c4  r
         g\f r d r
@@ -372,14 +372,14 @@
         g, g g, r
         g, r g, r
         c, c c, c,8.\mf (e,16
-        g,4) e,8. (g,16 c4) g,8. (c16
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. (c16
         \break
 
         % m36
         e4 c2) r4
         g, r g, r
         c, c'16 (d' e' d') c'4 c,8. (e,16
-        g,4) e,8. (g,16 c4) g,8. (c16
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. (c16
         e4 c2) r4
         \pageBreak
 
@@ -415,7 +415,7 @@
         % m58
         d,8 d\cresc d d d d d d
         g,\f g g g g g g g
-        c4 c8. c16 e4 g
+        c4_\markup { \italic "piano assai" } c8. c16 e4 g
         c' c8 c c c e c
         \break
 
@@ -445,21 +445,21 @@
         % m77
         g,4 r g, r
         c, c c, c,8.\mf (e,16
-        g,4) e,8. (g,16 c4) g,8. (c16
-        e4\fp c2) r4
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. (c16
+        e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
         \break
 
         % m82
         c,4 c'16 (d' e' d') c'4 c,8.\mf (e,16
-        g,4) e,8. (g,16 c4) g,8. (c16
-        e4\fp c2) r4
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. (c16
+        e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
-        c,\f c8. c16 e4 g
+        c,\f c8._"(Partono tutti alla" c16 e4 g
         \break
 
         % m87
-        c' c r c
+        c'_"militare)" c r c
         g, g,8. g,16 g,4 c
         g, g8 g g g g g
         c4 c, r c
