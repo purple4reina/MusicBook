@@ -18,6 +18,11 @@
     ragged-last = ##f
 }
 
+smallC   = \tweak font-size -2.5 c
+smallCis = \tweak font-size -2.5 cis
+smallD   = \tweak font-size -2.5 d
+smallEs  = \tweak font-size -2.5 es
+
 
 % MOVEMENT I
 
@@ -39,11 +44,11 @@
         r2 c4-\markup { \dynamic p \italic dolce } c
         c r r c
         r d c f,
-        g,4. r8 c,16\p c c c c4:16
+        g,4. r8 <c, \smallC>16\p c c c c4:16
         \break
 
         % m5
-        c:\sf c:\p c,16 c c c c4:16
+        c:\sf c:\p <c, \smallC>16 c c c c4:16
         c:\sf c:\p c8 c' (b bes)
         bes8. (a16) a8 r b,! g b, g
         \break
@@ -63,8 +68,8 @@
 
         % m15
         r c16. c32 c8 r r c16.\cresc c32 c8 r
-        r b,16. b,32 b,8 r \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #2 c16\mf \newSpacingSection \revert Score.SpacingSpanner.spacing-increment c, c c c c c c
-        cis cis, cis cis cis cis cis cis d8 d d, r
+        r b,16. b,32 b,8 r \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #2 c16\mf \newSpacingSection \revert Score.SpacingSpanner.spacing-increment <c, \smallC> c c c c c c
+        cis <cis, \smallC> cis cis cis cis cis cis d8 d d, r
         \break
 
         % m18
@@ -80,14 +85,14 @@
 
         % m23
         g2\>^\markup { \italic "poco rit." } c4\p^\markup { \italic "a tempo" } g,
-        g, (c,8) r c4 c
+        g, (<c, \smallC>8) r c4 c
         c r r c
         r d c f,
         \break
 
         % m27
-        g,4. r8 c,16\p c c c c4:16
-        c:\sf c:\p c,16 c c c c4:16
+        g,4. r8 <c, \smallC>16\p c c c c4:16
+        c:\sf c:\p <c, \smallC>16 c c c c4:16
         c:\sf c:\p c8 c' (b bes)
         \break
 
@@ -104,16 +109,16 @@
         g,1
         c4\p b, a, d,
         g,1
-        r8 c,\p e, g, c g, e, c,
+        r8 <c, \smallC>\p e, g, c g, e, <c, \smallC>
         \break
 
         % m39
-        r16 c, d, e, f,\cresc g, a, b, c8 g, e, c,
+        r16 <c, \smallC> d, e, f,\cresc g, a, b, c8 g, e, <c, \smallC>
         r d, f, a, d a, f, d,
         r16 g,\f a, b, c d e f g8 d b, g,
 
         % m42
-        c,16 c (b, c d c b, c) a, c (b, c) f, c (b, c)
+        <c, \smallC>16 c (b, c d c b, c) a, c (b, c) f, c (b, c)
         e, c (b, c d c b, c) a,\p c (b, c) f, c (b, c)
         \break
 
@@ -161,7 +166,7 @@
         % m67
         e,16\sf (f, g, a, b, c d e) f4\p r
         g c8 c d d g, g,
-        c,4 r c\f c
+        <c, \smallC>4 r c\f c
         c2 r
         \bar "|."
         \pageBreak
@@ -190,11 +195,11 @@
         b, r b, r
         c4 a,8 f,
         g,16 g, (b,) d g d b, g,
-        c,8 c c, c
+        <c, \smallC>8 c <c, \smallC> c
         \break
 
         % m6
-        c,16 (c) c c c c c c
+        <c, \smallC>16 (c) c c c c c c
         g,8 g g, g
         g,16 (g) g g g g g g
         c (e) g c' c (e) g c'
@@ -203,7 +208,7 @@
 
         % m11
         g, (g) g, g, g,8 g,
-        c,-! c-! c,-! r
+        <c, \smallC>-! c-! <c, \smallC>-! r
         r16 g,\mp b, (d) g d b, g,
         r g, c (e) g d b, g,
         d,8 d d, d
@@ -269,15 +274,15 @@
         % m52
         fis, r fis, r
         g,\>^\markup { \italic "poco rit." } f,! e, d,\!
-        c,\p^\markup { \italic "a tempo" } r c r
+        <c, \smallC>\p^\markup { \italic "a tempo" } r c r
         b, r b, r
         c4 a,8 f,
         g,16 g, (b,) d g d b, g,
         \pageBreak
 
         % m58
-        c,8 c c, c
-        c,16 (c) c c c c c c
+        <c, \smallC>8 c <c, \smallC> c
+        <c, \smallC>16 (c) c c c c c c
         g,8 g g, g
         g,16 (g) g g g g g g
         c (e) g c' c (e) g c'
@@ -293,7 +298,7 @@
 
         % m68
         g, r g, r
-        c,16 (e,) g, c g, (b,) d g
+        <c, \smallC>16 (e,) g, c g, (b,) d g
         c (e) g c' g, (b,) d\> g\!
         c8\pp r r4
         \bar "|."
@@ -317,25 +322,25 @@
         \key c \major
 
         % m1
-        c,2\f^\markup { \bold "Allegro vivace" }  r
-        c,4\p r c, r
+        <c, \smallC>2\f^\markup { \bold "Allegro vivace" }  r
+        <c, \smallC>4\p r <c, \smallC> r
         g, g g, r
         g, r g, r
-        c, c c, c,8.\mf (e,16
+        <c, \smallC> c <c, \smallC> <c, \smallC>8.\mf (e,16
         \break
 
         % m6
         g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
         e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
-        c,4 c'16 (d' e' d') c'4 c,8.\mf (e,16
+        <c, \smallC>4 c'16 (d' e' d') c'4 <c, \smallC>8.\mf (e,16
         g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
         \break
 
         % m11
         e4_\markup { \dynamic mfp } c2) r4
         g, r g, r
-        c,4 c16 (b, c b,) c4  r
+        <c, \smallC>4 c16 (b, c b,) c4  r
         g\f r d r
         g, r g8\p d a d
         \break
@@ -368,41 +373,41 @@
         \break
 
         % m31
-        c, r c, r
+        <c, \smallC> r <c, \smallC> r
         g, g g, r
         g, r g, r
-        c, c c, c,8.\mf (e,16
+        <c, \smallC> c <c, \smallC> <c, \smallC>8.\mf (e,16
         g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
         \break
 
         % m36
         e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
-        c, c'16 (d' e' d') c'4 c,8. (e,16
+        <c, \smallC> c'16 (d' e' d') c'4 <c, \smallC>8. (e,16
         g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
         e4-\markup { \dynamic mfp } c2) r4
         \pageBreak
 
         % m41
         g,4 r g, r
-        c, c16\f b, a, g, c8 c c16 b, a, g,
+        <c, \smallC> c16\f b, a, g, c8 c c16 b, a, g,
         c4 c8 g, c g, c g,
         \break
 
         % m44
         c4 c16 b, a, g, c8 c c16 b, a, g,
         c4 c8 g, c g, c g,
-        c4 c,8. c,16 c,4 r
-        r c,8. c,16 c,4 r
+        c4 <c, \smallC>8. <c, \smallC>16 <c, \smallC>4 r
+        r <c, \smallC>8. <c, \smallC>16 <c, \smallC>4 r
         \break
 
         % m48
-        r c,8. c,16 c,4 r
+        r <c, \smallC>8. <c, \smallC>16 <c, \smallC>4 r
         r d,8. d,16 d,4 r
         r g,8. g,16 g,4 r
-        r c,8. c,16 cis,4 r
+        r <c, \smallC>8. <c, \smallC>16 <cis, \smallC>4 r
         r d,8. d,16 d,4 r
-        r dis,8. dis,16 dis,4 r
+        r <dis, \smallC>8. <dis, \smallC>16 <dis, \smallC>4 r
         \break
 
         % m54
@@ -428,7 +433,7 @@
 
         % m67
         g,8 g g g g g, g, g,
-        c,\f c e c d4 d,
+        <c, \smallC>\f c e c d4 d,
         g,8\p g b g d4 d,
         g,8\f g b g d4 d,
         g,8\p g b g d4 d,
@@ -438,43 +443,43 @@
         g,8\cresc g b g d4 d,
         g,8\f g b g d4 d,
         g,2.\p\fermata r4
-        c, r c, r
+        <c, \smallC> r <c, \smallC> r
         g, g g, r
         \break
 
         % m77
         g,4 r g, r
-        c, c c, c,8.\mf (e,16
+        <c, \smallC> c <c, \smallC> <c, \smallC>8.\mf (e,16
         g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
         e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
         \break
 
         % m82
-        c,4 c'16 (d' e' d') c'4 c,8.\mf (e,16
+        <c, \smallC>4 c'16 (d' e' d') c'4 <c, \smallC>8.\mf (e,16
         g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
         e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
-        c,\f c8._"(Partono tutti alla" c16 e4 g
+        <c, \smallC>\f c8._"(Partono tutti alla" c16 e4 g
         \break
 
         % m87
         c'_"militare)" c r c
         g, g,8. g,16 g,4 c
         g, g8 g g g g g
-        c4 c, r c
+        c4 <c, \smallC> r c
         f, f r f
         \break
 
         % m92
         c r c c8. c16
         g,4 g g, g,
-        \tuplet 3/2 4 { \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #3 c8\mf \newSpacingSection \revert Score.SpacingSpanner.spacing-increment c, e, g, e, g, c g, e, g, e, c, }
+        \tuplet 3/2 4 { \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #3 c8\mf \newSpacingSection \revert Score.SpacingSpanner.spacing-increment <c, \smallC> e, g, e, g, c g, e, g, e, <c, \smallC> }
         g,4 g g, g,
         \break
 
         % m96
-        \tuplet 3/2 4 { c,8 c e g e g c' g e g e c }
+        \tuplet 3/2 4 { <c, \smallC>8 c e g e g c' g e g e c }
         g,4 g g g
         c r8 \tuplet 3/2 8 { g,16 (a, b, } c4) c
         c r8 \tuplet 3/2 8 { g,16 (a, b, } c4) c
