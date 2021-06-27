@@ -12,14 +12,15 @@
     print-all-headers = ##t
 }
 
+\layout {
+    indent = #0
+    ragged-last = ##f
+}
+
 
 % MOVEMENT I
 
 \score {
-    \layout {
-        indent = #0
-        ragged-last = ##f
-    }
     \header {
         title = "I"
         subtitle = "Rondo \"Al desio di chi t'adora\""
@@ -170,10 +171,6 @@
 % MOVEMENT II
 
 \score {
-    \layout {
-        indent = #0
-        ragged-last = ##f
-    }
     \header {
         title = "II"
         subtitle = "Arietta \"Voi che sapete\""
@@ -306,10 +303,6 @@
 % MOVEMENT III
 
 \score {
-    \layout {
-        indent = #0
-        ragged-last = ##f
-    }
     \header {
         title = "III"
         subtitle = "Aria \"Non più andrai, farfallone amoroso\""
