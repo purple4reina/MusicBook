@@ -286,27 +286,27 @@
         \key c \major
 
         % m1
-        c,2 r
-        c,4 r c, r
+        c,2\f r
+        c,4\p r c, r
         g, g g, r
         g, r g, r
-        c, c c, c,8. (e,16
+        c, c c, c,8.\mf (e,16
         \break
 
         % m6
         g,4) e,8. (g,16 c4) g,8. (c16
-        e4 c2) r4
+        e4\fp c2) r4
         g, r g, r
-        c,4 c'16 (d' e' d') c'4 c,8. (e,16
+        c,4 c'16 (d' e' d') c'4 c,8.\mf (e,16
         g,4) e,8. (g,16 c4) g,8. (c16
         \break
 
         % m11
-        e4 c2) r4
+        e4\fp c2) r4
         g, r g, r
         c,4 c16 (b, c b,) c4  r
-        g r d r
-        g, r g8 d a d
+        g\f r d r
+        g, r g8\p d a d
         \break
 
         % m16
@@ -324,23 +324,23 @@
 
         % m 23
         d8 fis d fis a16 (g fis g e8 g)
-        fis d d d d d d d
-        g b a g d'4 d
-        g,8 g b g d4 d,
+        fis d\cresc d d d d d d
+        g\f b a g d'4 d
+        g,8\p g b g d4 d,
         \break
 
         % m27
         g,8 g b g d4 d,
-        g,8 g b g d4 d,
-        g,8 g b g d4 d,
-        g2.\fermata r4
+        g,8\cresc g b g d4 d,
+        g,8\f g b g d4 d,
+        g2.\p\fermata r4
         \break
 
         % m31
         c, r c, r
         g, g g, r
         g, r g, r
-        c, c c, c,8. (e,16
+        c, c c, c,8.\mf (e,16
         g,4) e,8. (g,16 c4) g,8. (c16
         \break
 
@@ -354,7 +354,7 @@
 
         % m41
         g,4 r g, r
-        c, c16 b, a, g, c8 c c16 b, a, g,
+        c, c16\f b, a, g, c8 c c16 b, a, g,
         c4 c8 g, c g, c g,
         \break
 
@@ -375,15 +375,15 @@
         \break
 
         % m54
-        e,8 g (fis e dis b, cis dis!)
+        e,8 g\p (fis e dis b, cis dis!)
         e (g fis e dis b, cis dis!)
         e2 r4\fermata r
-        e,8 e e e e e e e
+        e,8\p e e e e e e e
         \break
 
         % m58
-        d,8 d d d d d d d
-        g, g g g g g g g
+        d,8 d\cresc d d d d d d
+        g,\f g g g g g g g
         c4 c8. c16 e4 g
         c' c8 c c c e c
         \break
@@ -397,34 +397,34 @@
 
         % m67
         g,8 g g g g g, g, g,
-        c, c e c d4 d,
-        g,8 g b g d4 d,
-        g,8 g b g d4 d,
-        g,8 g b g d4 d,
+        c,\f c e c d4 d,
+        g,8\p g b g d4 d,
+        g,8\f g b g d4 d,
+        g,8\p g b g d4 d,
         \break
 
         % m72
-        g,8 g b g d4 d,
-        g,8 g b g d4 d,
-        g,2.\fermata r4
+        g,8\cresc g b g d4 d,
+        g,8\f g b g d4 d,
+        g,2.\p\fermata r4
         c, r c, r
         g, g g, r
         \break
 
         % m77
         g,4 r g, r
-        c, c c, c,8. (e,16
+        c, c c, c,8.\mf (e,16
         g,4) e,8. (g,16 c4) g,8. (c16
-        e4 c2) r4
+        e4\fp c2) r4
         g, r g, r
         \break
 
         % m82
-        c,4 c'16 (d' e' d') c'4 c,8. (e,16
+        c,4 c'16 (d' e' d') c'4 c,8.\mf (e,16
         g,4) e,8. (g,16 c4) g,8. (c16
-        e4 c2) r4
+        e4\fp c2) r4
         g, r g, r
-        c, c8. c16 e4 g
+        c,\f c8. c16 e4 g
         \break
 
         % m87
@@ -438,7 +438,7 @@
         % m92
         c r c c8. c16
         g,4 g g, g,
-        \tuplet 3/2 4 { c8 c, e, g, e, g, c g, e, g, e, c, }
+        \tuplet 3/2 4 { c8\mf c, e, g, e, g, c g, e, g, e, c, }
         g,4 g g, g,
         \break
 
