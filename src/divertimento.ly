@@ -21,6 +21,7 @@
 smallC   = \tweak font-size -2.5 c
 smallCis = \tweak font-size -2.5 cis
 smallD   = \tweak font-size -2.5 d
+smallDis = \tweak font-size -2.5 dis
 smallEs  = \tweak font-size -2.5 es
 
 
@@ -69,12 +70,12 @@ smallEs  = \tweak font-size -2.5 es
         % m15
         r c16. c32 c8 r r c16.\cresc c32 c8 r
         r b,16. b,32 b,8 r \newSpacingSection \override Score.SpacingSpanner.spacing-increment = #2 c16\mf \newSpacingSection \revert Score.SpacingSpanner.spacing-increment <c, \smallC> c c c c c c
-        cis <cis, \smallC> cis cis cis cis cis cis d8 d d, r
+        cis <cis, \smallCis> cis cis cis cis cis cis d8 d <d, \smallD> r
         \break
 
         % m18
-        g,8.\sfp ^(a,64 b, c d e8 d c b, a, d,)
-        g,8.\sfp ^(a,64 b, c d e8 d c b, a, d,)
+        g,8.\sfp ^(a,64 b, c d e8 d c b, a, <d, \smallD>)
+        g,8.\sfp ^(a,64 b, c d e8 d c b, a, <d, \smallD>)
         g,\mf r fis, r g, r fis, r
         \break
 
@@ -105,16 +106,16 @@ smallEs  = \tweak font-size -2.5 es
         \pageBreak
 
         % m34
-        c4\f^\markup { \bold Allegro } b, a, d,
+        c4\f^\markup { \bold Allegro } b, a, <d, \smallD>
         g,1
-        c4\p b, a, d,
+        c4\p b, a, <d, \smallD>
         g,1
         r8 <c, \smallC>\p e, g, c g, e, <c, \smallC>
         \break
 
         % m39
-        r16 <c, \smallC> d, e, f,\cresc g, a, b, c8 g, e, <c, \smallC>
-        r d, f, a, d a, f, d,
+        r16 <c, \smallC> <d, \smallD> e, f,\cresc g, a, b, c8 g, e, <c, \smallC>
+        r <d, \smallD> f, a, d a, f, <d, \smallD>
         r16 g,\f a, b, c d e f g8 d b, g,
 
         % m42
@@ -136,7 +137,7 @@ smallEs  = \tweak font-size -2.5 es
         \break
 
         % m51
-        a,\cresc a a a d, d d d
+        a,\cresc a a a <d, \smallD> d d d
         g,4\f r c r
         f, r r f,
         g, r g, r
@@ -151,7 +152,7 @@ smallEs  = \tweak font-size -2.5 es
         \break
 
         % m60
-        a, a a a d, d d d
+        a, a a a <d, \smallD> d d d
         g,4\f r c r
         f, r r f,
         g, r r2
@@ -211,7 +212,7 @@ smallEs  = \tweak font-size -2.5 es
         <c, \smallC>-! c-! <c, \smallC>-! r
         r16 g,\mp b, (d) g d b, g,
         r g, c (e) g d b, g,
-        d,8 d d, d
+        <d, \smallD>8 d <d, \smallD> d
         \break
 
         % m16
@@ -222,18 +223,18 @@ smallEs  = \tweak font-size -2.5 es
         \break
 
         % m20
-        d d, (fis,) a, c a, fis, d,
+        d <d, \smallD> (fis,) a, c a, fis, <d, \smallD>
         b,8\mf r r16 b, d g
         a8 r r16 a fis d
         g8 r r16 e c a,
-        d d, (fis,) a, c a, fis, d,
+        d <d, \smallD> (fis,) a, c a, fis, <d, \smallD>
         \break
 
         % m25
         b,8 r r16 g d b,
-        a,8 r fis,16 a, d, fis,
-        g,8 r es, r
-        r16 d, (fis,) a, d\> a, fis, d,
+        a,8 r fis,16 a, <d, \smallD> fis,
+        g,8 r <es, \smallEs> r
+        r16 <d, \smallD> (fis,) a, d\> a, fis, <d, \smallD>
         bes,8\p r bes, r
         \break
 
@@ -241,8 +242,8 @@ smallEs  = \tweak font-size -2.5 es
         a, r a, r
         f, r f, r
         bes, r bes, r
-        d, r d, r
-        es, r es, r
+        <d, \smallD> r <d, \smallD> r
+        <es, \smallEs> r <es, \smallEs> r
         f, r f, r
         \break
 
@@ -273,7 +274,7 @@ smallEs  = \tweak font-size -2.5 es
 
         % m52
         fis, r fis, r
-        g,\>^\markup { \italic "poco rit." } f,! e, d,\!
+        g,\>^\markup { \italic "poco rit." } f,! e, <d, \smallD>\!
         <c, \smallC>\p^\markup { \italic "a tempo" } r c r
         b, r b, r
         c4 a,8 f,
@@ -362,13 +363,13 @@ smallEs  = \tweak font-size -2.5 es
         d8 fis d fis a16 (g fis g e8 g)
         fis d\cresc d d d d d d
         g\f b a g d'4 d
-        g,8\p g b g d4 d,
+        g,8\p g b g d4 <d, \smallD>
         \break
 
         % m27
-        g,8 g b g d4 d,
-        g,8\cresc g b g d4 d,
-        g,8\f g b g d4 d,
+        g,8 g b g d4 <d, \smallD>
+        g,8\cresc g b g d4 <d, \smallD>
+        g,8\f g b g d4 <d, \smallD>
         g2.\p\fermata r4
         \break
 
@@ -403,11 +404,11 @@ smallEs  = \tweak font-size -2.5 es
 
         % m48
         r <c, \smallC>8. <c, \smallC>16 <c, \smallC>4 r
-        r d,8. d,16 d,4 r
+        r <d, \smallD>8. <d, \smallD>16 <d, \smallD>4 r
         r g,8. g,16 g,4 r
-        r <c, \smallC>8. <c, \smallC>16 <cis, \smallC>4 r
-        r d,8. d,16 d,4 r
-        r <dis, \smallC>8. <dis, \smallC>16 <dis, \smallC>4 r
+        r <c, \smallC>8. <c, \smallC>16 <cis, \smallCis>4 r
+        r <d, \smallD>8. <d, \smallD>16 <d, \smallD>4 r
+        r <dis, \smallDis>8. <dis, \smallDis>16 <dis, \smallDis>4 r
         \break
 
         % m54
@@ -418,7 +419,7 @@ smallEs  = \tweak font-size -2.5 es
         \break
 
         % m58
-        d,8 d\cresc d d d d d d
+        <d, \smallD>8 d\cresc d d d d d d
         g,\f g g g g g g g
         c4_\markup { \italic "piano assai" } c8. c16 e4 g
         c' c8 c c c e c
@@ -433,15 +434,15 @@ smallEs  = \tweak font-size -2.5 es
 
         % m67
         g,8 g g g g g, g, g,
-        <c, \smallC>\f c e c d4 d,
-        g,8\p g b g d4 d,
-        g,8\f g b g d4 d,
-        g,8\p g b g d4 d,
+        <c, \smallC>\f c e c d4 <d, \smallD>
+        g,8\p g b g d4 <d, \smallD>
+        g,8\f g b g d4 <d, \smallD>
+        g,8\p g b g d4 <d, \smallD>
         \break
 
         % m72
-        g,8\cresc g b g d4 d,
-        g,8\f g b g d4 d,
+        g,8\cresc g b g d4 <d, \smallD>
+        g,8\f g b g d4 <d, \smallD>
         g,2.\p\fermata r4
         <c, \smallC> r <c, \smallC> r
         g, g g, r
