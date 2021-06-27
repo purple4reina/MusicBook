@@ -80,68 +80,68 @@
         \break
 
         % m34
-        c4 b, a, d,
+        c4\f b, a, d,
         g,1
-        c4 b, a, d,
+        c4\p b, a, d,
         g,1
-        r8 c, e, g, c g, e, c,
+        r8 c,\p e, g, c g, e, c,
         \break
 
         % m39
-        r16 c, d, e, f, g, a, b, c8 g, e, c,
+        r16 c, d, e, f,\cresc g, a, b, c8 g, e, c,
         r d, f, a, d a, f, d,
-        r16 g, a, b, c d e f g8 d b, g,
+        r16 g,\f a, b, c d e f g8 d b, g,
 
         % m42
         c,16 c (b, c d c b, c) a, c (b, c) f, c (b, c)
-        e, c (b, c d c b, c) a, c (b, c) f, c (b, c)
+        e, c (b, c d c b, c) a,\p c (b, c) f, c (b, c)
         \break
 
         % m44
-        e, c (b, c d c b, c) a, c (b, c) f, c (b, c)
+        e, c (b, c d c b, c) a,\f c (b, c) f, c (b, c)
         e,8 e e e f, f f f
         g, g g g g g g g
         \break
 
         % m47
-        c-. c-. e,-. c-. f,-. c-. g,-. c-.
+        c-. c-.\p e,-. c-. f,-. c-. g,-. c-.
         a, c e, c f, c g, c
         a, c e, c f, c g, c
         a, c e, c f, c g, c
         \break
 
         % m51
-        a, a a a d, d d d
-        g,4 r c r
+        a,\cresc a a a d, d d d
+        g,4\f r c r
         f, r r f,
         g, r g, r
-        c8-. c-. e,-. c-. f,-. c-. g,-. c-.
+        c8-. c-.\p e,-. c-. f,-. c-. g,-. c-.
         \break
 
         % m56
         a, c e, c f, c g, c
         a, c e, c f, c g, c
-        a, c e, c f, c g, c
+        a,\cresc c e, c f, c g, c
         a, c e, c f, c g, c
         \break
 
         % m60
         a, a a a d, d d d
-        g,4 r c r
+        g,4\f r c r
         f, r r f,
         g, r r2
         \break
 
         % m64
         g,2. (f,4)
-        e,16 (f, g, a, b, c d e) f4 r
+        e,16\sf (f, g, a, b, c d e) f4\p r
         g c'8 c' d' d' g g
         \break
 
         % m67
-        e,16 (f, g, a, b, c d e) f4 r
+        e,16\sf (f, g, a, b, c d e) f4\p r
         g c8 c d d g, g,
-        c,4 r c c
+        c,4 r c\f c
         c2 r
         \bar "|."
     }
