@@ -68,8 +68,8 @@
         \break
 
         % m18
-        g,8.\sfp (a,64 b, c d e8 d c b, a, d,)
-        g,8.\sfp (a,64 b, c d e8 d c b, a, d,)
+        g,8.\sfp ^(a,64 b, c d e8 d c b, a, d,)
+        g,8.\sfp ^(a,64 b, c d e8 d c b, a, d,)
         g,\mf r fis, r g, r fis, r
         \break
 
@@ -329,7 +329,7 @@
         e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
         c,4 c'16 (d' e' d') c'4 c,8.\mf (e,16
-        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. (c16
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
         \break
 
         % m11
@@ -372,15 +372,15 @@
         g, g g, r
         g, r g, r
         c, c c, c,8.\mf (e,16
-        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. (c16
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
         \break
 
         % m36
-        e4 c2) r4
+        e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
         c, c'16 (d' e' d') c'4 c,8. (e,16
-        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. (c16
-        e4 c2) r4
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
+        e4-\markup { \dynamic mfp } c2) r4
         \pageBreak
 
         % m41
@@ -445,14 +445,14 @@
         % m77
         g,4 r g, r
         c, c c, c,8.\mf (e,16
-        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. (c16
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
         e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
         \break
 
         % m82
         c,4 c'16 (d' e' d') c'4 c,8.\mf (e,16
-        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. (c16
+        g,4^\markup { \italic ten. }) e,8. (g,16 c4^\markup { \italic ten. }) g,8. ^(c16
         e4-\markup { \dynamic mfp } c2) r4
         g, r g, r
         c,\f c8._"(Partono tutti alla" c16 e4 g
