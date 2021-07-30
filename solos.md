@@ -39,7 +39,7 @@ Audio links for piano accompaniment [can be found here.](https://docs.google.com
 | Stevens, Halsey | 4 Folk Songs of Touraine | | | 1 |
 | Tausch, F | Concerto in F | [link](https://youtu.be/stTSa5r9wZ8){:target="_blank"} | | 3 |
 | Vaughn Williams, Ralph | Six Studies in English Folksong | | | 1/2 |
-| Weber, Carl Maria von | Concertino | [link](https://youtu.be/SR9oxnm66bY){:target="_blank"} | | 3/4 |
+| Weber, Carl Maria von | Concertino | [link](https://youtu.be/SR9oxnm66bY){:target="_blank"} | [link](https://ks4.imslp.net/files/imglnks/usimg/c/ce/IMSLP24817-PMLP06240-Klarinette.pdf){:target="blank"} | 3/4 |
 | Weber, Carl Maria von | Concerto No. 1 | | | 3/4 |
 | Weber, Carl Maria von | Concerto No. 2 | | | 4 |
 | Weber, Carl Maria von | Duo Concertante | | | 4 |
