@@ -4,46 +4,49 @@ title: Clarinet Solos
 nav_order: 3
 ---
 
+<!-- add target="_blank" to every link -->
+<head><base target="_blank"></head>
+
 # Clarinet Solos
 
 Below is a list of solos appropriate for middle and high school age clarinet players.
 
-Audio links for piano accompaniment [can be found here.][1]{:target="blank"}
+Audio links for piano accompaniment [can be found here.][1]
 
-| Composer                 | Title                                 | Recording | Sheet Music | Level |
-|--------------------------|---------------------------------------|-----------|-------------|-------|
-| Brahms, Johannes         | Sonata No. 1 in F Minor, Op. 120      |           |             | 2-4   |
-| Brahms, Johannes         | Sonata No. 2 in Eb Major, Op. 120     |           |             | 2-4   |
-| Braun, Wilhelm           | Clarinet Concerto in E-flat major     |           | [link][2]{:target="_blank"} | 3 |
-| Bozza, Eugene            | Aria                                  |           |             | 2     |
-| Bozza, Eugene            | Idylle                                |           |             | 2     |
-| Cunningham, Randall      | Variations on a Theme of Haydn Op. 5  |           |             | 1/2   |
-| Debussy, C               | Petite Piece for Clarinet and Piano   |           |             | 1     |
-| Dimler, Franz Anton      | Concerto in Bb                        | [link][3]{:target="_blank"} | [link][4]{:target="_blank"} | 2/3 |
-| Finzi, Gerald            | Five Bagatelles                       | [link][5]{:target="_blank"} | [link][6]{:target="_blank"} | 2/3 |
-| Finzi, Gerald            | Clarinet Concerto, Op. 31             | [link][7]{:target="_blank"} | [link][8]{:target="_blank"} | |
-| Gade, N                  | Fantasy Pieces                        |           |             | 3     |
-| Krommer, Franz           | Concerto                              | [link][9]{:target="_blank"} | [link][10]{:target="_blank"} | 3 |
-| Lefevre, X               | Sonata No. 1                          |           | [link][11]{:target="_blank"} | 1 |
-| Mozart, Wolfgang Amadeus | Concerto in A                         |           |             | 5     |
-| Poulenc, Francois        | Sonata                                |           |             | 5     |
-| Reissiger, Carl Gottlieb | Concertino Op. 63                     | [link][12]{:target="_blank"} | [link][13]{:target="_blank"} | 3 |
-| Ries, Ferdinand          | Sonata, Op. 169                       | [link][14]{:target="_blank"} | [link][15]{:target="_blank"} | 4 |
-| Ries, Ferdinand          | Sonata, Op. 29                        | [link][16]{:target="_blank"} | [link][17]{:target="_blank"} | 3 |
-| Riotte, Philipp Jakob    | Concerto Op. 24                       |           | [link][18]{:target="_blank"} | 3 |
-| Rudolph, Erzherzog       | Sonata for Clarinet and Piano         |           | [link][19]{:target="_blank"} | 2/3 |
-| Saint-Saëns, Camille     | Sonata for Clarinet and Piano         | [link][20]{:target="_blank"} | [link][21]{:target="_blank"} | 3 |
-| Schumann, Robert         | Fantasy Pieces for Clarinet and Piano |           | [link][22]{:target="_blank"} | 2/3 |
-| Stamitz, Carl            | Concerto No. 3                        | [link][23]{:target="_blank"} | | 2/3 |
-| Stamitz, Johann          | Concerto                              | [link][24]{:target="_blank"} | | 4 |
-| Stevens, Halsey          | 4 Folk Songs of Touraine              |           |             | 1     |
-| Tausch, F                | Concerto in F                         | [link][25]{:target="_blank"} | | 3 |
-| Vaughn Williams, Ralph   | Six Studies in English Folksong       |           |             | 1/2   |
-| Weber, Carl Maria von    | Concertino                            | [link][26]{:target="_blank"} | [link][27]{:target="blank"} | 3/4 |
-| Weber, Carl Maria von    | Concerto No. 1                        |           |             | 3/4   |
-| Weber, Carl Maria von    | Concerto No. 2                        |           |             | 4     |
-| Weber, Carl Maria von    | Duo Concertante                       |           |             | 4     |
-| Yost, Michel             | Concerto No. 9                        | [link][28]{:target="_blank"} | | 3 |
+| Composer                 | Title                                 | Recording  | Sheet Music | Level |
+|--------------------------|---------------------------------------|------------|-------------|-------|
+| Brahms, Johannes         | Sonata No. 1 in F Minor, Op. 120      |            |             | 2-4   |
+| Brahms, Johannes         | Sonata No. 2 in Eb Major, Op. 120     |            |             | 2-4   |
+| Braun, Wilhelm           | Clarinet Concerto in E-flat major     |            | [link][2]   | 3     |
+| Bozza, Eugene            | Aria                                  |            |             | 2     |
+| Bozza, Eugene            | Idylle                                |            |             | 2     |
+| Cunningham, Randall      | Variations on a Theme of Haydn Op. 5  |            |             | 1/2   |
+| Debussy, C               | Petite Piece for Clarinet and Piano   |            |             | 1     |
+| Dimler, Franz Anton      | Concerto in Bb                        | [link][3]  | [link][4]   | 2/3   |
+| Finzi, Gerald            | Five Bagatelles                       | [link][5]  | [link][6]   | 2/3   |
+| Finzi, Gerald            | Clarinet Concerto, Op. 31             | [link][7]  | [link][8]   |       |
+| Gade, N                  | Fantasy Pieces                        |            |             | 3     |
+| Krommer, Franz           | Concerto                              | [link][9]  | [link][10]  | 3     |
+| Lefevre, X               | Sonata No. 1                          |            | [link][11]  | 1     |
+| Mozart, Wolfgang Amadeus | Concerto in A                         |            |             | 5     |
+| Poulenc, Francois        | Sonata                                |            |             | 5     |
+| Reissiger, Carl Gottlieb | Concertino Op. 63                     | [link][12] | [link][13]  | 3     |
+| Ries, Ferdinand          | Sonata, Op. 169                       | [link][14] | [link][15]  | 4     |
+| Ries, Ferdinand          | Sonata, Op. 29                        | [link][16] | [link][17]  | 3     |
+| Riotte, Philipp Jakob    | Concerto Op. 24                       |            | [link][18]  | 3     |
+| Rudolph, Erzherzog       | Sonata for Clarinet and Piano         |            | [link][19]  | 2/3   |
+| Saint-Saëns, Camille     | Sonata for Clarinet and Piano         | [link][20] | [link][21]  | 3     |
+| Schumann, Robert         | Fantasy Pieces for Clarinet and Piano |            | [link][22]  | 2/3   |
+| Stamitz, Carl            | Concerto No. 3                        | [link][23] |             | 2/3   |
+| Stamitz, Johann          | Concerto                              | [link][24] |             | 4     |
+| Stevens, Halsey          | 4 Folk Songs of Touraine              |            |             | 1     |
+| Tausch, F                | Concerto in F                         | [link][25] |             | 3     |
+| Vaughn Williams, Ralph   | Six Studies in English Folksong       |            |             | 1/2   |
+| Weber, Carl Maria von    | Concertino                            | [link][26] | [link][27]  | 3/4   |
+| Weber, Carl Maria von    | Concerto No. 1                        |            |             | 3/4   |
+| Weber, Carl Maria von    | Concerto No. 2                        |            |             | 4     |
+| Weber, Carl Maria von    | Duo Concertante                       |            |             | 4     |
+| Yost, Michel             | Concerto No. 9                        | [link][28] |             | 3     |
 
 [1]:  https://docs.google.com/spreadsheets/d/e/2PACX-1vRWvF_Vg-rt3He-uruxEScpu4nRVz9uR78JSwGqrYomk_6gRsCES1kmxnHhdDNT6BHr3YqJ5Atr070F/pubhtml
 
