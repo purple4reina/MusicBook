@@ -4,9 +4,6 @@ title: Clarinet Solos
 nav_order: 3
 ---
 
-<!-- add target="_blank" to every link -->
-<head><base target="_blank"></head>
-
 # Clarinet Solos
 
 Below is a list of solos appropriate for middle and high school age clarinet players.
@@ -78,3 +75,9 @@ Audio links for piano accompaniment [can be found here.][1]
 [25]: https://youtu.be/stTSa5r9wZ8
 [26]: https://youtu.be/SR9oxnm66bY
 [28]: https://youtu.be/fVSIsPMX68Q
+
+<!-- add target="_blank" to every link -->
+<script>
+  Array.from(document.querySelectorAll('#main-content a'))
+    .forEach(link => link.setAttribute('target', '_blank'));
+</script>

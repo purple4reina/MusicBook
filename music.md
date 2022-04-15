@@ -35,3 +35,9 @@ players.
 [5]: https://s9.imslp.org/files/imglnks/usimg/8/88/IMSLP278479-PMLP452109-fl_schubert_clarinettenschule_381313840.pdf
 [6]: https://s9.imslp.org/files/imglnks/usimg/b/bf/IMSLP29006-PMLP64394-40_Studies.pdf
 [7]: https://s9.imslp.org/files/imglnks/usimg/d/df/IMSLP625548-PMLP914807-Lefevre-60-Exercices.pdf
+
+<!-- add target="_blank" to every link -->
+<script>
+  Array.from(document.querySelectorAll('#main-content a'))
+    .forEach(link => link.setAttribute('target', '_blank'));
+</script>
