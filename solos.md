@@ -36,7 +36,7 @@ Audio links for piano accompaniment [can be found here.][1]
 | Mozart, Wolfgang Amadeus | Concerto in A                          | Cl, orch        |            |             | 5     |
 | Muczynski, Robert        | Time Pieces For Clarinet and Piano     | Cl, pno         | [link][36] |             | 5     |
 | Pierné, Gabriel          | Canzonetta                             | Cl, pno or orch |            | [link][30]  | 3/4   |
-| Poulenc, Francois        | Sonata                                 | Cl, pno         |            |             | 5     |
+| Poulenc, Francois        | Sonata                                 | Cl, pno         |            | [link][45]  | 5     |
 | Reissiger, Carl Gottlieb | Concertino Op. 63                      | Cl, orch        | [link][12] | [link][13]  | 3     |
 | Ries, Ferdinand          | Sonata, Op. 169                        | Cl, pno         | [link][14] | [link][15]  | 4     |
 | Ries, Ferdinand          | Sonata, Op. 29                         | Cl, pno         | [link][16] | [link][17]  | 3     |
@@ -77,6 +77,7 @@ Audio links for piano accompaniment [can be found here.][1]
 [32]: https://s9.imslp.org/files/imglnks/usimg/2/20/IMSLP533872-PMLP710149-Crusell_-_Concerto_for_Clarinet_no_1_op_1_-_Solo_Clarinet_in_Bb.pdf
 [33]: https://s9.imslp.org/files/imglnks/usimg/5/53/IMSLP534461-PMLP539326-Crusell_-_Concerto_for_Clarinet_no_2_op_5_-_Solo_Clarinet_in_Bb.pdf
 [34]: https://s9.imslp.org/files/imglnks/usimg/a/ad/IMSLP117666-PMLP238705-crusell-clarinetconcerto3-solopart.pdf
+[45]: https://petruccimusiclibrary.ca/files/imglnks/caimg/2/29/IMSLP366873-PMLP592480-Poulenc_Clarinet_Sonata_part.pdf
 
 [3]:  https://youtu.be/uAS2F3S3tns
 [5]:  https://youtu.be/6r5_UQl3nug
