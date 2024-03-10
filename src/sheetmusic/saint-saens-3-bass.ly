@@ -481,4 +481,340 @@
     }
 }
 
+\score {
+    \header {
+        title      = "II"
+        composer   = ""
+        instrument = ""
+    }
+
+    \transpose c c {
+        \clef bass
+        \key f \major
+        \time 6/8
+        \compressEmptyMeasures
+        \override DynamicTextSpanner.style = #'none
+
+        \tempo "Allegro Moderato"
+        R2.*12
+        r4 r8 r4 \f f8
+        e2.
+        d2.
+        a,2. ~
+
+        \mark \default
+        a,4. r4 r8
+        R2.*21
+        \mark \default
+        R2.*20
+        \mark \default
+        R2.*12
+        \bar "||"
+        \key d \major
+        \tempo "Presto"
+        R2.*10
+        \mark \default
+        R2.*12
+
+        \mark \default
+        R2.*12
+        \mark \default
+        R2.*4
+        \bar "||"
+        \key bes \major
+        R2.*21
+        \mark \default
+        R2.*20
+
+        \mark \default
+        R2.*8
+        \bar "||"
+        \mark "I"
+        \key a \major
+        R2.*21
+        \mark \default
+        R2.*14
+        \mark \default
+
+        R2.*14 \mark \markup { \musicglyph "scripts.ufermata" }
+        \bar "||"
+        \key f \major
+        \tempo "Allegro Moderato"
+        R2.*12
+        r4 r8 r4 f8 \f
+        e2.
+
+        d2.
+        a,2. ~
+        \mark \default
+        a,4. r4 r8
+        R2.*21
+        \mark \default
+        R2.*20
+        \mark \default
+        R2.*10
+        \mark \default
+        R2.*2
+        \bar "||"
+
+        \key bes \major
+        \tempo "Presto"
+        R2.*3
+        bes,2. \p
+        c2.
+        es2. ~
+        es4. d
+        c4. f
+        g2. ~
+        g2.
+        f2.
+
+        (d2.)
+        g2.
+        a2.
+        bes4. es
+        f4. g
+        a2. ~
+        a2.
+        bes2.
+        g2.
+        d2.
+        es2.
+        bes,2.
+        bes2.
+
+        \mark \default
+        f2.
+        es4. d4 c8
+        d2.
+        es2. ~
+        es4. \cresc g4 a8 \!
+        bes2. ~
+        bes4. a4 g8
+        g2. ~
+        g2.
+        f8 \f r8 r r4 r8
+        R2.*3
+
+        \mark \default
+        R2.*46
+        \mark \default
+        R2.*4
+        \bar "||"
+        \tempo "Allegro Moderato"
+        R2.*10
+        R2. \fermata
+        r4 r8 r4 r8 \fermata
+
+        \bar "||"
+        \key d \major
+        \time 6/4
+        \tempo "Maestoso"
+        R1.*8
+        \mark \default
+        \bar "||"
+        \time 9/4
+        R4*9
+        \bar "||"
+        \time 6/4
+        R4*6
+        \bar "||"
+        \time 9/4
+        R4*9
+        \bar "||"
+        \time 6/4
+        R4*6
+        \bar "||"
+        \time 9/4
+        R4*9
+        \bar "||"
+        \time 6/4
+        R4*6
+        \bar "||"
+        \time 9/4
+        R4*9
+        \bar "||"
+        \time 6/4
+        R4*6
+        \bar "||"
+        \time 9/4
+        R4*9
+        \bar "||"
+        \time 6/4
+        r2. d2. \ff ~
+        \bar "||"
+        \time 9/4
+        d8 r r4 r r2. r
+        \bar "||"
+        \time 6/4
+        r2. a,2. ~
+        \bar "||"
+        \time 9/4
+        a,8 r r4 r r2. r
+        \bar "||"
+        \time 6/4
+        r2. fis,!2. ~
+        \bar "||"
+        \time 9/4
+        fis,8 r r4 r r2. r
+        \bar "||"
+        \time 6/4
+        r2. d2. ~
+
+        \mark \default
+        \bar "||"
+        \time 2/2
+        \tempo "Allegro"
+        d8 r8 r4 r2
+        R1*14
+        \mark \default
+        R1*14
+        \mark \default
+        R1*6
+        gis,1 \p \< ~
+        gis,1 ~
+        gis,1 \> ~
+        gis,1 \cresc ~
+        gis,1 ~
+
+        gis,1 \!
+        fis,1 \f ~
+        fis,1 ~
+        fis,1
+        e,1 \dim ~
+        e,1 ~
+        e,1 ~
+        e,4 \p r r2
+        R1*2
+        \mark #23
+        R1*12
+        \mark \default
+        R1*16
+        \mark \default
+        R1*18
+
+        \mark \default
+        r4 a8 \f gis a4 r
+        r4 a8 gis a4 r
+        r4 a8 gis a4 r
+        r4 a8 gis a4 r
+        r4 c'8 b c'4 r
+        r4 c'8 b c'4 r
+        r4 c' r c'
+
+        r4 c' r c'
+        R1*15
+        r2 g, \f
+        fis,2 g,
+
+        e,2 fis,
+        \tuplet 3/2 { g,2 b, ais, }
+        a,!1 ~
+        a,4 r r2
+        r2 a,
+        g,2 a,
+        fis,2 g,
+        \tuplet 3/2 { a,2 cis! c }
+        b,1 ~
+        b,4 b8 b g4 d8 d
+
+        b,4 g8 g d4 b,8 b,
+        g,4 r r2
+        fis2. (g4
+        a4 g fis gis
+        a4) r r2
+        gis2. (a4
+        b4 a gis ais
+
+        b4) r r2
+        ais4 (b ais b
+        cis'4 b cis' dis'
+        \mark #52
+        e'4) r r2
+        R1*14
+
+        cis!1 \p \cresc ~
+        cis1 ~
+        cis1
+        b,1 \mf ~
+        b,1 \dim ~
+        b,1
+        a,1 \pp ~
+        a,4 r r2
+        R1*16
+        \mark #78
+        R1*12
+
+        e,1-^ \f ~
+        e,1
+        fis,-^
+        a,1-^ ~
+        a,2 g,-^
+        fis,2-^ b,2-^
+        c1-^ ~
+        c1
+        a,1-^ ~
+        a,2 b,-^
+        c1-^
+
+        d1-^
+        e2 d
+        c2 b,4 a,
+        g,2 f ~
+        f2 e
+        d4 e f g
+        a2 c
+        \mark #130
+        d1 \sf
+        R1*20
+
+        \mark #156
+        R1*9
+        \bar "||"
+        \time 3/1
+        \tempo "Piu allegro"
+        a,1 _\markup { "une mesure comme trois du mouv't precedent" } \ff ~ a, ~ a, ~
+
+        a,2 r r1 r1
+        a,1 ~ a, ~ a, ~
+        a,2 r r1 r1
+        a,2 r a r a r
+        g2 r g r fis r
+        fis2 r e r a, r
+
+        \tempo "Molto allegro"
+        d4 r r2 r1 r1
+        R1*3
+        r2 a'2 gis' g' ~ g' fis'4 e'
+        fis'2 d' cis' c' ~ c' b4 a
+        \mark #182
+        g1 \ff fis ^\markup { \italic pesante } \sf ~ fis2 g
+
+        a1 \sf ~ a2 g fis gis
+        a1 gis \sf ~ gis2 a
+        b1 \sf ~ b2 a gis ais
+        \bar "||"
+        \time 3/2
+        b4-^ _\markup { "meme valeur de mesure" } a!-^ gis-^ ais-^ b-^ fis-^
+        gis4-^ ais-^ b-^ fis-^ gis-^ ais-^
+
+        b4-^ r r2 r
+        R2*3
+        r4 g2 fis a4 ~
+        a4 gis2 b a4 ~
+        a4 gis fis eis e d
+        dis4 e fis g d' gis
+
+        a4 r r2 r
+        a,1.
+        \bar "||"
+        \time 3/1
+        \tempo "Sans presser"
+        d4 r r2 r1 r
+        R1*3*5
+        d1 ~ d ~ d \fermata
+        \bar "|."
+    }
+}
+
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.
