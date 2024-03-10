@@ -24,8 +24,8 @@
         instrument = ""
     }
 
-    \transpose c c {
-        \clef bass
+    \transpose c c' {
+        \clef treble
         \key f \major
         \time 6/8
         \compressEmptyMeasures
@@ -39,7 +39,6 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 r8 ^"oboe" d'' (e'' f'' a''4)
                 (a''4.) \fermata (a''8) r8 r \fermata
             }
@@ -50,7 +49,6 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 r8 ^"flute" d' e' f' a'4
                 (a'4.) \fermata (a'8) r8 r \fermata
             }
@@ -65,7 +63,6 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 r16 ^"violin" e' e' d' d' e' e' c' c' d' d' e'
             }
         >>
@@ -78,7 +75,6 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 e'''16 ^"flute" c''' c''' e''' e''' d''' d''' c''' c''' b'' b'' r
             }
         >>
@@ -86,9 +82,7 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 r16 ^"clarinet" c' c' d' d' e' e' e' e' e' e' r
-                \cueClefUnset
             }
         >>
 
@@ -152,11 +146,9 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 r8 ^"flute" e''' (f''') f''' (e''') r
                 r8 e''' (f''') f''' (e''') r
                 r4 r8 bes'4. ( <>)
-                \cueClefUnset
                 \break
             }
         >>
@@ -231,12 +223,10 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 b''4 ^"flute" (aes''8 ~ aes'' fis'' des'')
                 c'''4 ^"oboe" (b''8 ~ b'' g'' des'')
                 c'''4 ^"flute" (b''8 ~ b'' fis'' d''!)
                 \break
-                \cueClefUnset
             }
         >>
 
@@ -260,11 +250,9 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 r4 ^"flute" r8 c'''4. ~
                 c'''4 (d'''8 es'''4 c'''8)
                 \bar "||"
-                \cueClefUnset
             }
         >>
 
@@ -280,12 +268,10 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 r4 ^"clarinet" r8 a''16 g'' f'' e'' d''! c''
                 \break
                 b'!16 r16 r8 r8 a'16 g' f' e' des' c'
                 b!8 r r
-                \cueClefUnset
             }
         >>
 
@@ -300,11 +286,9 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 r16 ^"violin" es'' es'' es'' es'' a'' r f''' f''' e''' e''' des'''
                 r16 c''' c''' b'' b'' a'' r f'' f'' e'' e'' des''
                 \break
-                \cueClefUnset
             }
         >>
 
@@ -324,9 +308,9 @@
 
         c'!4. (bes8 a g)
         f4. (e8 g f)
-        g8 (a bes \clef treble g' f' e')
+        g8 (a bes g' f' e')
         d'4. (e'8 f' g')
-        \clef bass f4. (a8 d' e')
+        f4. (a8 d' e')
         f'4. (e'8 f' g')
         d'4. a
         \break
@@ -347,11 +331,9 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 r8 \pp ^"oboe" (ges'' f'' ges'' e'' f''
                 ges''8 bes'' a''! aes'' ges'' f''
                 ges''2.)
-                \cueClefUnset
             }
         >>
 
@@ -398,7 +380,6 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 r4 ^"clarinet" c'' (e'' g'')
                 bes''2. aes''4 ~
                 aes''4 g''2 f''4 ~
@@ -406,7 +387,6 @@
 
                 f''4 \> e''2 es''4 ~
                 es''4 \! (d'' g'' f'')
-                \cueClefUnset
             }
         >>
 
@@ -422,7 +402,6 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 \tuplet 3/2 { a'8-. ^"violin" bes'-. r } \tuplet 3/2 { b'-. c''-. r } r2
                 \tuplet 3/2 { g''!8-. aes''-. r } \tuplet 3/2 { a''-. bes''-. r } r2
                 \break
@@ -430,7 +409,6 @@
 
                 \tuplet 3/2 { r8 ^"violin" es' d' } \tuplet 3/2 { r es' ces' }
                 \tuplet 3/2 { r d' es' } \tuplet 3/2 { r g' es' }
-                \cueClefUnset
             }
         >>
 
@@ -444,11 +422,9 @@
         <<
             { }
             \new CueVoice {
-                \cueClef treble
                 bes''4 ^"violin" (d''' g'''! bes''')
                 bes'''2 ~ (bes'''8 a''' g''' f''')
                 \break
-                \cueClefUnset
             }
         >>
 
