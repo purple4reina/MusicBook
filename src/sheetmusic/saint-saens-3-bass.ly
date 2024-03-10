@@ -39,8 +39,10 @@
         <<
             { }
             \new CueVoice {
-                r8 ^"oboe" d'' (e'' f'' a''4)
-                (a''4.) \fermata (a''8) r8 r \fermata
+                \transpose c c, {
+                    r8 ^"oboe" d'' (e'' f'' a''4)
+                    (a''4.) \fermata (a''8) r8 r \fermata
+                }
             }
         >>
 
@@ -49,8 +51,10 @@
         <<
             { }
             \new CueVoice {
-                r8 ^"flute" d' e' f' a'4
-                (a'4.) \fermata (a'8) r8 r \fermata
+                \transpose c c, {
+                    r8 ^"flute" d' e' f' a'4
+                    (a'4.) \fermata (a'8) r8 r \fermata
+                }
             }
         >>
 
@@ -63,7 +67,9 @@
         <<
             { }
             \new CueVoice {
-                r16 ^"violin" e' e' d' d' e' e' c' c' d' d' e'
+                \transpose c c, {
+                    r16 ^"violin" e' e' d' d' e' e' c' c' d' d' e'
+                }
             }
         >>
 
@@ -75,14 +81,18 @@
         <<
             { }
             \new CueVoice {
-                e'''16 ^"flute" c''' c''' e''' e''' d''' d''' c''' c''' b'' b'' r
+                \transpose c c, {
+                    e'''16 ^"flute" c''' c''' e''' e''' d''' d''' c''' c''' b'' b'' r
+                }
             }
         >>
 
         <<
             { }
             \new CueVoice {
-                r16 ^"clarinet" c' c' d' d' e' e' e' e' e' e' r
+                \transpose c c, {
+                    r16 ^"clarinet" c' c' d' d' e' e' e' e' e' e' r
+                }
             }
         >>
 
@@ -146,10 +156,12 @@
         <<
             { }
             \new CueVoice {
-                r8 ^"flute" e''' (f''') f''' (e''') r
-                r8 e''' (f''') f''' (e''') r
-                r4 r8 bes'4. ( <>)
-                \break
+                \transpose c c, {
+                    r8 ^"flute" e''' (f''') f''' (e''') r
+                    r8 e''' (f''') f''' (e''') r
+                    r4 r8 bes'4. ( <>)
+                    \break
+                }
             }
         >>
 
@@ -223,10 +235,12 @@
         <<
             { }
             \new CueVoice {
-                b''4 ^"flute" (aes''8 ~ aes'' fis'' des'')
-                c'''4 ^"oboe" (b''8 ~ b'' g'' des'')
-                c'''4 ^"flute" (b''8 ~ b'' fis'' d''!)
-                \break
+                \transpose c c, {
+                    b''4 ^"flute" (aes''8 ~ aes'' fis'' des'')
+                    c'''4 ^"oboe" (b''8 ~ b'' g'' des'')
+                    c'''4 ^"flute" (b''8 ~ b'' fis'' d''!)
+                    \break
+                }
             }
         >>
 
@@ -250,9 +264,11 @@
         <<
             { }
             \new CueVoice {
-                r4 ^"flute" r8 c'''4. ~
-                c'''4 (d'''8 es'''4 c'''8)
-                \bar "||"
+                \transpose c c, {
+                    r4 ^"flute" r8 c'''4. ~
+                    c'''4 (d'''8 es'''4 c'''8)
+                    \bar "||"
+                }
             }
         >>
 
@@ -268,10 +284,12 @@
         <<
             { }
             \new CueVoice {
-                r4 ^"clarinet" r8 a''16 g'' f'' e'' d''! c''
-                \break
-                b'!16 r16 r8 r8 a'16 g' f' e' des' c'
-                b!8 r r
+                \transpose c c, {
+                    r4 ^"clarinet" r8 a''16 g'' f'' e'' d''! c''
+                    \break
+                    b'!16 r16 r8 r8 a'16 g' f' e' des' c'
+                    b!8 r r
+                }
             }
         >>
 
@@ -286,9 +304,11 @@
         <<
             { }
             \new CueVoice {
-                r16 ^"violin" es'' es'' es'' es'' a'' r f''' f''' e''' e''' des'''
-                r16 c''' c''' b'' b'' a'' r f'' f'' e'' e'' des''
-                \break
+                \transpose c c, {
+                    r16 ^"violin" es'' es'' es'' es'' a'' r f''' f''' e''' e''' des'''
+                    r16 c''' c''' b'' b'' a'' r f'' f'' e'' e'' des''
+                    \break
+                }
             }
         >>
 
@@ -331,9 +351,11 @@
         <<
             { }
             \new CueVoice {
-                r8 \pp ^"oboe" (ges'' f'' ges'' e'' f''
-                ges''8 bes'' a''! aes'' ges'' f''
-                ges''2.)
+                \transpose c c, {
+                    r8 \pp ^"oboe" (ges'' f'' ges'' e'' f''
+                    ges''8 bes'' a''! aes'' ges'' f''
+                    ges''2.)
+                }
             }
         >>
 
@@ -351,22 +373,24 @@
         <<
             { }
             \new CueVoice {
-                \cueClef bass
-                r4 ^"bass" r8 bes,4 r8
-                cis!4 r8 fis4 r8
-                \break
+                \transpose c c, {
+                    \cueClef bass
+                    r4 ^"bass" r8 bes,4 r8
+                    cis!4 r8 fis4 r8
+                    \break
 
-                e4 r8 r4 r8
-                g,4 r8 r4 r8
-                R2. \fermata
+                    e4 r8 r4 r8
+                    g,4 r8 r4 r8
+                    R2. \fermata
 
-                \bar "||"
-                \tempo "Poco Adagio"
-                \key es \major
-                \time 4/4
-                aes,1 ^"organ" ~
-                aes,1
-                \cueClefUnset
+                    \bar "||"
+                    \tempo "Poco Adagio"
+                    \key es \major
+                    \time 4/4
+                    aes,1 ^"organ" ~
+                    aes,1
+                    \cueClefUnset
+                }
             }
         >>
 
@@ -380,13 +404,15 @@
         <<
             { }
             \new CueVoice {
-                r4 ^"clarinet" c'' (e'' g'')
-                bes''2. aes''4 ~
-                aes''4 g''2 f''4 ~
-                \break
+                \transpose c c, {
+                    r4 ^"clarinet" c'' (e'' g'')
+                    bes''2. aes''4 ~
+                    aes''4 g''2 f''4 ~
+                    \break
 
-                f''4 \> e''2 es''4 ~
-                es''4 \! (d'' g'' f'')
+                    f''4 \> e''2 es''4 ~
+                    es''4 \! (d'' g'' f'')
+                }
             }
         >>
 
@@ -402,13 +428,15 @@
         <<
             { }
             \new CueVoice {
-                \tuplet 3/2 { a'8-. ^"violin" bes'-. r } \tuplet 3/2 { b'-. c''-. r } r2
-                \tuplet 3/2 { g''!8-. aes''-. r } \tuplet 3/2 { a''-. bes''-. r } r2
-                \break
-                \pageBreak
+                \transpose c c, {
+                    \tuplet 3/2 { a'8-. ^"violin" bes'-. r } \tuplet 3/2 { b'-. c''-. r } r2
+                    \tuplet 3/2 { g''!8-. aes''-. r } \tuplet 3/2 { a''-. bes''-. r } r2
+                    \break
+                    \pageBreak
 
-                \tuplet 3/2 { r8 ^"violin" es' d' } \tuplet 3/2 { r es' ces' }
-                \tuplet 3/2 { r d' es' } \tuplet 3/2 { r g' es' }
+                    \tuplet 3/2 { r8 ^"violin" es' d' } \tuplet 3/2 { r es' ces' }
+                    \tuplet 3/2 { r d' es' } \tuplet 3/2 { r g' es' }
+                }
             }
         >>
 
@@ -422,9 +450,11 @@
         <<
             { }
             \new CueVoice {
-                bes''4 ^"violin" (d''' g'''! bes''')
-                bes'''2 ~ (bes'''8 a''' g''' f''')
-                \break
+                \transpose c c, {
+                    bes''4 ^"violin" (d''' g'''! bes''')
+                    bes'''2 ~ (bes'''8 a''' g''' f''')
+                    \break
+                }
             }
         >>
 
