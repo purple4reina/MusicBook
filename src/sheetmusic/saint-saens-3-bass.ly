@@ -464,8 +464,7 @@
         instrument = ""
     }
 
-    \transpose c c {
-        \clef bass
+    \transpose c c' {
         \key f \major
         \time 6/8
         \compressEmptyMeasures
