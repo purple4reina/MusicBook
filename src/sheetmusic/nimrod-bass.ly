@@ -3,7 +3,7 @@
     subtitle   = "Nimrod"
     composer   = "Edward Elgar"
     instrument = "Bass Clarinet"
-    copyright  = #(strftime "transcribed from Bassoon 2 by Rey Abolofia, %h %Y" (localtime (current-time)))
+    copyright  = #(strftime "transcribed from bassoon II by Rey Abolofia, %h %Y" (localtime (current-time)))
     tagline    = ##f
 }
 
@@ -12,8 +12,20 @@
     ragged-last = ##f
 }
 
+\paper {
+    system-system-spacing =
+        #'((basic-distance . 12)
+           (minimum-distance . 8)
+           (padding . 7)
+           (stretchability . 60))
+}
+
+smallC   = \tweak font-size -2.5 c
+smallBes = \tweak font-size -2.5 bes,
+
 \score {
-    \transpose c c {
+    \transpose bes c'' {
+        \clef treble
         \key es \major
         \time 3/4
         \compressEmptyMeasures
@@ -28,8 +40,7 @@
         <<
             { }
             \new CueVoice {
-                \transpose c c' {
-                    \clef treble
+                \transpose c c {
                     g8 ^"vl" (ees aes4 f
                     bes4 f) f8 (aes)
                 }
@@ -37,14 +48,13 @@
         >>
 
         R2.*6
-        \clef bass
 
         \mark #34
 
-        es,4 \pp (c,2
-        g,4) bes,, (bes,)
+        es,4 \pp (<c, \smallC>2
+        g,4) <bes,, \smallBes> (bes,)
         ~bes,4 c2 \<
-        (bes,2 \!) bes,,4 \cresc (
+        (bes,2 \!) <bes,, \smallBes>4 \cresc (
         \break
 
         es,4) es2
@@ -63,9 +73,9 @@
         bes2 \p (aes8 _\markup { \italic "cresc. molto" } g)
         f8 (c es2)
         d2 \cresc (c8 bes,)
-        aes,8 \mf \< (es, d,4 bes,,)
+        aes,8 \mf \< (es, d,4 <bes,, \smallBes>)
         \mark #36
-        es,4 \f \< (c,2 ^\markup { \italic "legatissimo" })
+        es,4 \f \< (<c, \smallC>2 ^\markup { \italic "legatissimo" })
         g,4 \> (bes,2) (
         \break
 
@@ -73,13 +83,12 @@
         (bes,2 \!) bes,4
         (es4) es2 \<
         (d2 \> c4 \!
-        bes,4) \clef tenor c' (d')
+        bes,4) c' (d')
         es'2 (aes8) r
         c'4 \> (bes \!) r
         \break
 
         c'4 \cresc (bes) r
-        \clef bass
         aes4 d (c
         bes,4 \<) c-> (d)
         \mark #37
