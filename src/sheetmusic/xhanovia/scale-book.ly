@@ -292,13 +292,13 @@ chromatic = {
 
       \break
 
-      ges'1 \fingering
-      ais'1 \fingering
-      c''1 \fingering
+      ges'1          \fingering
+      ais'1          \fingering
+      c''1           \fingering
       <cis'' des''>1 \fingering
-      d''1 \fingering
-      <dis'' es''>1 \fingering
-      e''1 \fingering
+      d''1           \fingering
+      <dis'' es''>1  \fingering
+      e''1           \fingering
       \bar "|."
     }
   }
