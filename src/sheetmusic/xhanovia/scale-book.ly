@@ -182,7 +182,7 @@ chromatic = {
 
       \transpose c es  { \scale }
       \transpose c es' { \scale }
-      \transpose c es { \arpeggio_two }
+      \transpose c es  { \arpeggio_two }
 
       bes'1 \fingering
       c''1  \fingering
