@@ -271,7 +271,8 @@ chromatic = {
 
   \score {
     \header {
-      title = "Chromatic Scale"
+      title    = "Chromatic Scale"
+      subtitle = ""
     }
     \transpose c c' {
       \key c \major
