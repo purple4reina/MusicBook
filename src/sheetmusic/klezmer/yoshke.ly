@@ -14,7 +14,7 @@
 \markup \vspace #2 % extra space after title
 
 \score {
-    \transpose bes c''' {
+    \transpose es c'' {
         \key bes \major
         \time 2/4
 
