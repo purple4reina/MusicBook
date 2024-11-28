@@ -44,7 +44,7 @@ Audio links for piano accompaniment [can be found here.][1]
 | Rudolph, Erzherzog       | Sonata for Clarinet and Piano          | Cl, pno         |            | [link][19]  | 2/3   |
 | Saint-Saëns, Camille     | Sonata for Clarinet and Piano          | Cl, pno         | [link][20] | [link][21]  | 3     |
 | Schumann, Robert         | Fantasy Pieces for Clarinet and Piano  | Cl, pno         |            | [link][22]  | 2/3   |
-| Stamitz, Carl            | Concerto No. 3                         | Cl, orch        | [link][23] |             | 2/3   |
+| Stamitz, Carl            | Concerto No. 3                         | Cl, orch        | [link][23] | [link][46]  | 2/3   |
 | Stamitz, Johann          | Concerto                               | Cl, orch        | [link][24] |             | 4     |
 | Stevens, Halsey          | 4 Folk Songs of Touraine               |                 |            |             | 1     |
 | Tausch, F                | Concerto in F                          | Cl, orch        | [link][25] |             | 3     |
@@ -78,6 +78,7 @@ Audio links for piano accompaniment [can be found here.][1]
 [33]: https://s9.imslp.org/files/imglnks/usimg/5/53/IMSLP534461-PMLP539326-Crusell_-_Concerto_for_Clarinet_no_2_op_5_-_Solo_Clarinet_in_Bb.pdf
 [34]: https://s9.imslp.org/files/imglnks/usimg/a/ad/IMSLP117666-PMLP238705-crusell-clarinetconcerto3-solopart.pdf
 [45]: https://petruccimusiclibrary.ca/files/imglnks/caimg/2/29/IMSLP366873-PMLP592480-Poulenc_Clarinet_Sonata_part.pdf
+[46]: https://ks15.imslp.org/files/imglnks/usimg/2/2f/IMSLP563890-PMLP600057-Carl_Stamitz_-_Concerto_n._3_(Parte_Clarinetto).pdf
 
 [3]:  https://youtu.be/uAS2F3S3tns
 [5]:  https://youtu.be/6r5_UQl3nug
