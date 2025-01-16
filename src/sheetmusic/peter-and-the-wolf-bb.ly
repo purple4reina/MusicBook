@@ -1,7 +1,7 @@
 \header {
   title      = "Peter and the Wolf"
   composer   = "Sergei Prokofiev"
-  instrument = "Bb Clarinet"
+  instrument = "A Clarinet"
   copyright  = #(strftime "transcribed by Rey Abolofia, %h %Y" (localtime (current-time)))
   tagline    = ##f
 }
