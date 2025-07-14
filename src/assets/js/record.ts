@@ -13,6 +13,7 @@ class AudioRecorder {
   mediaRecorder: MediaRecorder | null = null;
   chunks: Blob[] = [];
   audioElem: HTMLAudioElement | null = null;
+  audioSrc: string | null = null;
 
   stoppedIcon = document.getElementById("stopped");
   recordingIcon = document.getElementById("recording");
@@ -41,10 +42,7 @@ class AudioRecorder {
   }
 
   onstop() {
-    this.audioElem = document.createElement("audio");
-    this.audioElem.controls = true;
-    this.audioElem.onended = this.stopPlaying.bind(this);
-    this.audioElem.src = window.URL.createObjectURL(new Blob(this.chunks, { type: 'audio/webm' }));
+    this.audioSrc = window.URL.createObjectURL(new Blob(this.chunks, { type: 'audio/webm' }));
     this.chunks = [];
   }
 
@@ -66,10 +64,14 @@ class AudioRecorder {
     this.setState(State.UNKNOWN);
     this.mediaRecorder.stop();
     console.log("Recording stopped.");
-    while (!this.audioElem) {
+    while (!this.audioSrc) {
       console.log("Waiting for audio element to be created...");
       await sleep(100);
     }
+    this.audioElem = document.createElement("audio");
+    this.audioElem.controls = true;
+    this.audioElem.onended = this.stopPlaying.bind(this);
+    this.audioElem.src = this.audioSrc || "";
   }
 
   play() {
@@ -93,6 +95,7 @@ class AudioRecorder {
     this.audioElem.pause();
     this.audioElem.src = "";
     this.audioElem = null;
+    this.audioSrc = null;
     console.log("Audio playback stopped.");
     this.setState(State.STOPPED);
   }
