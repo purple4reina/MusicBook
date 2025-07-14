@@ -53,15 +53,13 @@ class AudioRecorder {
         this.chunks = [];
     }
     record() {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (!this.mediaRecorder) {
-                return;
-            }
-            this.setState(State.UNKNOWN);
-            this.mediaRecorder.start();
-            console.log("Recording started.");
-            this.setState(State.RECORDING);
-        });
+        if (!this.mediaRecorder) {
+            return;
+        }
+        this.setState(State.UNKNOWN);
+        this.mediaRecorder.start();
+        console.log("Recording started.");
+        this.setState(State.RECORDING);
     }
     stopRecording() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -79,31 +77,27 @@ class AudioRecorder {
         });
     }
     play() {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (!this.audioElem) {
-                console.error("No audio currently available to play.");
-                return;
-            }
-            this.setState(State.UNKNOWN);
-            this.audioElem.playbackRate = this.playbackSpeed;
-            this.audioElem.play();
-            console.log("Playing audio.");
-            this.setState(State.PLAYING);
-        });
+        if (!this.audioElem) {
+            console.error("No audio currently available to play.");
+            return;
+        }
+        this.setState(State.UNKNOWN);
+        this.audioElem.playbackRate = this.playbackSpeed;
+        this.audioElem.play();
+        console.log("Playing audio.");
+        this.setState(State.PLAYING);
     }
     stopPlaying() {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (!this.audioElem) {
-                console.error("No audio currently playing to stop.");
-                return;
-            }
-            this.setState(State.UNKNOWN);
-            this.audioElem.pause();
-            this.audioElem.src = "";
-            this.audioElem = null;
-            console.log("Audio playback stopped.");
-            this.setState(State.STOPPED);
-        });
+        if (!this.audioElem) {
+            console.error("No audio currently playing to stop.");
+            return;
+        }
+        this.setState(State.UNKNOWN);
+        this.audioElem.pause();
+        this.audioElem.src = "";
+        this.audioElem = null;
+        console.log("Audio playback stopped.");
+        this.setState(State.STOPPED);
     }
     setState(newState) {
         this.state = newState;
@@ -137,15 +131,15 @@ function controlHandler() {
         console.log("Control key pressed.");
         switch (recorder.state) {
             case State.STOPPED:
-                yield recorder.record();
+                recorder.record();
                 break;
             case State.RECORDING:
                 yield recorder.stopRecording();
-                yield recorder.play();
+                recorder.play();
                 break;
             case State.PLAYING:
-                yield recorder.stopPlaying();
-                yield recorder.record();
+                recorder.stopPlaying();
+                recorder.record();
                 break;
             case State.PERMISSION_DENIED:
                 break;

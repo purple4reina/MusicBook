@@ -48,7 +48,7 @@ class AudioRecorder {
     this.chunks = [];
   }
 
-  async record(): Promise<void> {
+  record() {
     if (!this.mediaRecorder) {
       return;
     }
@@ -72,7 +72,7 @@ class AudioRecorder {
     }
   }
 
-  async play(): Promise<void> {
+  play() {
     if (!this.audioElem) {
       console.error("No audio currently available to play.");
       return;
@@ -84,7 +84,7 @@ class AudioRecorder {
     this.setState(State.PLAYING);
   }
 
-  async stopPlaying(): Promise<void> {
+  stopPlaying() {
     if (!this.audioElem) {
       console.error("No audio currently playing to stop.");
       return;
@@ -131,15 +131,15 @@ async function controlHandler() {
   console.log("Control key pressed.");
   switch (recorder.state) {
     case State.STOPPED:
-      await recorder.record();
+      recorder.record();
       break;
     case State.RECORDING:
       await recorder.stopRecording();
-      await recorder.play();
+      recorder.play();
       break;
     case State.PLAYING:
-      await recorder.stopPlaying();
-      await recorder.record();
+      recorder.stopPlaying();
+      recorder.record();
       break;
     case State.PERMISSION_DENIED:
       break;
