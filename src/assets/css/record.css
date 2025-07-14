@@ -1,0 +1,37 @@
+html, body {
+  background-color: #a55dfc;
+  padding: 5%;
+  border-radius: 13px;
+}
+
+.bi {
+  font-size: 68px;
+}
+
+.bi-stop-circle {
+  color: blue;
+}
+
+.bi-record-circle {
+  color: red;
+  animation: blink 1s linear infinite;
+}
+
+.bi-play-circle {
+  color: green;
+  animation: blink 1s linear infinite;
+}
+
+.bi-circle {
+  color: white;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.1;
+  }
+}
+
+.center {
+  text-align: center;
+}
