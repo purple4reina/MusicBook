@@ -86,15 +86,17 @@ class AudioRecorder {
         });
     }
     play() {
-        if (!this.audioElem || !this.audioAvailable()) {
-            console.error("No audio currently available to play.");
-            return;
-        }
-        this.setState(State.UNKNOWN);
-        this.audioElem.playbackRate = this.playbackSpeed;
-        this.audioElem.play();
-        console.log("Playing audio.");
-        this.setState(State.PLAYING);
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!this.audioElem || !this.audioAvailable()) {
+                console.error("No audio currently available to play.");
+                return;
+            }
+            this.setState(State.UNKNOWN);
+            this.audioElem.playbackRate = this.playbackSpeed;
+            yield this.audioElem.play();
+            console.log("Playing audio.");
+            this.setState(State.PLAYING);
+        });
     }
     stopPlaying() {
         if (!this.audioElem || !this.audioAvailable()) {
@@ -150,7 +152,7 @@ function controlHandler() {
                 break;
             case State.RECORDING:
                 yield recorder.stopRecording();
-                recorder.play();
+                yield recorder.play();
                 break;
             case State.PLAYING:
                 recorder.stopPlaying();
