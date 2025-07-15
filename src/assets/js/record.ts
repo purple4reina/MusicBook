@@ -13,7 +13,6 @@ class AudioRecorder {
   mediaRecorder: MediaRecorder | null = null;
   chunks: Blob[] = [];
   audioElem: HTMLAudioElement | null = null;
-  audioSrc: string | null = null;
 
   stoppedIcon = document.getElementById("stopped");
   recordingIcon = document.getElementById("recording");
@@ -35,6 +34,14 @@ class AudioRecorder {
       });
   }
 
+  initialize() {
+    if (!this.audioElem) {
+      this.audioElem = document.createElement("audio");
+      this.audioElem.controls = true;
+      this.audioElem.onended = this.stopPlaying.bind(this);
+    }
+  }
+
   ondataavailable(event: BlobEvent) {
     if (event.data.size > 0) {
       this.chunks.push(event.data);
@@ -42,7 +49,9 @@ class AudioRecorder {
   }
 
   onstop() {
-    this.audioSrc = window.URL.createObjectURL(new Blob(this.chunks, { type: 'audio/webm' }));
+    if (this.audioElem) {
+      this.audioElem.src = window.URL.createObjectURL(new Blob(this.chunks, { type: 'audio/webm' }));
+    }
     this.chunks = [];
   }
 
@@ -64,18 +73,14 @@ class AudioRecorder {
     this.setState(State.UNKNOWN);
     this.mediaRecorder.stop();
     console.log("Recording stopped.");
-    while (!this.audioSrc) {
+    while (!this.audioElem || !this.audioAvailable()) {
       console.log("Waiting for audio element to be created...");
       await sleep(100);
     }
-    this.audioElem = document.createElement("audio");
-    this.audioElem.controls = true;
-    this.audioElem.onended = this.stopPlaying.bind(this);
-    this.audioElem.src = this.audioSrc || "";
   }
 
   play() {
-    if (!this.audioElem) {
+    if (!this.audioElem || !this.audioAvailable()) {
       console.error("No audio currently available to play.");
       return;
     }
@@ -87,17 +92,22 @@ class AudioRecorder {
   }
 
   stopPlaying() {
-    if (!this.audioElem) {
+    if (!this.audioElem || !this.audioAvailable()) {
       console.error("No audio currently playing to stop.");
       return;
     }
     this.setState(State.UNKNOWN);
     this.audioElem.pause();
     this.audioElem.src = "";
-    this.audioElem = null;
-    this.audioSrc = null;
     console.log("Audio playback stopped.");
     this.setState(State.STOPPED);
+  }
+
+  audioAvailable(): boolean {
+    if (!this.audioElem) {
+      return false;
+    }
+    return this.audioElem.src.startsWith("blob:");
   }
 
   setState(newState: State): void {
@@ -132,6 +142,7 @@ const recorder = new AudioRecorder();
 
 async function controlHandler() {
   console.log("Control key pressed.");
+  recorder.initialize();
   switch (recorder.state) {
     case State.STOPPED:
       recorder.record();
