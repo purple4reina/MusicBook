@@ -7,7 +7,7 @@ enum State {
 }
 
 class AudioRecorder {
-  playbackSpeed: number = 1 / 3;
+  playbackSpeed: number = 1 / 4;
 
   state: State = State.UNKNOWN;
   mediaRecorder: MediaRecorder | null = null;

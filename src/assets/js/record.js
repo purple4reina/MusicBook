@@ -18,7 +18,7 @@ var State;
 })(State || (State = {}));
 class AudioRecorder {
     constructor() {
-        this.playbackSpeed = 1 / 3;
+        this.playbackSpeed = 1 / 4;
         this.state = State.UNKNOWN;
         this.mediaRecorder = null;
         this.chunks = [];
