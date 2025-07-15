@@ -80,7 +80,7 @@ class AudioRecorder {
             this.mediaRecorder.stop();
             console.log("Recording stopped.");
             while (!this.audioElem || !this.audioAvailable()) {
-                console.log("Waiting for audio element to be created...");
+                console.log("Waiting for audio source to be created...");
                 yield sleep(100);
             }
         });
