@@ -82,7 +82,7 @@ class AudioRecorder {
     }
   }
 
-  async play() {
+  play() {
     if (!this.audioElem || !this.audioAvailable()) {
       console.error("No audio currently available to play.");
       return;
@@ -91,8 +91,12 @@ class AudioRecorder {
     this.audioElem.playbackRate = this.playbackSpeed;
     console.log("Playing audio.");
     this.setState(State.PLAYING);
-    await this.audioElem.play();
-    console.log("Audio playback started.");
+    this.audioElem.play()
+      .then(() => { console.log("Audio playback started.") })
+      .catch(error => {
+        console.error("Error playing audio:", error);
+        this.setState(State.UNKNOWN);
+      });
   }
 
   stopPlaying() {
@@ -153,7 +157,7 @@ async function controlHandler() {
       break;
     case State.RECORDING:
       await recorder.stopRecording();
-      await recorder.play();
+      recorder.play();
       break;
     case State.PLAYING:
       recorder.stopPlaying();
