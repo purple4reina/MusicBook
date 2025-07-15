@@ -89,9 +89,10 @@ class AudioRecorder {
     }
     this.setState(State.UNKNOWN);
     this.audioElem.playbackRate = this.playbackSpeed;
-    await this.audioElem.play();
     console.log("Playing audio.");
     this.setState(State.PLAYING);
+    await this.audioElem.play();
+    console.log("Audio playback started.");
   }
 
   stopPlaying() {
