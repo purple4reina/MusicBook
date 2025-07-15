@@ -49,9 +49,12 @@ class AudioRecorder {
   }
 
   onstop() {
-    if (this.audioElem) {
-      this.audioElem.src = window.URL.createObjectURL(new Blob(this.chunks, { type: 'audio/webm' }));
+    if (!this.audioElem) {
+      console.error("Audio element is not initialized.");
+      return;
     }
+    console.log(`Recording stopped, processing audio data: ${this.chunks.length} chunks.`);
+    this.audioElem.src = window.URL.createObjectURL(new Blob(this.chunks, { type: 'audio/webm' }));
     this.chunks = [];
   }
 
