@@ -1,6 +1,7 @@
 enum State {
   UNKNOWN = "unknown",
   RECORDING = "recording",
+  READY = "ready",
   PLAYING = "playing",
   STOPPED = "stopped",
   PERMISSION_DENIED = "permission_denied",
@@ -75,7 +76,7 @@ class AudioRecorder {
       console.error("Media recorder is not initialized.");
       return;
     }
-    this.setState(State.UNKNOWN);
+    this.setState(State.READY);
     this.mediaRecorder.stop();
     console.log("Recording stopped.");
     while (!this.audioElem || !this.audioAvailable()) {
@@ -122,12 +123,20 @@ class AudioRecorder {
 
   setState(newState: State): void {
     this.state = newState;
+    console.log(`State changed to: ${newState}`);
     switch (newState) {
       case State.STOPPED:
         this.showIcons(this.stoppedIcon);
         break;
       case State.RECORDING:
         this.showIcons(this.recordingIcon);
+        break;
+      case State.READY:
+        if (this.isMobile) {
+          this.showIcons(this.stoppedIcon);
+        } else {
+          this.showIcons(this.nothingIcon);
+        }
         break;
       case State.PLAYING:
         this.showIcons(this.playingIcon);
@@ -159,6 +168,11 @@ async function controlHandler() {
       break;
     case State.RECORDING:
       await recorder.stopRecording();
+      if (!recorder.isMobile) {
+        recorder.play();
+      }
+      break;
+    case State.READY:
       recorder.play();
       break;
     case State.PLAYING:

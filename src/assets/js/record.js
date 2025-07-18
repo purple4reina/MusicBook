@@ -12,6 +12,7 @@ var State;
 (function (State) {
     State["UNKNOWN"] = "unknown";
     State["RECORDING"] = "recording";
+    State["READY"] = "ready";
     State["PLAYING"] = "playing";
     State["STOPPED"] = "stopped";
     State["PERMISSION_DENIED"] = "permission_denied";
@@ -78,7 +79,7 @@ class AudioRecorder {
                 console.error("Media recorder is not initialized.");
                 return;
             }
-            this.setState(State.UNKNOWN);
+            this.setState(State.READY);
             this.mediaRecorder.stop();
             console.log("Recording stopped.");
             while (!this.audioElem || !this.audioAvailable()) {
@@ -122,12 +123,21 @@ class AudioRecorder {
     }
     setState(newState) {
         this.state = newState;
+        console.log(`State changed to: ${newState}`);
         switch (newState) {
             case State.STOPPED:
                 this.showIcons(this.stoppedIcon);
                 break;
             case State.RECORDING:
                 this.showIcons(this.recordingIcon);
+                break;
+            case State.READY:
+                if (this.isMobile) {
+                    this.showIcons(this.stoppedIcon);
+                }
+                else {
+                    this.showIcons(this.nothingIcon);
+                }
                 break;
             case State.PLAYING:
                 this.showIcons(this.playingIcon);
@@ -157,6 +167,11 @@ function controlHandler() {
                 break;
             case State.RECORDING:
                 yield recorder.stopRecording();
+                if (!recorder.isMobile) {
+                    recorder.play();
+                }
+                break;
+            case State.READY:
                 recorder.play();
                 break;
             case State.PLAYING:
