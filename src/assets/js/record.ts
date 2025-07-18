@@ -91,6 +91,13 @@ class AudioRecorder {
       return;
     }
     this.setState(State.UNKNOWN);
+    if (!this.isMobile) {
+      const audioElem = document.createElement("audio");
+      audioElem.src = this.audioElem.src;
+      audioElem.controls = true;
+      audioElem.onended = this.stopPlaying.bind(this);
+      this.audioElem = audioElem;
+    }
     this.audioElem.playbackRate = this.playbackSpeed;
     console.log("Playing audio.");
     this.setState(State.PLAYING);
