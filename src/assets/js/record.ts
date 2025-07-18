@@ -8,6 +8,7 @@ enum State {
 
 class AudioRecorder {
   playbackSpeed: number = 1 / 4;
+  isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
   state: State = State.UNKNOWN;
   mediaRecorder: MediaRecorder | null = null;
@@ -20,6 +21,7 @@ class AudioRecorder {
   nothingIcon = document.getElementById("nothing");
 
   constructor() {
+    console.log(`Running in ${this.isMobile ? "mobile" : "desktop"} mode.`);
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then(stream => {
         this.mediaRecorder = new MediaRecorder(stream)

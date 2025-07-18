@@ -19,6 +19,7 @@ var State;
 class AudioRecorder {
     constructor() {
         this.playbackSpeed = 1 / 4;
+        this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         this.state = State.UNKNOWN;
         this.mediaRecorder = null;
         this.chunks = [];
@@ -27,6 +28,7 @@ class AudioRecorder {
         this.recordingIcon = document.getElementById("recording");
         this.playingIcon = document.getElementById("playing");
         this.nothingIcon = document.getElementById("nothing");
+        console.log(`Running in ${this.isMobile ? "mobile" : "desktop"} mode.`);
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(stream => {
             this.mediaRecorder = new MediaRecorder(stream);
