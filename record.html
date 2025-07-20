@@ -13,19 +13,13 @@
   <body>
     <div class="container center">
       <h1>Practice Recorder</h1>
-      <div class="row center">
-        <span id="stopped" style="display:none">
-          <i class="bi bi-stop-circle"></i>
-        </span>
-        <span id="recording" style="display:none">
-          <i class="bi bi-record-circle"></i>
-        </span>
-        <span id="playing" style="display:none">
-          <i class="bi bi-play-circle"></i>
-        </span>
-        <span id="nothing">
-          <i class="bi bi-circle"></i>
-        </span>
+      <div class="row">
+        <div class="col">
+          <i id="record" class="bi bi-record-circle"></i>
+          <i id="recording" class="bi bi-record-circle blinking"></i>
+          <i id="play" class="bi bi-play-circle"></i>
+          <i id="playing" class="bi bi-play-circle blinking"></i>
+        </div>
       </div>
     </div>
     <script src="src/assets/js/record.js"></script>

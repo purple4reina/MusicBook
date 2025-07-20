@@ -1,203 +1,235 @@
 enum State {
   UNKNOWN = "unknown",
   RECORDING = "recording",
-  READY = "ready",
-  PLAYING = "playing",
   STOPPED = "stopped",
-  PERMISSION_DENIED = "permission_denied",
 }
 
-class AudioRecorder {
-  playbackSpeed: number = 1 / 4;
-  isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+interface RecorderDeviceInterface {
+  start(): Promise<void>;
+  stop(): Promise<string>;
+}
 
-  state: State = State.UNKNOWN;
-  mediaRecorder: MediaRecorder | null = null;
-  chunks: Blob[] = [];
-  audioElem: HTMLAudioElement | null = null;
-
-  stoppedIcon = document.getElementById("stopped");
-  recordingIcon = document.getElementById("recording");
-  playingIcon = document.getElementById("playing");
-  nothingIcon = document.getElementById("nothing");
+class BrowserRecorderDevice implements RecorderDeviceInterface {
+  private mediaRecorder: MediaRecorder | null = null;
+  private state: State = State.UNKNOWN;
+  private chunks: Blob[] = [];
 
   constructor() {
-    console.log(`Running in ${this.isMobile ? "mobile" : "desktop"} mode.`);
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then(stream => {
         this.mediaRecorder = new MediaRecorder(stream)
-        this.mediaRecorder.ondataavailable = this.ondataavailable.bind(this);
-        this.mediaRecorder.onstop = this.onstop.bind(this);
+        this.mediaRecorder.onstart = this.onStart.bind(this);
+        this.mediaRecorder.ondataavailable = this.onDataAvailable.bind(this);
+        this.mediaRecorder.onstop = this.onStop.bind(this);
+        this.state = State.STOPPED;
         console.log("Microphone access granted.");
-        this.setState(State.STOPPED)
       })
       .catch(error => {
         console.error("Error accessing microphone:", error)
-        this.setState(State.PERMISSION_DENIED);
       });
   }
 
-  initialize() {
-    if (!this.audioElem) {
-      this.audioElem = document.createElement("audio");
-      this.audioElem.controls = true;
-      this.audioElem.onended = this.stopPlaying.bind(this);
-    }
+  private onStart() {
+    console.log("MediaRecorder started.");
+    this.state = State.RECORDING;
+    console.log(`State changed to: ${this.state}`);
   }
 
-  ondataavailable(event: BlobEvent) {
-    if (event.data.size > 0) {
-      this.chunks.push(event.data);
-    }
+  private onDataAvailable(event: BlobEvent) {
+    console.log(`Data available: ${event.data.size} bytes.`);
+    this.chunks.push(event.data);
   }
 
-  onstop() {
-    if (!this.audioElem) {
-      console.error("Audio element is not initialized.");
-      return;
-    }
-    console.log(`Recording stopped, processing audio data: ${this.chunks.length} chunks.`);
-    this.audioElem.src = window.URL.createObjectURL(new Blob(this.chunks, { type: 'audio/webm' }));
-    this.chunks = [];
+  private onStop() {
+    console.log("MediaRecorder stopped.");
+    this.state = State.STOPPED;
+    console.log(`State changed to: ${this.state}`);
   }
 
-  record() {
-    if (!this.mediaRecorder) {
-      return;
-    }
-    this.setState(State.UNKNOWN);
-    this.mediaRecorder.start();
-    console.log("Recording started.");
-    this.setState(State.RECORDING);
-  }
-
-  async stopRecording(): Promise<void> {
-    if (!this.mediaRecorder) {
-      console.error("Media recorder is not initialized.");
-      return;
-    }
-    this.setState(State.READY);
-    this.mediaRecorder.stop();
-    console.log("Recording stopped.");
-    while (!this.audioElem || !this.audioAvailable()) {
-      console.log("Waiting for audio source to be created...");
-      await sleep(100);
-    }
-  }
-
-  play() {
-    if (!this.audioElem || !this.audioAvailable()) {
-      console.error("No audio currently available to play.");
-      return;
-    }
-    this.setState(State.UNKNOWN);
-    if (!this.isMobile) {
-      const audioElem = document.createElement("audio");
-      audioElem.src = this.audioElem.src;
-      audioElem.controls = true;
-      audioElem.onended = this.stopPlaying.bind(this);
-      this.audioElem = audioElem;
-    }
-    this.audioElem.playbackRate = this.playbackSpeed;
-    console.log("Playing audio.");
-    this.setState(State.PLAYING);
-    this.audioElem.play()
-      .then(() => { console.log("Audio playback started.") })
-      .catch(error => {
-        console.error("Error playing audio:", error);
-        this.setState(State.UNKNOWN);
-      });
-  }
-
-  stopPlaying() {
-    if (!this.audioElem || !this.audioAvailable()) {
-      console.error("No audio currently playing to stop.");
-      return;
-    }
-    this.setState(State.UNKNOWN);
-    this.audioElem.pause();
-    this.audioElem.src = "";
-    console.log("Audio playback stopped.");
-    this.setState(State.STOPPED);
-  }
-
-  audioAvailable(): boolean {
-    if (!this.audioElem) {
-      return false;
-    }
-    return this.audioElem.src.startsWith("blob:");
-  }
-
-  setState(newState: State): void {
-    this.state = newState;
-    console.log(`State changed to: ${newState}`);
-    switch (newState) {
-      case State.STOPPED:
-        this.showIcons(this.stoppedIcon);
-        break;
-      case State.RECORDING:
-        this.showIcons(this.recordingIcon);
-        break;
-      case State.READY:
-        if (this.isMobile) {
-          this.showIcons(this.stoppedIcon);
+  private waitForState(targetState: State): Promise<void> {
+    return new Promise(resolve => {
+      const interval = setInterval(() => {
+        if (this.state === targetState) {
+          clearInterval(interval);
+          resolve();
         } else {
-          this.showIcons(this.nothingIcon);
+          console.log(`Waiting for state to change to ${targetState}...`);
         }
-        break;
-      case State.PLAYING:
-        this.showIcons(this.playingIcon);
-        break;
-      case State.UNKNOWN:
-      case State.PERMISSION_DENIED:
-        this.showIcons(this.nothingIcon);
-        break;
-    }
+      }, 100);
+    });
   }
 
-  private showIcons(activeIcon?: HTMLElement | null): void {
-    [this.stoppedIcon, this.recordingIcon, this.playingIcon, this.nothingIcon].forEach(icon => {
-      if (icon) {
-        icon.style.display = (icon === activeIcon) ? "block" : "none";
+  start(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (!this.mediaRecorder) {
+        console.error("MediaRecorder is not initialized.");
+        reject(new Error("MediaRecorder is not initialized."));
+      } else if (this.state !== State.STOPPED) {
+        console.error("Already recording or not ready to start.");
+        reject(new Error("Already recording or not ready to start."));
+      } else {
+        console.log("Starting recording...");
+        this.mediaRecorder.start();
+        this.waitForState(State.RECORDING).then(() => {
+          console.log("Recording started.");
+          resolve();
+        });
+      }
+    });
+  }
+
+  stop(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (!this.mediaRecorder) {
+        console.error("MediaRecorder is not initialized.");
+        reject(new Error("MediaRecorder is not initialized."));
+      } else if (this.state !== State.RECORDING) {
+        console.error("Cannot stop recording, not currently recording.");
+        reject(new Error("Cannot stop recording, not currently recording."));
+      } else {
+        console.log("Stopping recording...");
+        this.mediaRecorder.stop();
+        this.waitForState(State.STOPPED).then(() => {
+          this.getAudioUrl().then(audioUrl => {
+            console.log("Recording stopped and audio URL created.");
+            this.state = State.STOPPED;
+            resolve(audioUrl);
+          });
+        });
+      }
+    });
+  }
+
+  private getAudioUrl(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      if (this.chunks.length === 0) {
+        console.error("No audio data available.");
+        reject(new Error("No audio data available."));
+      } else {
+        const audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
+        this.chunks = []; // Clear chunks after creating the blob
+        const audioUrl = window.URL.createObjectURL(audioBlob);
+        resolve(audioUrl);
       }
     });
   }
 }
 
-const recorder = new AudioRecorder();
-
-async function controlHandler() {
-  console.log("Control key pressed.");
-  recorder.initialize();
-  switch (recorder.state) {
-    case State.STOPPED:
-      recorder.record();
-      break;
-    case State.RECORDING:
-      await recorder.stopRecording();
-      if (!recorder.isMobile) {
-        recorder.play();
-      }
-      break;
-    case State.READY:
-      recorder.play();
-      break;
-    case State.PLAYING:
-      recorder.stopPlaying();
-      recorder.record();
-      break;
-    case State.PERMISSION_DENIED:
-      break;
-    case State.UNKNOWN:
-    default:
-      console.error("Recorder is in an unknown state.");
-      break;
+class NoopRecorderDevice implements RecorderDeviceInterface {
+  start(): Promise<void> {
+    return Promise.resolve();
+  }
+  stop(): Promise<string> {
+    return Promise.resolve("");
   }
 }
 
-function sleep(ms: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, ms));
+interface PlayerDeviceInterface {
+  start(audioUrl: string, playbackSpeed: number, stopCallback: () => void): void;
+  stop(): void;
 }
 
-document.addEventListener("keypress", controlHandler);
-document.addEventListener("click", controlHandler);
+class BrowserPlayerDevice implements PlayerDeviceInterface {
+  private audioElem: HTMLAudioElement = new Audio();
+
+  start(audioUrl: string, playbackSpeed: number, stopCallback: () => void): void {
+    this.audioElem = new Audio();
+    this.audioElem.src = audioUrl;
+    this.audioElem.playbackRate = playbackSpeed;
+    this.audioElem.onended = stopCallback;
+    this.audioElem.play()
+      .then(() => {
+        console.log("Playback started.");
+      })
+      .catch(error => {
+        console.error("Error starting playback:", error);
+      });
+  }
+
+  stop(): void {
+    this.audioElem.pause();
+  }
+}
+
+class NoopPlayerDevice implements PlayerDeviceInterface {
+  start(): void {}
+  stop(): void {}
+}
+
+class RecorderController {
+  recorder: RecorderDeviceInterface = new NoopRecorderDevice();
+
+  player: PlayerDeviceInterface = new NoopPlayerDevice();
+  playbackSpeed: number = 1 / 4;
+  audioUrl: string = "";
+
+  recordIcon = document.getElementById("record");
+  recordingIcon = document.getElementById("recording");
+  playIcon = document.getElementById("play");
+  playingIcon = document.getElementById("playing");
+
+  constructor(recorder: RecorderDeviceInterface, player: PlayerDeviceInterface) {
+    this.recorder = recorder;
+    this.player = player;
+
+    this.recordIcon?.addEventListener("click", this.record.bind(this));
+    this.recordingIcon?.addEventListener("click", this.stopRecording.bind(this));
+    this.playIcon?.addEventListener("click", this.play.bind(this));
+    this.playingIcon?.addEventListener("click", this.stopPlaying.bind(this));
+
+    this.showControls([this.recordIcon]);
+  }
+
+  record(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.recorder.start()
+        .then(() => {
+          this.showControls([this.recordingIcon]);
+          resolve();
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
+  stopRecording(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.recorder.stop()
+        .then(audioUrl => {
+          this.audioUrl = audioUrl;
+          this.showControls([this.playIcon, this.recordIcon]);
+          resolve();
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
+  play(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.player.start(this.audioUrl, this.playbackSpeed, this.stopPlaying.bind(this))
+      this.showControls([this.playingIcon]);
+    });
+  }
+
+  stopPlaying(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.player.stop()
+      this.showControls([this.playIcon, this.recordIcon]);
+    });
+  }
+
+  private showControls(activeIcons: (HTMLElement | null)[]): void {
+    [this.recordIcon, this.recordingIcon, this.playIcon, this.playingIcon].forEach(icon => {
+      if (icon) {
+        icon.style.display = (activeIcons.includes(icon)) ? "inline-block" : "none";
+      }
+    });
+  }
+}
+
+const recorder = new BrowserRecorderDevice();
+const player = new BrowserPlayerDevice();
+const controller = new RecorderController(recorder, player);

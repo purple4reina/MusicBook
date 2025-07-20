@@ -1,201 +1,210 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var State;
 (function (State) {
     State["UNKNOWN"] = "unknown";
     State["RECORDING"] = "recording";
-    State["READY"] = "ready";
-    State["PLAYING"] = "playing";
     State["STOPPED"] = "stopped";
-    State["PERMISSION_DENIED"] = "permission_denied";
 })(State || (State = {}));
-class AudioRecorder {
+class BrowserRecorderDevice {
     constructor() {
-        this.playbackSpeed = 1 / 4;
-        this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        this.state = State.UNKNOWN;
         this.mediaRecorder = null;
+        this.state = State.UNKNOWN;
         this.chunks = [];
-        this.audioElem = null;
-        this.stoppedIcon = document.getElementById("stopped");
-        this.recordingIcon = document.getElementById("recording");
-        this.playingIcon = document.getElementById("playing");
-        this.nothingIcon = document.getElementById("nothing");
-        console.log(`Running in ${this.isMobile ? "mobile" : "desktop"} mode.`);
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(stream => {
             this.mediaRecorder = new MediaRecorder(stream);
-            this.mediaRecorder.ondataavailable = this.ondataavailable.bind(this);
-            this.mediaRecorder.onstop = this.onstop.bind(this);
+            this.mediaRecorder.onstart = this.onStart.bind(this);
+            this.mediaRecorder.ondataavailable = this.onDataAvailable.bind(this);
+            this.mediaRecorder.onstop = this.onStop.bind(this);
+            this.state = State.STOPPED;
             console.log("Microphone access granted.");
-            this.setState(State.STOPPED);
         })
             .catch(error => {
             console.error("Error accessing microphone:", error);
-            this.setState(State.PERMISSION_DENIED);
         });
     }
-    initialize() {
-        if (!this.audioElem) {
-            this.audioElem = document.createElement("audio");
-            this.audioElem.controls = true;
-            this.audioElem.onended = this.stopPlaying.bind(this);
-        }
+    onStart() {
+        console.log("MediaRecorder started.");
+        this.state = State.RECORDING;
+        console.log(`State changed to: ${this.state}`);
     }
-    ondataavailable(event) {
-        if (event.data.size > 0) {
-            this.chunks.push(event.data);
-        }
+    onDataAvailable(event) {
+        console.log(`Data available: ${event.data.size} bytes.`);
+        this.chunks.push(event.data);
     }
-    onstop() {
-        if (!this.audioElem) {
-            console.error("Audio element is not initialized.");
-            return;
-        }
-        console.log(`Recording stopped, processing audio data: ${this.chunks.length} chunks.`);
-        this.audioElem.src = window.URL.createObjectURL(new Blob(this.chunks, { type: 'audio/webm' }));
-        this.chunks = [];
+    onStop() {
+        console.log("MediaRecorder stopped.");
+        this.state = State.STOPPED;
+        console.log(`State changed to: ${this.state}`);
+    }
+    waitForState(targetState) {
+        return new Promise(resolve => {
+            const interval = setInterval(() => {
+                if (this.state === targetState) {
+                    clearInterval(interval);
+                    resolve();
+                }
+                else {
+                    console.log(`Waiting for state to change to ${targetState}...`);
+                }
+            }, 100);
+        });
+    }
+    start() {
+        return new Promise((resolve, reject) => {
+            if (!this.mediaRecorder) {
+                console.error("MediaRecorder is not initialized.");
+                reject(new Error("MediaRecorder is not initialized."));
+            }
+            else if (this.state !== State.STOPPED) {
+                console.error("Already recording or not ready to start.");
+                reject(new Error("Already recording or not ready to start."));
+            }
+            else {
+                console.log("Starting recording...");
+                this.mediaRecorder.start();
+                this.waitForState(State.RECORDING).then(() => {
+                    console.log("Recording started.");
+                    resolve();
+                });
+            }
+        });
+    }
+    stop() {
+        return new Promise((resolve, reject) => {
+            if (!this.mediaRecorder) {
+                console.error("MediaRecorder is not initialized.");
+                reject(new Error("MediaRecorder is not initialized."));
+            }
+            else if (this.state !== State.RECORDING) {
+                console.error("Cannot stop recording, not currently recording.");
+                reject(new Error("Cannot stop recording, not currently recording."));
+            }
+            else {
+                console.log("Stopping recording...");
+                this.mediaRecorder.stop();
+                this.waitForState(State.STOPPED).then(() => {
+                    this.getAudioUrl().then(audioUrl => {
+                        console.log("Recording stopped and audio URL created.");
+                        this.state = State.STOPPED;
+                        resolve(audioUrl);
+                    });
+                });
+            }
+        });
+    }
+    getAudioUrl() {
+        return new Promise((resolve, reject) => {
+            if (this.chunks.length === 0) {
+                console.error("No audio data available.");
+                reject(new Error("No audio data available."));
+            }
+            else {
+                const audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
+                this.chunks = []; // Clear chunks after creating the blob
+                const audioUrl = window.URL.createObjectURL(audioBlob);
+                resolve(audioUrl);
+            }
+        });
+    }
+}
+class NoopRecorderDevice {
+    start() {
+        return Promise.resolve();
+    }
+    stop() {
+        return Promise.resolve("");
+    }
+}
+class BrowserPlayerDevice {
+    constructor() {
+        this.audioElem = new Audio();
+    }
+    start(audioUrl, playbackSpeed, stopCallback) {
+        this.audioElem = new Audio();
+        this.audioElem.src = audioUrl;
+        this.audioElem.playbackRate = playbackSpeed;
+        this.audioElem.onended = stopCallback;
+        this.audioElem.play()
+            .then(() => {
+            console.log("Playback started.");
+        })
+            .catch(error => {
+            console.error("Error starting playback:", error);
+        });
+    }
+    stop() {
+        this.audioElem.pause();
+    }
+}
+class NoopPlayerDevice {
+    start() { }
+    stop() { }
+}
+class RecorderController {
+    constructor(recorder, player) {
+        var _a, _b, _c, _d;
+        this.recorder = new NoopRecorderDevice();
+        this.player = new NoopPlayerDevice();
+        this.playbackSpeed = 1 / 4;
+        this.audioUrl = "";
+        this.recordIcon = document.getElementById("record");
+        this.recordingIcon = document.getElementById("recording");
+        this.playIcon = document.getElementById("play");
+        this.playingIcon = document.getElementById("playing");
+        this.recorder = recorder;
+        this.player = player;
+        (_a = this.recordIcon) === null || _a === void 0 ? void 0 : _a.addEventListener("click", this.record.bind(this));
+        (_b = this.recordingIcon) === null || _b === void 0 ? void 0 : _b.addEventListener("click", this.stopRecording.bind(this));
+        (_c = this.playIcon) === null || _c === void 0 ? void 0 : _c.addEventListener("click", this.play.bind(this));
+        (_d = this.playingIcon) === null || _d === void 0 ? void 0 : _d.addEventListener("click", this.stopPlaying.bind(this));
+        this.showControls([this.recordIcon]);
     }
     record() {
-        if (!this.mediaRecorder) {
-            return;
-        }
-        this.setState(State.UNKNOWN);
-        this.mediaRecorder.start();
-        console.log("Recording started.");
-        this.setState(State.RECORDING);
+        return new Promise((resolve, reject) => {
+            this.recorder.start()
+                .then(() => {
+                this.showControls([this.recordingIcon]);
+                resolve();
+            })
+                .catch(error => {
+                reject(error);
+            });
+        });
     }
     stopRecording() {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (!this.mediaRecorder) {
-                console.error("Media recorder is not initialized.");
-                return;
-            }
-            this.setState(State.READY);
-            this.mediaRecorder.stop();
-            console.log("Recording stopped.");
-            while (!this.audioElem || !this.audioAvailable()) {
-                console.log("Waiting for audio source to be created...");
-                yield sleep(100);
-            }
+        return new Promise((resolve, reject) => {
+            this.recorder.stop()
+                .then(audioUrl => {
+                this.audioUrl = audioUrl;
+                this.showControls([this.playIcon, this.recordIcon]);
+                resolve();
+            })
+                .catch(error => {
+                reject(error);
+            });
         });
     }
     play() {
-        if (!this.audioElem || !this.audioAvailable()) {
-            console.error("No audio currently available to play.");
-            return;
-        }
-        this.setState(State.UNKNOWN);
-        if (!this.isMobile) {
-            const audioElem = document.createElement("audio");
-            audioElem.src = this.audioElem.src;
-            audioElem.controls = true;
-            audioElem.onended = this.stopPlaying.bind(this);
-            this.audioElem = audioElem;
-        }
-        this.audioElem.playbackRate = this.playbackSpeed;
-        console.log("Playing audio.");
-        this.setState(State.PLAYING);
-        this.audioElem.play()
-            .then(() => { console.log("Audio playback started."); })
-            .catch(error => {
-            console.error("Error playing audio:", error);
-            this.setState(State.UNKNOWN);
+        return new Promise((resolve, reject) => {
+            this.player.start(this.audioUrl, this.playbackSpeed, this.stopPlaying.bind(this));
+            this.showControls([this.playingIcon]);
         });
     }
     stopPlaying() {
-        if (!this.audioElem || !this.audioAvailable()) {
-            console.error("No audio currently playing to stop.");
-            return;
-        }
-        this.setState(State.UNKNOWN);
-        this.audioElem.pause();
-        this.audioElem.src = "";
-        console.log("Audio playback stopped.");
-        this.setState(State.STOPPED);
+        return new Promise((resolve, reject) => {
+            this.player.stop();
+            this.showControls([this.playIcon, this.recordIcon]);
+        });
     }
-    audioAvailable() {
-        if (!this.audioElem) {
-            return false;
-        }
-        return this.audioElem.src.startsWith("blob:");
-    }
-    setState(newState) {
-        this.state = newState;
-        console.log(`State changed to: ${newState}`);
-        switch (newState) {
-            case State.STOPPED:
-                this.showIcons(this.stoppedIcon);
-                break;
-            case State.RECORDING:
-                this.showIcons(this.recordingIcon);
-                break;
-            case State.READY:
-                if (this.isMobile) {
-                    this.showIcons(this.stoppedIcon);
-                }
-                else {
-                    this.showIcons(this.nothingIcon);
-                }
-                break;
-            case State.PLAYING:
-                this.showIcons(this.playingIcon);
-                break;
-            case State.UNKNOWN:
-            case State.PERMISSION_DENIED:
-                this.showIcons(this.nothingIcon);
-                break;
-        }
-    }
-    showIcons(activeIcon) {
-        [this.stoppedIcon, this.recordingIcon, this.playingIcon, this.nothingIcon].forEach(icon => {
+    showControls(activeIcons) {
+        [this.recordIcon, this.recordingIcon, this.playIcon, this.playingIcon].forEach(icon => {
             if (icon) {
-                icon.style.display = (icon === activeIcon) ? "block" : "none";
+                icon.style.display = (activeIcons.includes(icon)) ? "inline-block" : "none";
             }
         });
     }
 }
-const recorder = new AudioRecorder();
-function controlHandler() {
-    return __awaiter(this, void 0, void 0, function* () {
-        console.log("Control key pressed.");
-        recorder.initialize();
-        switch (recorder.state) {
-            case State.STOPPED:
-                recorder.record();
-                break;
-            case State.RECORDING:
-                yield recorder.stopRecording();
-                if (!recorder.isMobile) {
-                    recorder.play();
-                }
-                break;
-            case State.READY:
-                recorder.play();
-                break;
-            case State.PLAYING:
-                recorder.stopPlaying();
-                recorder.record();
-                break;
-            case State.PERMISSION_DENIED:
-                break;
-            case State.UNKNOWN:
-            default:
-                console.error("Recorder is in an unknown state.");
-                break;
-        }
-    });
-}
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-document.addEventListener("keypress", controlHandler);
-document.addEventListener("click", controlHandler);
+const recorder = new BrowserRecorderDevice();
+const player = new BrowserPlayerDevice();
+const controller = new RecorderController(recorder, player);
