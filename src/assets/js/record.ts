@@ -207,18 +207,14 @@ class RecorderController {
     });
   }
 
-  play(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.player.start(this.audioUrl, this.playbackSpeed, this.stopPlaying.bind(this))
-      this.showControls([this.playingIcon]);
-    });
+  play(): void {
+    this.player.start(this.audioUrl, this.playbackSpeed, this.stopPlaying.bind(this))
+    this.showControls([this.playingIcon]);
   }
 
-  stopPlaying(): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.player.stop()
-      this.showControls([this.playIcon, this.recordIcon]);
-    });
+  stopPlaying(): void {
+    this.player.stop()
+    this.showControls([this.playIcon, this.recordIcon]);
   }
 
   private showControls(activeIcons: (HTMLElement | null)[]): void {
