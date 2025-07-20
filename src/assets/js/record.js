@@ -116,47 +116,18 @@ class NoopRecorderDevice {
         return Promise.resolve("");
     }
 }
-class BrowserPlayerDevice {
-    constructor() {
-        this.audioElem = new Audio();
-    }
-    start(audioUrl, playbackSpeed, stopCallback) {
-        this.audioElem = new Audio();
-        this.audioElem.src = audioUrl;
-        this.audioElem.playbackRate = playbackSpeed;
-        this.audioElem.onended = stopCallback;
-        console.log(`Starting playback at ${playbackSpeed}x speed.`);
-        this.audioElem.play()
-            .then(() => {
-            console.log("Playback started.");
-        })
-            .catch(error => {
-            console.error("Error starting playback:", error);
-        });
-    }
-    stop() {
-        console.log("Stopping playback.");
-        this.audioElem.pause();
-        console.log("Playback stopped.");
-    }
-}
-class NoopPlayerDevice {
-    start() { }
-    stop() { }
-}
 class RecorderController {
-    constructor(recorder, player) {
+    constructor(recorder) {
         var _a, _b, _c, _d;
         this.recorder = new NoopRecorderDevice();
-        this.player = new NoopPlayerDevice();
         this.playbackSpeed = 1 / 4;
         this.audioUrl = "";
+        this.audioElem = new Audio();
         this.recordIcon = document.getElementById("record");
         this.recordingIcon = document.getElementById("recording");
         this.playIcon = document.getElementById("play");
         this.playingIcon = document.getElementById("playing");
         this.recorder = recorder;
-        this.player = player;
         (_a = this.recordIcon) === null || _a === void 0 ? void 0 : _a.addEventListener("click", this.record.bind(this));
         (_b = this.recordingIcon) === null || _b === void 0 ? void 0 : _b.addEventListener("click", this.stopRecording.bind(this));
         (_c = this.playIcon) === null || _c === void 0 ? void 0 : _c.addEventListener("click", this.play.bind(this));
@@ -189,11 +160,24 @@ class RecorderController {
         });
     }
     play() {
-        this.player.start(this.audioUrl, this.playbackSpeed, this.stopPlaying.bind(this));
+        this.audioElem = new Audio();
+        this.audioElem.src = this.audioUrl;
+        this.audioElem.playbackRate = this.playbackSpeed;
+        this.audioElem.onended = this.stopPlaying.bind(this);
+        console.log(`Starting playback at ${this.playbackSpeed}x speed.`);
+        this.audioElem.play()
+            .then(() => {
+            console.log("Playback started.");
+        })
+            .catch(error => {
+            console.error("Error starting playback:", error);
+        });
         this.showControls([this.playingIcon]);
     }
     stopPlaying() {
-        this.player.stop();
+        console.log("Stopping playback.");
+        this.audioElem.pause();
+        console.log("Playback stopped.");
         this.showControls([this.playIcon, this.recordIcon]);
     }
     showControls(activeIcons) {
@@ -205,5 +189,4 @@ class RecorderController {
     }
 }
 const recorder = new BrowserRecorderDevice();
-const player = new BrowserPlayerDevice();
-const controller = new RecorderController(recorder, player);
+const controller = new RecorderController(recorder);
