@@ -125,6 +125,7 @@ class BrowserPlayerDevice {
         this.audioElem.src = audioUrl;
         this.audioElem.playbackRate = playbackSpeed;
         this.audioElem.onended = stopCallback;
+        console.log(`Starting playback at ${playbackSpeed}x speed.`);
         this.audioElem.play()
             .then(() => {
             console.log("Playback started.");
@@ -134,7 +135,9 @@ class BrowserPlayerDevice {
         });
     }
     stop() {
+        console.log("Stopping playback.");
         this.audioElem.pause();
+        console.log("Playback stopped.");
     }
 }
 class NoopPlayerDevice {
