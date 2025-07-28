@@ -136,11 +136,6 @@ class NoopRecorderDevice implements RecorderDeviceInterface {
   }
 }
 
-interface PlayerDeviceInterface {
-  start(audioUrl: string, playbackSpeed: number, stopCallback: () => void): void;
-  stop(): void;
-}
-
 class RecorderController {
   recorder: RecorderDeviceInterface = new NoopRecorderDevice();
 
