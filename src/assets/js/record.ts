@@ -32,30 +32,30 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
   }
 
   reset() {
-    console.log("Resetting MediaRecorder...");
+    console.debug("Resetting MediaRecorder...");
     this.mediaRecorder = new MediaRecorder(this.stream);
     this.mediaRecorder.onstart = this.onStart.bind(this);
     this.mediaRecorder.ondataavailable = this.onDataAvailable.bind(this);
     this.mediaRecorder.onstop = this.onStop.bind(this);
     this.state = State.STOPPED;
-    console.log(`Recorder reset. State is now: ${this.state}`);
+    console.debug(`Recorder reset. State is now: ${this.state}`);
   }
 
   private onStart() {
-    console.log("MediaRecorder started.");
+    console.debug("MediaRecorder started.");
     this.state = State.RECORDING;
-    console.log(`State changed to: ${this.state}`);
+    console.debug(`State changed to: ${this.state}`);
   }
 
   private onDataAvailable(event: BlobEvent) {
-    console.log(`Data available: ${event.data.size} bytes.`);
+    console.debug(`Data available: ${event.data.size} bytes.`);
     this.chunks.push(event.data);
   }
 
   private onStop() {
-    console.log("MediaRecorder stopped.");
+    console.debug("MediaRecorder stopped.");
     this.reset();
-    console.log(`State changed to: ${this.state}`);
+    console.debug(`State changed to: ${this.state}`);
   }
 
   private waitForState(targetState: State): Promise<void> {
@@ -65,7 +65,7 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
           clearInterval(interval);
           resolve();
         } else {
-          console.log(`Waiting for state to change to ${targetState}...`);
+          console.debug(`Waiting for state to change to ${targetState}...`);
         }
       }, 100);
     });
@@ -80,10 +80,10 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
         console.error("Already recording or not ready to start.");
         reject(new Error("Already recording or not ready to start."));
       } else {
-        console.log("Starting recording...");
+        console.debug("Starting recording...");
         this.mediaRecorder.start();
         this.waitForState(State.RECORDING).then(() => {
-          console.log("Recording started.");
+          console.debug("Recording started.");
           resolve();
         });
       }
@@ -99,11 +99,11 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
         console.error("Cannot stop recording, not currently recording.");
         reject(new Error("Cannot stop recording, not currently recording."));
       } else {
-        console.log("Stopping recording...");
+        console.debug("Stopping recording...");
         this.mediaRecorder.stop();
         this.waitForState(State.STOPPED).then(() => {
           this.getAudioUrl().then(audioUrl => {
-            console.log("Recording stopped and audio URL created.");
+            console.debug("Recording stopped and audio URL created.");
             resolve(audioUrl);
           });
         });
@@ -120,7 +120,7 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
         const audioBlob = new Blob(this.chunks, { type: "audio/mp4" });
         this.chunks = []; // Clear chunks after creating the blob
         const audioUrl = window.URL.createObjectURL(audioBlob);
-        console.log(`Audio URL created: ${audioUrl}`);
+        console.debug(`Audio URL created: ${audioUrl}`);
         resolve(audioUrl);
       }
     });
@@ -196,10 +196,10 @@ class RecorderController {
     this.audioElem.src = this.audioUrl;
     this.audioElem.playbackRate = this.playbackSpeed;
     this.audioElem.onended = this.stopPlaying.bind(this);
-    console.log(`Starting playback at ${this.playbackSpeed}x speed.`);
+    console.debug(`Starting playback at ${this.playbackSpeed}x speed.`);
     this.audioElem.play()
       .then(() => {
-        console.log("Playback started.");
+        console.debug("Playback started.");
       })
       .catch(error => {
         console.error("Error starting playback:", error);
@@ -208,9 +208,9 @@ class RecorderController {
   }
 
   stopPlaying(): void {
-    console.log("Stopping playback.");
+    console.debug("Stopping playback.");
     this.audioElem.pause();
-    console.log("Playback stopped.");
+    console.debug("Playback stopped.");
     this.showControls([this.playIcon, this.recordIcon]);
   }
 
