@@ -15,6 +15,10 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
   private chunks: Blob[] = [];
 
   constructor() {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      console.error("MediaDevices API is not supported in this browser.");
+      return;
+    }
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then(stream => {
         this.mediaRecorder = new MediaRecorder(stream)
