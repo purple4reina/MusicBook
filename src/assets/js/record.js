@@ -90,7 +90,6 @@ class BrowserRecorderDevice {
                 this.waitForState(State.STOPPED).then(() => {
                     this.getAudioUrl().then(audioUrl => {
                         console.log("Recording stopped and audio URL created.");
-                        this.state = State.STOPPED;
                         resolve(audioUrl);
                     });
                 });
@@ -104,9 +103,10 @@ class BrowserRecorderDevice {
                 reject(new Error("No audio data available."));
             }
             else {
-                const audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
+                const audioBlob = new Blob(this.chunks, { type: "audio/mp4" });
                 this.chunks = []; // Clear chunks after creating the blob
                 const audioUrl = window.URL.createObjectURL(audioBlob);
+                console.log(`Audio URL created: ${audioUrl}`);
                 resolve(audioUrl);
             }
         });

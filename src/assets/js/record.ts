@@ -21,7 +21,7 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
     }
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then(stream => {
-        this.mediaRecorder = new MediaRecorder(stream)
+        this.mediaRecorder = new MediaRecorder(stream);
         this.mediaRecorder.onstart = this.onStart.bind(this);
         this.mediaRecorder.ondataavailable = this.onDataAvailable.bind(this);
         this.mediaRecorder.onstop = this.onStop.bind(this);
@@ -96,7 +96,6 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
         this.waitForState(State.STOPPED).then(() => {
           this.getAudioUrl().then(audioUrl => {
             console.log("Recording stopped and audio URL created.");
-            this.state = State.STOPPED;
             resolve(audioUrl);
           });
         });
@@ -110,9 +109,10 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
         console.error("No audio data available.");
         reject(new Error("No audio data available."));
       } else {
-        const audioBlob = new Blob(this.chunks, { type: 'audio/webm' });
+        const audioBlob = new Blob(this.chunks, { type: "audio/mp4" });
         this.chunks = []; // Clear chunks after creating the blob
         const audioUrl = window.URL.createObjectURL(audioBlob);
+        console.log(`Audio URL created: ${audioUrl}`);
         resolve(audioUrl);
       }
     });
