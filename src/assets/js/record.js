@@ -129,55 +129,50 @@ class NoopRecorderDevice {
 }
 class PlaybackSpeedControls {
     constructor() {
-        var _a, _b, _c;
+        var _a, _b, _c, _d;
         this.numerator = 1;
         this.denominator = 4;
-        this.valueInput = document.getElementById("playback");
+        this.numerValueInput = document.getElementById("playback-numer");
+        this.denomValueInput = document.getElementById("playback-denom");
         this.minusButtom = document.getElementById("playback-minus");
         this.plusButton = document.getElementById("playback-plus");
-        (_a = this.valueInput) === null || _a === void 0 ? void 0 : _a.addEventListener("change", this.setValue.bind(this));
-        (_b = this.minusButtom) === null || _b === void 0 ? void 0 : _b.addEventListener("click", this.minus.bind(this));
-        (_c = this.plusButton) === null || _c === void 0 ? void 0 : _c.addEventListener("click", this.plus.bind(this));
+        (_a = this.numerValueInput) === null || _a === void 0 ? void 0 : _a.addEventListener("change", this.setNumerator.bind(this));
+        (_b = this.denomValueInput) === null || _b === void 0 ? void 0 : _b.addEventListener("change", this.setDenominator.bind(this));
+        (_c = this.minusButtom) === null || _c === void 0 ? void 0 : _c.addEventListener("click", this.minus.bind(this));
+        (_d = this.plusButton) === null || _d === void 0 ? void 0 : _d.addEventListener("click", this.plus.bind(this));
         this.updateValueInput();
     }
     value() {
         return this.numerator / this.denominator;
     }
     updateValueInput() {
-        if (this.valueInput) {
-            this.valueInput.value = this.denominator === 1 ? this.numerator.toString() : `${this.numerator} / ${this.denominator}`;
-            console.log(`Playback speed set to ${this.value()}x`);
+        if (this.numerValueInput) {
+            this.numerValueInput.value = this.numerator.toString();
         }
+        if (this.denomValueInput) {
+            this.denomValueInput.value = this.denominator.toString();
+        }
+        console.debug(`Playback speed set to ${this.value()}x`);
     }
-    setValue(event) {
-        if (!(event.target instanceof HTMLInputElement)) {
-            console.error("Invalid target for playback speed input.");
-            return;
-        }
-        const inputValue = event.target.value.trim();
-        const parts = inputValue.split("/").map(part => part.trim());
-        if (parts.length === 1) {
-            this.numerator = parseInt(parts[0], 10);
-            this.denominator = 1;
-        }
-        else if (parts.length === 2) {
-            this.numerator = parseInt(parts[0], 10);
-            this.denominator = parseInt(parts[1], 10);
-        }
-        else {
-            console.error("Invalid playback speed format. Use 'numerator' or 'numerator / denominator'.");
-            return;
-        }
-        if (this.denominator <= 0) {
-            console.error("Denominator must be greater than zero.");
-            this.denominator = 1; // Reset to a valid state
-        }
-        if (this.value() <= 0) {
-            console.error("Playback speed must be greater than zero.");
-            this.numerator = Math.abs(this.numerator);
-            this.denominator = Math.abs(this.denominator);
-        }
+    setNumerator(event) {
+        this.numerator = this.parseValue(event.target) || this.numerator;
         this.updateValueInput();
+    }
+    setDenominator(event) {
+        this.denominator = this.parseValue(event.target) || this.denominator;
+        this.updateValueInput();
+    }
+    parseValue(target) {
+        if (!(target instanceof HTMLInputElement)) {
+            console.error("Invalid target for playback speed input.");
+            return 0;
+        }
+        const value = parseInt(target.value.trim(), 10);
+        if (isNaN(value) || value <= 0) {
+            console.error("Number must be a positive integer.");
+            return 0;
+        }
+        return value;
     }
     minus() {
         if (this.numerator === 1) {

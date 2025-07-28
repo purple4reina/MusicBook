@@ -140,12 +140,14 @@ class PlaybackSpeedControls {
   private numerator: number = 1;
   private denominator: number = 4;
 
-  private valueInput = document.getElementById("playback") as HTMLInputElement;
+  private numerValueInput = document.getElementById("playback-numer") as HTMLInputElement;
+  private denomValueInput = document.getElementById("playback-denom") as HTMLInputElement;
   private minusButtom = document.getElementById("playback-minus");
   private plusButton = document.getElementById("playback-plus");
 
   constructor() {
-    this.valueInput?.addEventListener("change", this.setValue.bind(this));
+    this.numerValueInput?.addEventListener("change", this.setNumerator.bind(this));
+    this.denomValueInput?.addEventListener("change", this.setDenominator.bind(this));
     this.minusButtom?.addEventListener("click", this.minus.bind(this));
     this.plusButton?.addEventListener("click", this.plus.bind(this));
     this.updateValueInput();
@@ -156,39 +158,36 @@ class PlaybackSpeedControls {
   }
 
   private updateValueInput(): void {
-    if (this.valueInput) {
-      this.valueInput.value = this.denominator === 1 ? this.numerator.toString() : `${this.numerator} / ${this.denominator}`;
-      console.log(`Playback speed set to ${this.value()}x`);
+    if (this.numerValueInput) {
+      this.numerValueInput.value = this.numerator.toString();
     }
+    if (this.denomValueInput) {
+      this.denomValueInput.value = this.denominator.toString();
+    }
+    console.debug(`Playback speed set to ${this.value()}x`);
   }
 
-  private setValue(event: Event): void {
-    if (!(event.target instanceof HTMLInputElement)) {
-      console.error("Invalid target for playback speed input.");
-      return;
-    }
-    const inputValue = event.target.value.trim();
-    const parts = inputValue.split("/").map(part => part.trim());
-    if (parts.length === 1) {
-      this.numerator = parseInt(parts[0], 10);
-      this.denominator = 1;
-    } else if (parts.length === 2) {
-      this.numerator = parseInt(parts[0], 10);
-      this.denominator = parseInt(parts[1], 10);
-    } else {
-      console.error("Invalid playback speed format. Use 'numerator' or 'numerator / denominator'.");
-      return;
-    }
-    if (this.denominator <= 0) {
-      console.error("Denominator must be greater than zero.");
-      this.denominator = 1; // Reset to a valid state
-    }
-    if (this.value() <= 0) {
-      console.error("Playback speed must be greater than zero.");
-      this.numerator = Math.abs(this.numerator);
-      this.denominator = Math.abs(this.denominator);
-    }
+  private setNumerator(event: Event): void {
+    this.numerator = this.parseValue(event.target) || this.numerator;
     this.updateValueInput();
+  }
+
+  private setDenominator(event: Event): void {
+    this.denominator = this.parseValue(event.target) || this.denominator;
+    this.updateValueInput();
+  }
+
+  private parseValue(target: EventTarget | null): number {
+    if (!(target instanceof HTMLInputElement)) {
+      console.error("Invalid target for playback speed input.");
+      return 0;
+    }
+    const value = parseInt(target.value.trim(), 10);
+    if (isNaN(value) || value <= 0) {
+      console.error("Number must be a positive integer.");
+      return 0;
+    }
+    return value;
   }
 
   private minus(): void {

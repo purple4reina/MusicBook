@@ -22,12 +22,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col-4">
           Playback Speed:
         </div>
         <div class="col input-group">
           <button class="btn" id="playback-minus" type="button">-</button>
-          <input type="text" class="form-control" id="playback" value="0.25">
+          <input type="text" class="form-control" id="playback-numer" value="1" pattern="[0-9]*">
+          <span class="input-group-text">/</span>
+          <input type="text" class="form-control" id="playback-denom" value="4" pattern="[0-9]*">
           <button class="btn" id="playback-plus" type="button">+</button>
         </div>
       </div>
