@@ -136,10 +136,84 @@ class NoopRecorderDevice implements RecorderDeviceInterface {
   }
 }
 
+class PlaybackSpeedControls {
+  private numerator: number = 1;
+  private denominator: number = 4;
+
+  private valueInput = document.getElementById("playback") as HTMLInputElement;
+  private minusButtom = document.getElementById("playback-minus");
+  private plusButton = document.getElementById("playback-plus");
+
+  constructor() {
+    this.valueInput?.addEventListener("change", this.setValue.bind(this));
+    this.minusButtom?.addEventListener("click", this.minus.bind(this));
+    this.plusButton?.addEventListener("click", this.plus.bind(this));
+    this.updateValueInput();
+  }
+
+  value(): number {
+    return this.numerator / this.denominator;
+  }
+
+  private updateValueInput(): void {
+    if (this.valueInput) {
+      this.valueInput.value = this.denominator === 1 ? this.numerator.toString() : `${this.numerator} / ${this.denominator}`;
+      console.log(`Playback speed set to ${this.value()}x`);
+    }
+  }
+
+  private setValue(event: Event): void {
+    if (!(event.target instanceof HTMLInputElement)) {
+      console.error("Invalid target for playback speed input.");
+      return;
+    }
+    const inputValue = event.target.value.trim();
+    const parts = inputValue.split("/").map(part => part.trim());
+    if (parts.length === 1) {
+      this.numerator = parseInt(parts[0], 10);
+      this.denominator = 1;
+    } else if (parts.length === 2) {
+      this.numerator = parseInt(parts[0], 10);
+      this.denominator = parseInt(parts[1], 10);
+    } else {
+      console.error("Invalid playback speed format. Use 'numerator' or 'numerator / denominator'.");
+      return;
+    }
+    if (this.denominator <= 0) {
+      console.error("Denominator must be greater than zero.");
+      this.denominator = 1; // Reset to a valid state
+    }
+    if (this.value() <= 0) {
+      console.error("Playback speed must be greater than zero.");
+      this.numerator = Math.abs(this.numerator);
+      this.denominator = Math.abs(this.denominator);
+    }
+    this.updateValueInput();
+  }
+
+  private minus(): void {
+    if (this.numerator === 1) {
+      this.denominator++;
+    } else {
+      this.numerator--;
+    }
+    this.updateValueInput();
+  }
+
+  private plus(): void {
+    if (this.denominator === 1) {
+      this.numerator++;
+    } else {
+      this.denominator--;
+    }
+    this.updateValueInput();
+  }
+}
+
 class RecorderController {
   recorder: RecorderDeviceInterface = new NoopRecorderDevice();
 
-  playbackSpeed: number = 1 / 4;
+  playbackSpeed: PlaybackSpeedControls = new PlaybackSpeedControls();
   audioUrl: string = "";
   audioElem: HTMLAudioElement = new Audio();
 
@@ -189,9 +263,9 @@ class RecorderController {
   play(): void {
     this.audioElem = new Audio();
     this.audioElem.src = this.audioUrl;
-    this.audioElem.playbackRate = this.playbackSpeed;
+    this.audioElem.playbackRate = this.playbackSpeed.value();
     this.audioElem.onended = this.stopPlaying.bind(this);
-    console.debug(`Starting playback at ${this.playbackSpeed}x speed.`);
+    console.debug(`Starting playback at ${this.playbackSpeed.value()}x speed.`);
     this.audioElem.play()
       .then(() => {
         console.debug("Playback started.");
