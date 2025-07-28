@@ -10,6 +10,7 @@ interface RecorderDeviceInterface {
 }
 
 class BrowserRecorderDevice implements RecorderDeviceInterface {
+  private stream: MediaStream = new MediaStream();
   private mediaRecorder: MediaRecorder | null = null;
   private state: State = State.UNKNOWN;
   private chunks: Blob[] = [];
@@ -21,16 +22,23 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
     }
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then(stream => {
-        this.mediaRecorder = new MediaRecorder(stream);
-        this.mediaRecorder.onstart = this.onStart.bind(this);
-        this.mediaRecorder.ondataavailable = this.onDataAvailable.bind(this);
-        this.mediaRecorder.onstop = this.onStop.bind(this);
-        this.state = State.STOPPED;
+        this.stream = stream;
+        this.reset();
         console.log("Microphone access granted.");
       })
       .catch(error => {
         console.error("Error accessing microphone:", error)
       });
+  }
+
+  reset() {
+    console.log("Resetting MediaRecorder...");
+    this.mediaRecorder = new MediaRecorder(this.stream);
+    this.mediaRecorder.onstart = this.onStart.bind(this);
+    this.mediaRecorder.ondataavailable = this.onDataAvailable.bind(this);
+    this.mediaRecorder.onstop = this.onStop.bind(this);
+    this.state = State.STOPPED;
+    console.log(`Recorder reset. State is now: ${this.state}`);
   }
 
   private onStart() {
@@ -46,7 +54,7 @@ class BrowserRecorderDevice implements RecorderDeviceInterface {
 
   private onStop() {
     console.log("MediaRecorder stopped.");
-    this.state = State.STOPPED;
+    this.reset();
     console.log(`State changed to: ${this.state}`);
   }
 
