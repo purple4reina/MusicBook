@@ -4,6 +4,7 @@ var State;
     State["UNKNOWN"] = "unknown";
     State["RECORDING"] = "recording";
     State["STOPPED"] = "stopped";
+    State["PLAYING"] = "playing";
 })(State || (State = {}));
 class BrowserRecorderDevice {
     constructor() {
@@ -196,6 +197,8 @@ class PlaybackSpeedControls {
 class RecorderController {
     constructor(recorder) {
         var _a, _b, _c, _d;
+        this.state = State.STOPPED;
+        this.nextState = State.RECORDING;
         this.recorder = new NoopRecorderDevice();
         this.playbackSpeed = new PlaybackSpeedControls();
         this.audioUrl = "";
@@ -209,6 +212,33 @@ class RecorderController {
         (_b = this.recordingIcon) === null || _b === void 0 ? void 0 : _b.addEventListener("click", this.stopRecording.bind(this));
         (_c = this.playIcon) === null || _c === void 0 ? void 0 : _c.addEventListener("click", this.play.bind(this));
         (_d = this.playingIcon) === null || _d === void 0 ? void 0 : _d.addEventListener("click", this.stopPlaying.bind(this));
+        document.addEventListener("keydown", (e) => {
+            if (e.key === " ") {
+                e.preventDefault(); // Prevent default spacebar behavior (scrolling)
+                if (this.state === State.RECORDING) {
+                    this.stopRecording();
+                }
+                else if (this.state === State.PLAYING) {
+                    this.stopPlaying();
+                }
+                else if (this.state === State.STOPPED) {
+                    if (this.nextState === State.RECORDING) {
+                        this.record();
+                    }
+                    else if (this.nextState === State.PLAYING) {
+                        this.play();
+                    }
+                }
+            }
+            else if (e.key === "ArrowRight") {
+                e.preventDefault(); // Prevent default behavior
+                this.playbackSpeed.plus();
+            }
+            else if (e.key === "ArrowLeft") {
+                e.preventDefault(); // Prevent default behavior
+                this.playbackSpeed.minus();
+            }
+        });
         this.showControls([this.recordIcon]);
     }
     record() {
@@ -216,6 +246,8 @@ class RecorderController {
             this.recorder.start()
                 .then(() => {
                 this.showControls([this.recordingIcon]);
+                this.state = State.RECORDING;
+                this.nextState = State.STOPPED;
                 resolve();
             })
                 .catch(error => {
@@ -229,6 +261,8 @@ class RecorderController {
                 .then(audioUrl => {
                 this.audioUrl = audioUrl;
                 this.showControls([this.playIcon, this.recordIcon]);
+                this.state = State.STOPPED;
+                this.nextState = State.PLAYING;
                 resolve();
             })
                 .catch(error => {
@@ -245,6 +279,8 @@ class RecorderController {
         this.audioElem.play()
             .then(() => {
             console.debug("Playback started.");
+            this.state = State.PLAYING;
+            this.nextState = State.STOPPED;
         })
             .catch(error => {
             console.error("Error starting playback:", error);
@@ -256,6 +292,8 @@ class RecorderController {
         this.audioElem.pause();
         console.debug("Playback stopped.");
         this.showControls([this.playIcon, this.recordIcon]);
+        this.state = State.STOPPED;
+        this.nextState = State.RECORDING;
     }
     showControls(activeIcons) {
         [this.recordIcon, this.recordingIcon, this.playIcon, this.playingIcon].forEach(icon => {

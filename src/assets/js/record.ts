@@ -2,6 +2,7 @@ enum State {
   UNKNOWN = "unknown",
   RECORDING = "recording",
   STOPPED = "stopped",
+  PLAYING = "playing",
 }
 
 interface RecorderDeviceInterface {
@@ -190,7 +191,7 @@ class PlaybackSpeedControls {
     return value;
   }
 
-  private minus(): void {
+  minus(): void {
     if (this.numerator === 1) {
       this.denominator++;
     } else {
@@ -199,7 +200,7 @@ class PlaybackSpeedControls {
     this.updateValueInput();
   }
 
-  private plus(): void {
+  plus(): void {
     if (this.denominator === 1) {
       this.numerator++;
     } else {
@@ -210,6 +211,9 @@ class PlaybackSpeedControls {
 }
 
 class RecorderController {
+  state: State = State.STOPPED;
+  nextState: State = State.RECORDING;
+
   recorder: RecorderDeviceInterface = new NoopRecorderDevice();
 
   playbackSpeed: PlaybackSpeedControls = new PlaybackSpeedControls();
@@ -229,6 +233,29 @@ class RecorderController {
     this.playIcon?.addEventListener("click", this.play.bind(this));
     this.playingIcon?.addEventListener("click", this.stopPlaying.bind(this));
 
+    document.addEventListener("keydown", (e) => {
+      if (e.key === " ") {
+        e.preventDefault(); // Prevent default spacebar behavior (scrolling)
+        if (this.state === State.RECORDING) {
+          this.stopRecording();
+        } else if (this.state === State.PLAYING) {
+          this.stopPlaying();
+        } else if (this.state === State.STOPPED) {
+          if (this.nextState === State.RECORDING) {
+            this.record();
+          } else if (this.nextState === State.PLAYING) {
+            this.play();
+          }
+        }
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault(); // Prevent default behavior
+        this.playbackSpeed.plus();
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault(); // Prevent default behavior
+        this.playbackSpeed.minus();
+      }
+    });
+
     this.showControls([this.recordIcon]);
   }
 
@@ -237,6 +264,8 @@ class RecorderController {
       this.recorder.start()
         .then(() => {
           this.showControls([this.recordingIcon]);
+          this.state = State.RECORDING;
+          this.nextState = State.STOPPED;
           resolve();
         })
         .catch(error => {
@@ -251,6 +280,8 @@ class RecorderController {
         .then(audioUrl => {
           this.audioUrl = audioUrl;
           this.showControls([this.playIcon, this.recordIcon]);
+          this.state = State.STOPPED;
+          this.nextState = State.PLAYING;
           resolve();
         })
         .catch(error => {
@@ -268,6 +299,8 @@ class RecorderController {
     this.audioElem.play()
       .then(() => {
         console.debug("Playback started.");
+        this.state = State.PLAYING;
+        this.nextState = State.STOPPED;
       })
       .catch(error => {
         console.error("Error starting playback:", error);
@@ -280,6 +313,8 @@ class RecorderController {
     this.audioElem.pause();
     console.debug("Playback stopped.");
     this.showControls([this.playIcon, this.recordIcon]);
+    this.state = State.STOPPED;
+    this.nextState = State.RECORDING;
   }
 
   private showControls(activeIcons: (HTMLElement | null)[]): void {
