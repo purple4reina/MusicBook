@@ -210,6 +210,144 @@ class PlaybackSpeedControls {
   }
 }
 
+class MetronomePlayer {
+  clickFrequency: number = 1000; // Frequency of the click sound in Hz
+  clickType: OscillatorType = "sine"; // sine, square, sawtooth, or triangle wave
+
+  isPlaying: boolean = false;
+  tempo: number = 60;
+  nextClickTime: number = 0;
+
+  private audioContext: AudioContext = new AudioContext();
+
+  private createClickSound() {
+    const oscillator = this.audioContext.createOscillator();
+    const gainNode = this.audioContext.createGain();
+
+    oscillator.type = this.clickType;
+    oscillator.frequency.setValueAtTime(this.clickFrequency, this.audioContext.currentTime);
+
+    // Create a quick decay for the click sound
+    gainNode.gain.setValueAtTime(1, this.audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + 0.05); // Rapid decay
+    gainNode.gain.setValueAtTime(1, this.audioContext.currentTime + 0.05);
+
+    oscillator.connect(gainNode);
+    gainNode.connect(this.audioContext.destination);
+
+    return oscillator;
+  }
+
+  private scheduleClick() {
+    while (this.nextClickTime < this.audioContext.currentTime + 0.1) { // Schedule slightly ahead
+      const click = this.createClickSound();
+      click.start(this.nextClickTime);
+      click.stop(this.nextClickTime + 0.05); // Stop after a short duration
+
+      this.nextClickTime += (60 / this.tempo); // Increment time for the next beat
+    }
+
+    if (this.isPlaying) {
+      requestAnimationFrame(this.scheduleClick.bind(this)); // Continuously schedule
+    }
+  }
+
+  startMetronome(tempo: number) {
+    if (!this.isPlaying) {
+      this.isPlaying = true;
+      this.tempo = tempo;
+      this.nextClickTime = this.audioContext.currentTime; // Start from current time
+      this.scheduleClick();
+    }
+  }
+
+  stopMetronome() {
+    this.isPlaying = false;
+  }
+}
+
+class MetronomeControls {
+  enabled: boolean = false;
+  bpm: number = 60;
+
+  private metronomePlayer: MetronomePlayer = new MetronomePlayer();
+
+  private clickEnabledCheckbox = document.getElementById("click-enabled") as HTMLInputElement;
+
+  private bpmValueInput = document.getElementById("bpm-val") as HTMLInputElement;
+  private bpmMinusButtom = document.getElementById("bpm-minus");
+  private bpmPlusButton = document.getElementById("bpm-plus");
+
+  private minBpm: number = 15;
+  private maxBpm: number = 300;
+
+  constructor() {
+    this.clickEnabledCheckbox?.addEventListener("change", this.enableMetronome.bind(this));
+
+    this.bpmValueInput?.addEventListener("change", this.setBpm.bind(this));
+    this.bpmMinusButtom?.addEventListener("click", this.minusBpm.bind(this));
+    this.bpmPlusButton?.addEventListener("click", this.plusBpm.bind(this));
+
+    this.updateValueInputs();
+  }
+
+  play(playbackSpeed: number): void {
+    if (!this.enabled) {
+      return;
+    }
+    console.debug(`Starting click track at ${this.bpm} BPM at ${playbackSpeed}x speed.`);
+    this.metronomePlayer.startMetronome(this.bpm * playbackSpeed);
+  }
+
+  stop(): void {
+    if (!this.enabled) {
+      return;
+    }
+    console.debug("Stopping click track.");
+    this.metronomePlayer.stopMetronome();
+  }
+
+  private enableMetronome(event: Event): void {
+    this.enabled = (event.target as HTMLInputElement).checked;
+    this.updateValueInputs();
+  }
+
+  private setBpm(event: Event): void {
+    const val = this.parseValue(event.target);
+    this.bpm = val !== null ? val : this.bpm;
+    this.updateValueInputs();
+  }
+
+  private parseValue(target: EventTarget | null): number | null {
+    if (!(target instanceof HTMLInputElement)) {
+      console.error("Invalid target for playback speed input.");
+      return null;
+    }
+    const value = parseInt(target.value.trim(), 10);
+    if (isNaN(value) || value < 0) {
+      console.error("Number must be a positive integer.");
+      return null;
+    }
+    return value;
+  }
+
+  private minusBpm(): void {
+    this.bpm--;
+    this.updateValueInputs();
+  }
+
+  private plusBpm(): void {
+    this.bpm++;
+    this.updateValueInputs();
+  }
+
+  private updateValueInputs(): void {
+    this.bpm = Math.max(this.minBpm, Math.min(this.maxBpm, this.bpm));
+    this.bpmValueInput.value = this.bpm.toString();
+    console.debug(`Metronome settings: Enabled=${this.enabled}, BPM=${this.bpm}.`);
+  }
+}
+
 class RecorderController {
   state: State = State.STOPPED;
   nextState: State = State.RECORDING;
@@ -217,6 +355,8 @@ class RecorderController {
   recorder: RecorderDeviceInterface = new NoopRecorderDevice();
 
   playbackSpeed: PlaybackSpeedControls = new PlaybackSpeedControls();
+  metronome: MetronomeControls = new MetronomeControls();
+
   audioUrl: string = "";
   audioElem: HTMLAudioElement = new Audio();
 
@@ -261,6 +401,7 @@ class RecorderController {
 
   record(): Promise<void> {
     return new Promise((resolve, reject) => {
+      this.metronome.play(1);
       this.recorder.start()
         .then(() => {
           this.showControls([this.recordingIcon]);
@@ -276,6 +417,7 @@ class RecorderController {
 
   stopRecording(): Promise<void> {
     return new Promise((resolve, reject) => {
+      this.metronome.stop();
       this.recorder.stop()
         .then(audioUrl => {
           this.audioUrl = audioUrl;
@@ -298,6 +440,7 @@ class RecorderController {
     console.debug(`Starting playback at ${this.playbackSpeed.value()}x speed.`);
     this.audioElem.play()
       .then(() => {
+        this.metronome.play(this.playbackSpeed.value());
         console.debug("Playback started.");
         this.state = State.PLAYING;
         this.nextState = State.STOPPED;
@@ -311,6 +454,7 @@ class RecorderController {
   stopPlaying(): void {
     console.debug("Stopping playback.");
     this.audioElem.pause();
+    this.metronome.stop();
     console.debug("Playback stopped.");
     this.showControls([this.playIcon, this.recordIcon]);
     this.state = State.STOPPED;
