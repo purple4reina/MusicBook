@@ -22,9 +22,6 @@ export default class Metronome {
   }
 
   getPlaybackStartTime(audioStartTime: number, playbackRate: number = 1.0): number {
-    // Scale latency compensation by playback rate
-    // At 2x speed, the recorded latency is compressed by 2x, so we need less compensation
-    // At 0.5x speed, the recorded latency is stretched by 2x, so we need more compensation
     const scaledCompensation = this.latency() / playbackRate;
     return audioStartTime - (scaledCompensation / 1000);
   }
