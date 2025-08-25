@@ -5,7 +5,7 @@ export default class Metronome {
   private audioContext: AudioContext;
 
   private clickHz: number = 1000;
-  private clickType: OscillatorType = "square";
+  private oscillatorType: OscillatorType = "square";
 
   private isPlaying: boolean = false;
   private tempo: number = 60;
@@ -46,7 +46,7 @@ export default class Metronome {
     const oscillator = this.audioContext.createOscillator();
     const gainNode = this.audioContext.createGain();
 
-    oscillator.type = this.clickType;
+    oscillator.type = this.oscillatorType;
     oscillator.frequency.setValueAtTime(this.clickHz, when);
 
     // Create a sharp click envelope

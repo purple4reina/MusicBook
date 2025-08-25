@@ -3,7 +3,7 @@ import plusMinusControls from "./plus-minus-controls.js";
 export default class Metronome {
     constructor(audioContext) {
         this.clickHz = 1000;
-        this.clickType = "square";
+        this.oscillatorType = "square";
         this.isPlaying = false;
         this.tempo = 60;
         this.nextClickTime = 0;
@@ -46,7 +46,7 @@ export default class Metronome {
     createClickSound(when) {
         const oscillator = this.audioContext.createOscillator();
         const gainNode = this.audioContext.createGain();
-        oscillator.type = this.clickType;
+        oscillator.type = this.oscillatorType;
         oscillator.frequency.setValueAtTime(this.clickHz, when);
         // Create a sharp click envelope
         gainNode.gain.setValueAtTime(0, when);
