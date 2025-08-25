@@ -37,19 +37,15 @@ class WebAudioRecorderController {
                 if (this.audioContext.state === "suspended") {
                     yield this.audioContext.resume();
                 }
-                // IMPORTANT: Reset recorder to prevent timing accumulation
                 yield this.recorder.reset();
-                // Stop any ongoing metronome to prevent timing drift
                 this.metronome.stop();
-                // Small delay to ensure clean state
                 yield new Promise(resolve => setTimeout(resolve, 100));
-                this.recorder.start();
-                // Start metronome at the exact same time with fresh timing
+                // Start metronome immediately if enabled (for count-off and recording)
                 if (this.metronome.enabled()) {
-                    // Get a fresh current time reference
                     const startTime = this.audioContext.currentTime;
                     this.metronome.start(startTime, 1);
                 }
+                setTimeout(() => this.recorder.start(), this.metronome.countOffMs());
                 this.playRecordControls.markRecording();
             }
             catch (error) {

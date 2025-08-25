@@ -12,10 +12,12 @@ export default class Metronome {
   private nextClickTime: number = 0;
   private scheduleLookahead: number = 25.0; // Look ahead 25ms
   private scheduleInterval: number = 25.0; // Schedule every 25ms
+  private countOffAllowance: number = 100; // Allow 100ms before the first click
 
   public enabled = boolSwitchControls("click-enabled");
   public bpm = plusMinusControls("bpm", { initial: 60, min: 15, max: 300 });
   public latency = plusMinusControls("latency", { initial: -75, min: -500, max: 500 });
+  public countOff = plusMinusControls("count-off", { initial: 0, min: 0, max: 8 });
 
   constructor(audioContext: AudioContext) {
     this.audioContext = audioContext;
@@ -23,7 +25,20 @@ export default class Metronome {
 
   getPlaybackStartTime(audioStartTime: number, playbackRate: number = 1.0): number {
     const scaledCompensation = this.latency() / playbackRate;
-    return audioStartTime - (scaledCompensation / 1000);
+    let startTime = audioStartTime - (scaledCompensation / 1000);
+    if (this.countOff() > 0) {
+      startTime += (this.countOffAllowance / playbackRate / 1000);
+    }
+    return startTime;
+  }
+
+  countOffMs(): number {
+    if (!this.enabled() || this.countOff() <= 0) {
+      return 0;
+    }
+    // Calculate the count-off duration in milliseconds
+    // Minus 100ms to ensure recording starts before the first click
+    return this.countOff() / this.bpm() * 60 * 1000 - this.countOffAllowance;
   }
 
   private createClickSound(when: number): void {
