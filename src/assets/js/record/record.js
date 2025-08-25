@@ -76,7 +76,6 @@ class WebAudioRecorderController {
         });
         if (this.metronome.enabled()) {
             // Apply latency compensation scaled by playback rate
-            const scaledCompensation = this.metronome.latency() / this.playbackSpeed();
             const compensatedStartTime = this.metronome.getPlaybackStartTime(startTime, this.playbackSpeed());
             this.metronome.start(compensatedStartTime, this.playbackSpeed());
         }
