@@ -52,11 +52,21 @@
                 <button class="btn" id="bpm-plus" type="button">+</button>
               </div>
             </div>
+            <div class="row">
+              <div class="col-5">
+                Latency Compensation:
+              </div>
+              <div class="col input-group">
+                <button class="btn" id="latency-minus" type="button">-</button>
+                <input type="text" class="form-control" id="latency-val" value="0" pattern=[0-9]*">
+                <button class="btn" id="latency-plus" type="button">+</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <script src="src/assets/js/record.js"></script>
+    <script src="src/assets/js/record/record.js" type="module"></script>
   </body>
 </html>
