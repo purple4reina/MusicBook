@@ -5,6 +5,7 @@ export default class Metronome {
   private audioContext: AudioContext;
 
   private clickHz: number = 1000;
+  private offbeatHz: number = 800;
   private oscillatorType: OscillatorType = "square";
 
   private isPlaying: boolean = false;
@@ -19,6 +20,7 @@ export default class Metronome {
   public latency = plusMinusControls("latency", { initial: -75, min: -500, max: 500 });
   public countOff = plusMinusControls("count-off", { initial: 0, min: 0, max: 8 });
   private volume = plusMinusControls("click-volume", { initial: 1.0, min: 0, max: 10 });
+  private subdivisions = plusMinusControls("subdivisions", { initial: 1, min: 1, max: 16 });
 
   constructor(audioContext: AudioContext) {
     this.audioContext = audioContext;
@@ -42,23 +44,35 @@ export default class Metronome {
     return this.countOff() / this.bpm() * 60 * 1000 - this.countOffAllowance;
   }
 
+  private click(oscillator: OscillatorNode, gainNode: GainNode, hz: number, when: number): void {
+    oscillator.frequency.setValueAtTime(hz, when);
+    gainNode.gain.setValueAtTime(0, when);
+    gainNode.gain.linearRampToValueAtTime(this.volume(), when + 0.001);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, when + 0.05);
+    oscillator.frequency.setValueAtTime(0, when + 0.05);
+  }
+
   private createClickSound(when: number): void {
     const oscillator = this.audioContext.createOscillator();
     const gainNode = this.audioContext.createGain();
 
     oscillator.type = this.oscillatorType;
-    oscillator.frequency.setValueAtTime(this.clickHz, when);
 
-    // Create a sharp click envelope
-    gainNode.gain.setValueAtTime(0, when);
-    gainNode.gain.linearRampToValueAtTime(this.volume(), when + 0.001);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, when + 0.05);
+    // main click
+    let stopWhen = when
+    this.click(oscillator, gainNode, this.clickHz, when);
+    // subdivision clicks
+    for (let i = 1; i < this.subdivisions(); i++) {
+      const subWhen = when + (i * (60 / this.tempo) / this.subdivisions());
+      this.click(oscillator, gainNode, this.offbeatHz, subWhen);
+      stopWhen = subWhen;
+    }
 
     oscillator.connect(gainNode);
     gainNode.connect(this.audioContext.destination);
 
     oscillator.start(when);
-    oscillator.stop(when + 0.05);
+    oscillator.stop(stopWhen + 0.05);
   }
 
   private scheduler = (): void => {
