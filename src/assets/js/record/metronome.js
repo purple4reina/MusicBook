@@ -3,7 +3,7 @@ import plusMinusControls from "./plus-minus-controls.js";
 export default class Metronome {
     constructor(audioContext) {
         this.clickHz = 1000;
-        this.clickType = "sine";
+        this.clickType = "square";
         this.isPlaying = false;
         this.tempo = 60;
         this.nextClickTime = 0;
@@ -14,6 +14,7 @@ export default class Metronome {
         this.bpm = plusMinusControls("bpm", { initial: 60, min: 15, max: 300 });
         this.latency = plusMinusControls("latency", { initial: -75, min: -500, max: 500 });
         this.countOff = plusMinusControls("count-off", { initial: 0, min: 0, max: 8 });
+        this.volume = plusMinusControls("click-volume", { initial: 1.0, min: 0, max: 10 });
         this.scheduler = () => {
             // Schedule clicks that fall within our lookahead window
             while (this.nextClickTime < this.audioContext.currentTime + (this.scheduleLookahead / 1000)) {
@@ -49,7 +50,7 @@ export default class Metronome {
         oscillator.frequency.setValueAtTime(this.clickHz, when);
         // Create a sharp click envelope
         gainNode.gain.setValueAtTime(0, when);
-        gainNode.gain.linearRampToValueAtTime(0.3, when + 0.001);
+        gainNode.gain.linearRampToValueAtTime(this.volume(), when + 0.001);
         gainNode.gain.exponentialRampToValueAtTime(0.001, when + 0.05);
         oscillator.connect(gainNode);
         gainNode.connect(this.audioContext.destination);

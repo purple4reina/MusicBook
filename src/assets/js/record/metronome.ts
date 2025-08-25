@@ -5,7 +5,7 @@ export default class Metronome {
   private audioContext: AudioContext;
 
   private clickHz: number = 1000;
-  private clickType: OscillatorType = "sine";
+  private clickType: OscillatorType = "square";
 
   private isPlaying: boolean = false;
   private tempo: number = 60;
@@ -18,6 +18,7 @@ export default class Metronome {
   public bpm = plusMinusControls("bpm", { initial: 60, min: 15, max: 300 });
   public latency = plusMinusControls("latency", { initial: -75, min: -500, max: 500 });
   public countOff = plusMinusControls("count-off", { initial: 0, min: 0, max: 8 });
+  private volume = plusMinusControls("click-volume", { initial: 1.0, min: 0, max: 10 });
 
   constructor(audioContext: AudioContext) {
     this.audioContext = audioContext;
@@ -50,7 +51,7 @@ export default class Metronome {
 
     // Create a sharp click envelope
     gainNode.gain.setValueAtTime(0, when);
-    gainNode.gain.linearRampToValueAtTime(0.3, when + 0.001);
+    gainNode.gain.linearRampToValueAtTime(this.volume(), when + 0.001);
     gainNode.gain.exponentialRampToValueAtTime(0.001, when + 0.05);
 
     oscillator.connect(gainNode);
