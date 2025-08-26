@@ -5,12 +5,14 @@ export default class Metronome {
   private audioContext: AudioContext;
 
   private clickHz: number = 1000;
-  private offbeatHz: number = 800;
+  private offbeatHz: number = 750;
   private oscillatorType: OscillatorType = "square";
+
+  private nextClickTime: number = 0;
+  private nextClickSubdivision: number = 0;
 
   private isPlaying: boolean = false;
   private tempo: number = 60;
-  private nextClickTime: number = 0;
   private scheduleLookahead: number = 25.0; // Look ahead 25ms
   private scheduleInterval: number = 25.0; // Schedule every 25ms
   private countOffAllowance: number = 100; // Allow 100ms before the first click
@@ -45,41 +47,34 @@ export default class Metronome {
   }
 
   private click(oscillator: OscillatorNode, gainNode: GainNode, hz: number, when: number): void {
-    oscillator.frequency.setValueAtTime(hz, when);
-    gainNode.gain.setValueAtTime(0, when);
-    gainNode.gain.linearRampToValueAtTime(this.volume(), when + 0.001);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, when + 0.05);
-    oscillator.frequency.setValueAtTime(0, when + 0.05);
   }
 
-  private createClickSound(when: number): void {
+  private createClickSound(when: number, clickHz: number): void {
     const oscillator = this.audioContext.createOscillator();
     const gainNode = this.audioContext.createGain();
 
     oscillator.type = this.oscillatorType;
+    oscillator.frequency.setValueAtTime(clickHz, when);
 
-    // main click
-    let stopWhen = when
-    this.click(oscillator, gainNode, this.clickHz, when);
-    // subdivision clicks
-    for (let i = 1; i < this.subdivisions(); i++) {
-      const subWhen = when + (i * (60 / this.tempo) / this.subdivisions());
-      this.click(oscillator, gainNode, this.offbeatHz, subWhen);
-      stopWhen = subWhen;
-    }
+    // Create a sharp click envelope
+    gainNode.gain.setValueAtTime(0, when);
+    gainNode.gain.linearRampToValueAtTime(this.volume(), when + 0.001);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, when + 0.05);
 
     oscillator.connect(gainNode);
     gainNode.connect(this.audioContext.destination);
 
     oscillator.start(when);
-    oscillator.stop(stopWhen + 0.05);
+    oscillator.stop(when + 0.05);
   }
 
   private scheduler = (): void => {
     // Schedule clicks that fall within our lookahead window
     while (this.nextClickTime < this.audioContext.currentTime + (this.scheduleLookahead / 1000)) {
-      this.createClickSound(this.nextClickTime);
-      this.nextClickTime += (60 / this.tempo);
+      const clickHz = this.nextClickSubdivision % this.subdivisions() === 0 ? this.clickHz : this.offbeatHz;
+      this.createClickSound(this.nextClickTime, clickHz);
+      this.nextClickTime += this.tempo;
+      this.nextClickSubdivision++;
     }
 
     if (this.isPlaying) {
@@ -88,14 +83,16 @@ export default class Metronome {
   };
 
   start(startTime: number = this.audioContext.currentTime, playbackRate: number): void {
-    this.tempo = this.bpm() * playbackRate;
+    const delay = this.isPlaying ? this.tempo : 0;
     if (this.isPlaying) {
       this.stop();
     }
-    const delay = this.isPlaying ? 0 : 10;
+
+    this.tempo = 60 / (this.bpm() * this.subdivisions() * playbackRate);
     setTimeout(() => {
       this.isPlaying = true;
       this.nextClickTime = startTime;
+      this.nextClickSubdivision = 0;
       this.scheduler();
     }, delay);
   }

@@ -3,11 +3,12 @@ import plusMinusControls from "./plus-minus-controls.js";
 export default class Metronome {
     constructor(audioContext) {
         this.clickHz = 1000;
-        this.offbeatHz = 800;
+        this.offbeatHz = 750;
         this.oscillatorType = "square";
+        this.nextClickTime = 0;
+        this.nextClickSubdivision = 0;
         this.isPlaying = false;
         this.tempo = 60;
-        this.nextClickTime = 0;
         this.scheduleLookahead = 25.0; // Look ahead 25ms
         this.scheduleInterval = 25.0; // Schedule every 25ms
         this.countOffAllowance = 100; // Allow 100ms before the first click
@@ -20,8 +21,10 @@ export default class Metronome {
         this.scheduler = () => {
             // Schedule clicks that fall within our lookahead window
             while (this.nextClickTime < this.audioContext.currentTime + (this.scheduleLookahead / 1000)) {
-                this.createClickSound(this.nextClickTime);
-                this.nextClickTime += (60 / this.tempo);
+                const clickHz = this.nextClickSubdivision % this.subdivisions() === 0 ? this.clickHz : this.offbeatHz;
+                this.createClickSound(this.nextClickTime, clickHz);
+                this.nextClickTime += this.tempo;
+                this.nextClickSubdivision++;
             }
             if (this.isPlaying) {
                 setTimeout(this.scheduler, this.scheduleInterval);
@@ -46,39 +49,31 @@ export default class Metronome {
         return this.countOff() / this.bpm() * 60 * 1000 - this.countOffAllowance;
     }
     click(oscillator, gainNode, hz, when) {
-        oscillator.frequency.setValueAtTime(hz, when);
-        gainNode.gain.setValueAtTime(0, when);
-        gainNode.gain.linearRampToValueAtTime(this.volume(), when + 0.001);
-        gainNode.gain.exponentialRampToValueAtTime(0.001, when + 0.05);
-        oscillator.frequency.setValueAtTime(0, when + 0.05);
     }
-    createClickSound(when) {
+    createClickSound(when, clickHz) {
         const oscillator = this.audioContext.createOscillator();
         const gainNode = this.audioContext.createGain();
         oscillator.type = this.oscillatorType;
-        // main click
-        let stopWhen = when;
-        this.click(oscillator, gainNode, this.clickHz, when);
-        // subdivision clicks
-        for (let i = 1; i < this.subdivisions(); i++) {
-            const subWhen = when + (i * (60 / this.tempo) / this.subdivisions());
-            this.click(oscillator, gainNode, this.offbeatHz, subWhen);
-            stopWhen = subWhen;
-        }
+        oscillator.frequency.setValueAtTime(clickHz, when);
+        // Create a sharp click envelope
+        gainNode.gain.setValueAtTime(0, when);
+        gainNode.gain.linearRampToValueAtTime(this.volume(), when + 0.001);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, when + 0.05);
         oscillator.connect(gainNode);
         gainNode.connect(this.audioContext.destination);
         oscillator.start(when);
-        oscillator.stop(stopWhen + 0.05);
+        oscillator.stop(when + 0.05);
     }
     start(startTime = this.audioContext.currentTime, playbackRate) {
-        this.tempo = this.bpm() * playbackRate;
+        const delay = this.isPlaying ? this.tempo : 0;
         if (this.isPlaying) {
             this.stop();
         }
-        const delay = this.isPlaying ? 0 : 10;
+        this.tempo = 60 / (this.bpm() * this.subdivisions() * playbackRate);
         setTimeout(() => {
             this.isPlaying = true;
             this.nextClickTime = startTime;
+            this.nextClickSubdivision = 0;
             this.scheduler();
         }, delay);
     }
