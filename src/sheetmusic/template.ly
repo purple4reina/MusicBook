@@ -15,14 +15,11 @@
   }
 }
 
-\paper {
-  print-all-headers = ##t
-}
-
 \markup \vspace #1  % extra space after title
 
 \score {
   \transpose c c' {
+    \compressEmptyMeasures
     \clef treble
     \key c \major
   }
