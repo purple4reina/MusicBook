@@ -12,6 +12,7 @@
   \context {
     \Score
     \omit BarNumber
+    \override Hairpin.to-barline = ##f
   }
 }
 
