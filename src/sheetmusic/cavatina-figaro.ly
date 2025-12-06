@@ -2,7 +2,7 @@
   title      = "Cavatina Figaro"
   subtitle   = "The Barber of Seville, Act I, no. 2"
   composer   = "Rossini"
-  instrument = "Clarinet in C"
+  instrument = "Clarinet in Bb"
   copyright  = #(strftime "transcribed by Rey Abolofia, %h %Y" (localtime (current-time)))
   tagline    = ##f
 }
@@ -20,7 +20,7 @@
 \markup \vspace #1  % extra space after title
 
 \score {
-  \transpose c c' {
+  \transpose bes c'' {
     \compressEmptyMeasures
     \clef treble
     \key c \major
