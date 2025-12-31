@@ -22,9 +22,10 @@ Youth Philharmonic and the Metropolitan Youth Symphony, receive performance
 based scholarships, pursue music at the college level, and compete in the
 Oregon State Solo Contest.
 
-Rey has appeared in recitals throughout the United States and in Europe. He
-currently performs in and around Portland with the Mozart Trio, the Rose City
-Gay Freedom Band, and Classical Revolution PDX.
+Rey has appeared in recitals throughout the United States, Europe, and Africa.
+He currently performs in and around Portland with the Sunnyside Symphony
+Orchestra, Salem Philharmonia Orchestra, the Rose City Wind Symphony, and
+Mozart Trio.
 
 As well as performing and teaching, Rey has pursued graduate studies in music.
 His research has focused on the history of early music, particularly vocal
