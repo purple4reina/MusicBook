@@ -17,8 +17,14 @@
 
 \markup \vspace #1  % extra space after title
 
+showBarNumber = \once {
+  \override Score.BarNumber.break-visibility = #all-visible
+  \override Score.BarNumber.direction = #DOWN
+}
+
 \score {
-  \transpose a c'' {
+  %\transpose a c'' {
+  \transpose c c' {
     \compressEmptyMeasures
     \clef treble
     \key e \major
@@ -31,21 +37,21 @@
     b2 \> dis'4
     e'4 \p r r
     R2.*2
-    dis'2.
+    dis'2. \p
     (cis'4) r r
     r8 e' (dis' cis' b a)
-
-    \break  % 13
-
     gis4 (a fis)
-    e'2. \sf
-    e'2. \sf
-    e'2. \sf
+
+    \break  % 14
+
+    e'2. \f
     e'2.
     e'2.
     e'2.
     e'2.
-    e'2. ^\markup{ \bold Calando } (
+    e'2.
+    e'2.
+    e'2. ^\markup{ \bold calando } (
     \once \override Hairpin.shorten-pair = #'(0 . 8)
     dis'2.) \> <>\!
 
@@ -59,18 +65,20 @@
     (g1)
     b1
     (b2) r
-    R1*9
+    R1*7
+    \mark \default \showBarNumber  % A 38
+    R1*2
     a'1 \f
     (a'1)
     g'4 r r2
     r1
-
-    \break  % 44
-
     gis'1
     ~gis'1
-    a'2 g'
+    a'2 g'!
     fis'2 e'
+
+    \break  % 48
+
     dis'4 r r2
     e'1
     ~e'1
@@ -98,8 +106,10 @@
 
     a'4 a'2 a'4
     ~a'4 a' a' a'
+    a'4 a' a' a'
     a'4 r r2
     R1*5
+    \mark \default \showBarNumber  % B 76
     d'1 \p ^\markup { \italic "Solo" }
     ~d'2 e'4 fis'
     g'1
@@ -108,7 +118,7 @@
     ~e'4 d' c' b
     a1 ~
 
-    \break  % 82
+    \break  % 83
 
     a4 r r d
     d'1
@@ -123,7 +133,7 @@
     fis1
     g4 r e'2 ~
 
-    \break  % 94
+    \break  % 95
 
     e'2 fis'4 g'
     g'4 d'2 d'4
@@ -132,13 +142,14 @@
     c'2 bes
     g2 b!
     ~b2 a
+    \mark \default \showBarNumber
     g4 r r2
     r2 r4 b4 \f
     c'4 b r2
     r2 r4 b
     e'4 d' r2
 
-    \break  % 106
+    \break  % 107
 
     r1
     bes1
@@ -152,7 +163,7 @@
     dis'4 r r fis'
     e'4 dis' cis' b
 
-    \break  % 117
+    \break  % 118
 
     ais2 ~ais
     ~ais2 b4 cis'
@@ -166,11 +177,12 @@
     ~fis'1 \cresc
     g'1
 
-    \break  % 128
+    \break  % 129
 
     a'1
     ~a'2 g'
     ~g'2 fis'
+    \mark \default \showBarNumber
     g'2 \f r2
     r2 r4 b \f
     a4 (b) r2
@@ -190,13 +202,14 @@
     g4 g8 fis g fis g fis
     g8 fis g8 fis g8 fis g8 fis
     g4 d' r2
-    r1
+    r1 ^\markup { "G.P." }
 
-    \break  % 147
+    \break  % 148
 
     aes4 aes' r2
-    r1
+    r1 ^\markup { "G.P." }
     \bar "||"
+    \mark \default \showBarNumber  % E 150
     \key c \minor
     R1*4
     c'1 \p
@@ -211,13 +224,14 @@
     bes1
     ~bes1 (
 
-    \break  % 164
+    \break  % 165
 
     a1)
     bes4 r r2
     R1*7
     \bar "||"
     \key c \major
+    \mark \default \showBarNumber  % F 174
     R1*2
     r2 r4 g
     aes2 g4 f
@@ -227,7 +241,7 @@
     ~e4 e e e
     e4 r r2
 
-    \break  % 182
+    \break  % 183
 
     R1*11
     cis'2 e' \<
@@ -243,13 +257,14 @@
     ~b2 b
     ~b4 r b2 ~
 
-    \break  %205
+    \break  %206
 
     b4 b b b
     b2 b
     ~b2 ais
     \bar "||"
     \key e \minor
+    \mark \default \showBarNumber  % G 209
     b4 \f r r2
     r1
     cis''2. \f ais'4
@@ -257,7 +272,7 @@
     d'4 r r2
     r1
 
-    \break  % 214
+    \break  % 215
 
     b'2. \f gis'4
     e'4 fis' e' d'
@@ -268,7 +283,7 @@
     b4 d' c' b
     a4 c' b a
 
-    \break  % 222
+    \break  % 223
 
     g4 b a g
     fis4 g fis e
@@ -282,23 +297,26 @@
     dis'4 r r2
     R1*7
 
-    \break  % 240
+    \break  % 241
 
     r1 \fermata
     r2 \fermata r4 r
+    \mark \default \showBarNumber  % H 243
     R1*4
     r2 fis \p
     (g1)
     b1
     ~b2 r
-    R1*9
+    R1*7
+    \mark "I" \showBarNumber  % I 258
+    R1*2
     a'1 \sf
     ~a'1
     g'4 r r2
     r1
     a'1 \sf ~
 
-    \break  % 264
+    \break  % 265
 
     a'1
     g'1
@@ -317,8 +335,9 @@
     ~dis'4 r r2 \fermata
 
     \bar "||"
+    \mark \default  % J 280
     \key e \major
-    \break  % 279
+    \break  % 280
 
     R1*8
     r2 r4 b, \p ^\markup { \italic "Solo" }
@@ -332,7 +351,7 @@
     R1*4
 
     \pageBreak
-    \break  % 299
+    \break  % 300
 
     r2 b'
     ~b'2 a'
@@ -340,11 +359,12 @@
     fis'2 e'
     e'2 gis'!
     ~gis'2 fis'
+    \mark \default \showBarNumber  % K 306
     e'4 r r2
     r2 r4 gis \f
     a4 (gis) r2
 
-    \break  % 308
+    \break  % 309
 
     r2 r4 b
     cis'4 (b) r2
@@ -357,7 +377,7 @@
     r4 b2 b4
     c'4 (b) r2
 
-    \break  % 318
+    \break  % 319
 
     r1
     e'1 \ff
@@ -368,12 +388,13 @@
     ~e'1
     ~e'1 ~
 
-    \break  % 326
+    \break  % 327
 
     e'2 e'
     ~e'2 e'
     gis'!1
     fis'1
+    \mark \default \showBarNumber  % L 331
     e'4 r r2
     R1*7
     gis1 \cresc
@@ -382,7 +403,7 @@
     gis4 e \f fis gis
     a4 b cis' dis'
 
-    \break  % 343
+    \break  % 344
 
     \after 2 \sf e'1 \ff
     e'1 \sf
@@ -397,7 +418,8 @@
     e'1
     dis'1
 
-    \break  % 355
+    \break  % 356
+    \mark \default  % M 356
 
     e'1
     e'1
@@ -409,7 +431,7 @@
     e'1
     ~e'1
 
-    \break  % 364
+    \break  % 365
 
     e'1
     dis'1
@@ -420,7 +442,7 @@
     b4 e8 e e4 e
     e4 e e e
 
-    \break  % 372
+    \break  % 373
 
     e4 r e r
     gis4 r b r
