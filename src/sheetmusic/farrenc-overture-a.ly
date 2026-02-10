@@ -23,8 +23,7 @@ showBarNumber = \once {
 }
 
 \score {
-  %\transpose a c'' {
-  \transpose c c' {
+  \transpose a c'' {
     \compressEmptyMeasures
     \clef treble
     \key e \major
@@ -131,7 +130,7 @@ showBarNumber = \once {
     a2 r
     d2 e
     fis1
-    g4 r e'2 ~
+    g4 r e'2 ^\markup { \italic "Solo" } ~
 
     \break  % 95
 
@@ -140,7 +139,7 @@ showBarNumber = \once {
     ~d'4 d'2 c'4
     bes1
     c'2 bes
-    g2 b!
+    b!2 b
     ~b2 a
     \mark \default \showBarNumber
     g4 r r2
@@ -165,7 +164,7 @@ showBarNumber = \once {
 
     \break  % 118
 
-    ais2 ~ais
+    ais1
     ~ais2 b4 cis'
     dis'2 r4 fis'
     e'4 dis' cis' b
@@ -193,9 +192,9 @@ showBarNumber = \once {
     r4 d' c' b
 
     \pageBreak
-    \break  % 139
+    \break  % 140
 
-    a4 g r2
+    a4 (g) r2
     r4 d' c' b
     e'4 b c' gis
     a4 eis fis d
@@ -212,29 +211,29 @@ showBarNumber = \once {
     \mark \default \showBarNumber  % E 150
     \key c \minor
     R1*4
-    c'1 \p
-    ~c'2 d'4 es'
-    f'1
-    ~f'2 aes
+    c'!1 \p
+    ~c'2 d'4 es'!
+    f'!1
+    ~f'2 aes!
     aes1
     ~aes1
     ~aes1
     ~aes1
-    g1
-    bes1
+    g!1
+    bes!1
     ~bes1 (
 
     \break  % 165
 
     a1)
-    bes4 r r2
+    bes!4 r r2
     R1*7
     \bar "||"
     \key c \major
     \mark \default \showBarNumber  % F 174
     R1*2
     r2 r4 g
-    aes2 g4 f
+    aes2 \p (g4 f)
     e2. \cresc f4
     e4 f e f
     e1 \f
@@ -243,16 +242,16 @@ showBarNumber = \once {
 
     \break  % 183
 
-    R1*11
-    cis'2 e' \<
+    R1*11 \showBarNumber
+    cis'2 \p e'
     d'2 e'
-    fis'2 g' \!
-    f'1
+    f'2 g' \!
+    f'1 \p
     ~f'1 \<
     f'1
     f'1 \!
-    r2 b
-    ~b2 \cresc b2
+    r2 b \cresc
+    ~b2 b2
     ~b4 r b2
     ~b2 b
     ~b4 r b2 ~
@@ -260,14 +259,14 @@ showBarNumber = \once {
     \break  %206
 
     b4 b b b
-    b2 b
+    b4 r b2
     ~b2 ais
     \bar "||"
     \key e \minor
     \mark \default \showBarNumber  % G 209
     b4 \f r r2
     r1
-    cis''2. \f ais'4
+    cis''2. ais'4
     fis'4 g' fis' e'
     d'4 r r2
     r1
@@ -310,7 +309,7 @@ showBarNumber = \once {
     R1*7
     \mark "I" \showBarNumber  % I 258
     R1*2
-    a'1 \sf
+    a'1 \f
     ~a'1
     g'4 r r2
     r1
@@ -366,7 +365,7 @@ showBarNumber = \once {
 
     \break  % 309
 
-    r2 r4 b
+    r2 r4 gis
     cis'4 (b) r2
     r1
     g'1
@@ -397,23 +396,23 @@ showBarNumber = \once {
     \mark \default \showBarNumber  % L 331
     e'4 r r2
     R1*7
-    gis1 \cresc
+    gis1 \p \cresc
     ~gis
     fis1
-    gis4 e \f fis gis
+    gis4 e \f \< fis gis
     a4 b cis' dis'
 
     \break  % 344
 
-    \after 2 \sf e'1 \ff
+    e'1 \ff
     e'1 \sf
     e'1 \sf
     e'1 \sf
     e'1 \sf
-    e'1
-    e'1
-    e'1
-    e'1
+    e'1 \sf
+    e'1 \sf
+    e'1 \sf
+    e'1 \sf
     ~e'1
     e'1
     dis'1
@@ -421,14 +420,14 @@ showBarNumber = \once {
     \break  % 356
     \mark \default  % M 356
 
-    e'1
-    e'1
-    e'1
-    e'1
-    e'1
-    e'1
-    e'1
-    e'1
+    e'1 \sf
+    e'1 \sf
+    e'1 \sf
+    e'1 \sf
+    e'1 \sf
+    e'1 \sf
+    e'1 \sf
+    e'1 \sf
     ~e'1
 
     \break  % 365
@@ -438,7 +437,7 @@ showBarNumber = \once {
     e'1
     e'1
     e'1
-    b1
+    e'1
     b4 e8 e e4 e
     e4 e e e
 
