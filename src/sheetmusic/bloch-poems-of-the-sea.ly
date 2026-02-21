@@ -249,6 +249,98 @@
   }
 }
 
-%\markup { "VS" }
+\markup \vspace #2  % extra space after title
+\score {
+  \header {
+    title      = "II. Chanty"
+    subtitle   = #f
+    composer   = #f
+    instrument = #f
+  }
+  \transpose c c' {
+    \compressEmptyMeasures
+    \clef treble
+    \key a \major
+    \time 3/4
+    \tempo "Andante misterioso"
+    \markBoxNum
+
+    R2.*2
+    r4 fis2 \p
+    ~fis2 ~fis8 r
+    fis2 \< ~fis8 \! \txtDown "poco" r
+    fis2 \> r4 \!
+    a2. \mp \> <>\!
+
+    \break
+
+    b2 \txtDown "dim" ~b8 r
+    fis2. ~ \txtDown "rit"
+    \mark \default  % 1
+    fis2 \> \fermata r4 \txtUp "a tempo" \!
+    R2.*9
+
+    \break
+    \bar "||"
+    \time 4/4
+
+    r2 \fermata r4
+    \mark \default  % 2
+    \bar "||"
+    \key b \major
+    r4 \txtUp "(in the character of a folk song)"
+    \bar "||"
+    \time 3/4
+    R2.*6
+    \bar "||"
+    \time 4/4
+    r2 r4
+    \mark \default  % 3
+    \bar "||"
+    \key e \major
+    r4
+
+    \break
+    \time 3/4
+
+    R2.
+    r4 \mf a4-- \< (b--
+    ~b4 \txtUp "poco rit" \> gis8) \! r r4
+    R2. ^\markup { \italic "                a tempo" }
+    r4 r fis'8 \< (gis'
+    a'2.) \f \> <>\!
+
+    \break
+    \bar "||"
+    \time 4/4
+
+    R1*2
+    \mark \default  % 4
+    \bar "||"
+    \key a \major
+    \time 3/4
+    fis,2. \mp
+    fis,2 \> <>\! \fermata r4 \fermata
+    R2.*3
+
+    \break
+
+    R2. _\markup { \italic "poco rit" }
+    \mark \default  % 5
+    r4 \txtUp "a tempo" fis2 \p
+    ~fis2 ~fis8 r \txtUp "poco rit"
+    fis2 \< ~fis8 \txtDown "poco" \! r
+    fis2 \> r4 \! \txtUp "a tempo"
+    a2. \mp
+
+    \break
+
+    b2 \txtDown "dim" ~b8 r
+    fis2.
+    ~fis2 \> \fermata r4 \! \fermata
+    \bar "|."
+    \stopStaff s_\markup { \italic "V.S." }
+  }
+}
 
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.
