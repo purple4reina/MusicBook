@@ -20,14 +20,14 @@
   system-system-spacing = #'(
     (basic-distance   . 12)
     (minimum-distance .  8)
-    (padding          .  4)
+    (padding          .  3.5)
     (stretchability   . 60)
   )
 }
 
 \include "common.ly"
 
-\markup \vspace #2  % extra space after title
+\markup \vspace #1  % extra space after title
 \score {
   \header {
     title      = "I. Waves"
@@ -48,21 +48,21 @@
     \t{ g8 \txtDown "poco cresc" (des c } \t{ g8 des c } \t{ g8 des c }
     \t{ g8) r r } r4 r
 
-    \break
+    %\break
 
     \t{ g8 (des c } \t{ g8 \> des c } \t{ g8 des c \! }
     \t{ bes8) r r } r4 r
     \t{ aes8-- \< (des c \! } \t{ aes8 des c } \t{ g8-- \> des c }
     \t{ ges8) \! r r } r4 r \txtUp "(poco rit"
 
-    \break
+    %\break
 
     \t{ e8 \< (des c) \! } \t{ ges8-- (des c \> } \t{ ges8 des c) \! }
     \t{ e8 \> \txtUp "a tempo)" (des c } \t{ e8 des c \! } \t{ e) r r }
     \mark \default  % 1
     R2.*5
 
-    \break  % page 3
+    %\break  % page 3
 
     g8 \p \txtUp "solo" \< ([c'--] ~c' [bes--] \! ~bes \> g-- es8) \! r r4 r
     d'4 \mf \txtUp "solo" \< f'4..-- (g'16) \!
@@ -70,21 +70,21 @@
     \mark \default  % 2
     \t{ c'8 \p (d' c' } \t{ d' c' d' } \t{ c' d' c') }
 
-    \break
+    %\break
 
     \t{ d'8 (c' d' } \t{ c' d' c' } \t{ d' c' d') }
     \t{ c'8 (d' c' } \t{ d' c' d') } \t{ c' (des' c' }
     \t{ des'8 c' des') } \t{ ces'8 \> (des' ces' } \t{ des'8 ces' des') \! }
     \t{ ces'8 (des' ces' } \t{ des' ces' des' } \t{ ces' des' ces') }
 
-    \break
+    %\break
 
     \t{ des'8 (ces' des' } \t{ ces' des' ces') } \t{ aes8 (b aes }
     \t{ b8 aes b \< } \t { aes b aes } \t{ b aes b) \! }
     \t{ ges8 (bes! \> ges } \t{ a-- ges a } \t{ f-- \! aes f) }
     \t{ r8 e \< (g! } \t{ es g es \! } \t{ fis \> d fis) \! }
 
-    \break
+    %\break
 
     \t{ des8 (f des \> } \t{ f des f } \t{ des f des) \! }
     \mark \default  % 3
@@ -94,7 +94,7 @@
     \tremolo 6 { bes,16 (g,) }
     \tremolo 6 { bes,16 \> (g,) \! }
 
-    \break
+    %\break
 
     \bar "||"
     \key d \major
@@ -106,7 +106,7 @@
     \tremolo 6 { e16 (cis) }
     \tremolo 2 { e16 (cis) \< } \tremolo 2 { g16 (e) } \tremolo 2 { bes16 (g) \! }
 
-    \break
+    %\break
 
     r4 \txtUp "Piu mosso" \mf \t{ cis''8 \< (fis' cis'') \! } \t{ cis''8-> \> (g' cis'') \! }
     r4 \t{ cis''8 \< (fis' cis'') \! } \t{ cis''8-> \> (g' cis'') \! }
@@ -116,7 +116,7 @@
     g''2-> \f \< e''8.-> \! r16
     g''2-> \f \< e''8.-> \! r16
 
-    \break
+    %\break
 
     \bar "||"
     \time 4/4
@@ -128,7 +128,7 @@
     \time 4/4
     cis''2-^ \startTrillSpan \< \grace { bis'32 \stopTrillSpan (cis'') } \t{ d''8-^ d'' d'' } \t{ es''8-^ es'' es'' }
 
-    \break
+    %\break
 
     \bar "||"
     \time 3/4
@@ -138,7 +138,7 @@
     R2.*12
     \fermataBar
 
-    \break  % page 4
+    %\break  % page 4
 
     \time 6/4
     \key es \major
@@ -148,7 +148,7 @@
     ~c'2 \> r4 \! es'2.-- \>
     ~es'2. \fermata <>\! r4 c' \txtUp "Solo" \p \< (d') \!
 
-    \break
+    %\break
 
     \bar "||"
     \time 9/4
@@ -157,7 +157,7 @@
     es'4-- \> (d' c' ~c'2. ~c'4) \! r r
     a2.-- \mp \< aes-- a4-- \> (g2--) \!
 
-    \break
+    %\break
 
     \bar "||"
     \key c \major
@@ -171,7 +171,7 @@
     \time 9/4
     e'1.-- \> ~e'2. \!
 
-    \break
+    %\break
 
     \bar "||"
     \time 3/4
@@ -186,7 +186,7 @@
     a'4 \mp e'4. \txtUp "espr" \< (f'8 \!
     g'4) d'8 (e') e'4
 
-    \break
+    %\break
 
     a'8 \> (g' e'2 \!
     ~e'2.) \> <>\!
@@ -200,7 +200,7 @@
       des32 \< (c des d es e f fis \!
     g32) r32 r16 r8 r4 r4
 
-    \break
+    %\break
 
     R2.*2
     \bar "||"
@@ -210,7 +210,7 @@
     ~des'8 r r4 r4
     r16 \mp bes, (des bes, des bes, \< des bes, des bes, des bes,) \!
 
-    \break
+    %\break
 
     r4 \< <>\! \tuplet 6/4 {
         a'16 \> (gis' g' f' des' bes) \!
@@ -223,7 +223,7 @@
       }
     f'16) r r8 r4 r4
 
-    \break
+    %\break
 
     r4 bes,2-> \> <>\!
     \mark \default  % 9
@@ -233,7 +233,7 @@
     \key es \major
     R2.*7
 
-    \break  % page 5
+    %\break  % page 5
 
     \mark \default  % 10
     g,4 \p \< bes,4.-- \! (c8) \>
@@ -273,7 +273,7 @@
     fis2 \> r4 \!
     a2. \mp \> <>\!
 
-    \break
+    %\break
 
     b2 \txtDown "dim" ~b8 r
     fis2. ~ \txtDown "rit"
@@ -281,7 +281,7 @@
     fis2 \> \fermata r4 \txtUp "a tempo" \!
     R2.*9
 
-    \break
+    %\break
 
     \bar "||"
     \time 4/4
@@ -301,7 +301,7 @@
     \key e \major
     r4
 
-    \break
+    %\break
 
     \time 3/4
     R2.
@@ -311,7 +311,7 @@
     r4 r fis'8 \< (gis'
     a'2.) \f \> <>\!
 
-    \break
+    %\break
 
     \bar "||"
     \time 4/4
@@ -324,7 +324,7 @@
     fis,2 \> <>\! \fermata r4 \fermata
     R2.*3
 
-    \break
+    %\break
 
     R2. _\markup { \italic "poco rit" }
     \mark \default  % 5
@@ -334,7 +334,7 @@
     fis2 \> r4 \! \txtUp "a tempo"
     a2. \mp
 
-    \break
+    %\break
 
     b2 \txtDown "dim" ~b8 r
     fis2.
@@ -367,7 +367,7 @@
     fis'8 (b fis') gis' (fis' e')
     fis'8-> (b fis') e' (d' cis')
 
-    \break
+    %\break
 
     b8 (fis b) cis' (e cis')
     b8 (fis b) e' (d' cis')
@@ -377,7 +377,7 @@
     \mark \default  % 1
     b4.-- \mf (cis'--
 
-    \break
+    %\break
 
     b4.-- a--)
     b4.-- \< (e'-- \!
@@ -387,7 +387,7 @@
     fis'8 (b) b e' (b) b
     fis'8 (b) b gis' (b) b
 
-    \break
+    %\break
 
     fis'-> (b) b e'-> (b) b
     fis'-> (b) b gis'-> (b) b
@@ -397,7 +397,7 @@
     \mark \default  % 2
     fis'8-> \ff (b') \> b' b'4-> (cis''8) \!
 
-    \break
+    %\break
 
     \bar "||"
     \time 9/8
@@ -409,7 +409,7 @@
     fis'4.-> e''8 (d'' \> cis'')
     b'8 (fis' b') \! cis'' (e' cis'')
 
-    \break
+    %\break
 
     b'8 (fis' b') e'' (d'' cis'')
     b'8 (a' gis' fis' d' \> e')
@@ -418,7 +418,7 @@
     b8-> (e) r a-> (b,) r
     b8-> \< (e) r e'-> (g) r \!
 
-    \break
+    %\break
 
     b8-> (e) r a-> (b,) r
     \mark \default  % 3
@@ -428,7 +428,7 @@
     ~cis'-- b--
     R2.
 
-    \break
+    %\break
 
     r4. fis'8 \f (eis'4->)
     dis'2.--
@@ -437,7 +437,7 @@
     b4.-- \> fis-- \!
     b,8 \< (fis b) b (fis b,)
 
-    \break
+    %\break
 
     b,8 (fis b) b \! (fis b,)
     b,8 \> (fis b) b (fis b,) \!
@@ -448,7 +448,7 @@
     b,8 (fis \> cis') fis' (b fis) \!
     b,8 (fis b) \< fis' (b fis) \!
 
-    \break  % page 7
+    %\break  % page 7
 
     b,8 (fis b) fis' (cis' fis)
     cis8 (fis b) fis'-> \txtDown "dim" (b fis)
@@ -458,7 +458,7 @@
     R2.*2
     r4. f'16 \f (dis'-> ~dis'4)
 
-    \break
+    %\break
 
     d''16 (b'-> ~b'4 \txtDown "cresc" ~b'4.
     ~b'2.)
@@ -468,7 +468,7 @@
     R2.*3
     b'8-> \f (fis' \< b') fis'-> (b' fis') \!
 
-    \break
+    %\break
 
     \bar "||"
     \time 9/8
@@ -480,7 +480,7 @@
     e b e) r4.
     R2.
 
-    \break
+    %\break
 
     r4. g,8 (e b
     e8 g, e b e g,
@@ -490,7 +490,7 @@
     e'8-. \mf e'-. \< e'-. fis'-> fis'-. fis'-. \!
     e'8-. \> e'-. e'-. d'-. d'-. d'-. \!
 
-    \break
+    %\break
 
     e'8-. \< e'8-. e'8-. a'-> \! a'-. a'-.
     e'8-. e'-. e'-.
@@ -499,7 +499,7 @@
     e16 \< (fis gis a b c' \! d'->) r16 r8 r
     R2.
 
-    \break
+    %\break
 
     \once \override TextSpanner.bound-details.left.text = \markup { \italic "allargando" }
     \once \override TextSpanner.bound-details.right.text = \markup { \italic "molto" }
@@ -521,14 +521,14 @@
       }
     >>
 
-    \break
+    %\break
 
     d''8-> \f (a' \> d'' a' fis' d') \!
     d''8-> d'' \> (a' fis' d' a) \!
     d''8-> a' \> (fis' d' a) \! r
     R2.*4 _\markup { \italic "          poco calmando" }
 
-    \break  % page 8
+    %\break  % page 8
 
     \bar "||"
     \mark \default  % 8
@@ -542,7 +542,7 @@
     ~b,2. \txtDown "dim"
     ~b,2. \> <>\!
 
-    \break
+    %\break
 
     e2. \p
     ~e2.
@@ -554,7 +554,7 @@
     \mark \default  % 9
     e2. ~ \< <>\!
 
-    \break
+    %\break
 
     e2.
     ~e2. \> <>\!
@@ -563,7 +563,7 @@
     ~e2.
     ~e2. ~
 
-    \break
+    %\break
 
     e4. \< ~e4 \! r16 d-> \sf
     e4.-> \sf \> ~e4 \! r16 d->
@@ -573,14 +573,14 @@
     d8 r r r4.
     R2.
 
-    \break
+    %\break
 
     gis8 \mp (e \< gis b e' gis') \!
     b'8-> \f (e'' \> b' gis' e' b) \!
     gis'8-> (e' b gis e b,)
     R2.*6
 
-    \break  % page 9 -> 10
+    %\break  % page 9 -> 10
 
     aes,8 (des \< f aes des' f') \!
     aes8 \< (des' f') aes'-> \f \> (f' des' \!
@@ -590,7 +590,7 @@
     (~g,4. ~g,4 aes,8-> \sf)
     g,4. \pp (~g,4 aes,8-> \sf)
 
-    \break
+    %\break
 
     g,2. \pp
     ~g,2.
@@ -600,7 +600,7 @@
     \mark \default  % 12
     R2.*11
 
-    \break
+    %\break
 
     r4. fis4-^ \sf r8
     cis'8 r r r4.
@@ -611,7 +611,8 @@
     gis'8-^ gis' gis' gis'-^ gis' gis'
     fis'8-^ fis' fis' fis'-^ fis' fis'
 
-    \break
+    %\break
+
     eis'8 \> (gis eis) \! gis \< (cis' eis'
     gis'8 cis'' cis'') d''4.-^-- \f
     d''4-^-- cis''-^-- b'-^--
@@ -620,7 +621,7 @@
     fis2.-^
     fis2.-^
 
-    \break
+    %\break
 
     r8 b, (e) b-> \< (e' b') \!
     r8 e (b \<) cis'-> (g' cis'') \!
@@ -630,7 +631,7 @@
     cis2.-^ ^\markup { \italic "sempre piu" \dynamic ff }
     ~cis2.
 
-    \break
+    %\break
 
     r8 d' \< (f' bes' d'') \! d''
     r8 e' \< (g' c'' e'') \! e''
@@ -639,7 +640,7 @@
     cis'2.-^ \<
     ~cis'2. <>\!
 
-    \break
+    %\break
 
     \mark \default  % 15
     r8 \txtUp "molto pesante e brillante" d' \< (f' bes' d'') \! d''
@@ -648,7 +649,7 @@
     r8 d' \< (f' bes' d'') \! d''
     r8 e' \< (g' c'' e'') \! e''
 
-    \break
+    %\break
 
     r8 cis' \< (fis' ais' cis'') \! cis''
     r8 ^\markup { \italic "sempre" \dynamic fff } c' \< (es' aes' c'' es'') \!
@@ -657,7 +658,7 @@
     \sectionLabel "Tempo Iº"
     r8 d' (fis' \< b' fis' \! b' \txtDown "molto")
 
-    \break  % page 11
+    %\break  % page 11
 
     d''4-> \sfz d''8-> b' (fis' d')
     d''4-> \> (b'8) fis' (d' b) \!
@@ -668,7 +669,7 @@
     b8 \p \txtUp "scherzando" (cis' b cis' b cis')
     b8 (cis' b cis' b cis')
 
-    \break
+    %\break
 
     g8 \txtDown "cresc" (b g b g b)
     g8 (b g b g b)
@@ -679,7 +680,7 @@
     g'8 \< (b' g' b' g' b') \!
     e8 \ff (b cis' g'-> cis' b)
 
-    \break
+    %\break
 
     e8 (b cis' g'-> cis' b)
     e8 \f (b cis' g'-> \txtDown "dim" cis' b)
@@ -696,7 +697,7 @@
     b'4-> \txtDown "dim" (cis''8) b'4-> (fis'8)
     b'4-> (e'8 \>) b'4-> (cis''8) \!
 
-    \break
+    %\break
 
     b'4-> \mf fis'8-. gis' (fis' e')
     fis'8 (b' fis') gis' (fis' e')
@@ -705,7 +706,7 @@
     b'8 (fis' b') e'' (d'' cis'')
     b'8 (a' gis' fis' d' e')
 
-    \break
+    %\break
 
     fis'8 (b fis') e' (d' e')
     fis'8 (b fis') r4.
@@ -715,7 +716,7 @@
     b8-> (e) r e'-> (g) r
     b8-> (e) r fis'-> (b) r
 
-    \break
+    %\break
 
     b'8 \p (a' gis' fis' e' d')
     cis'8-> \txtDown "cresc poco a poco" (b) b e'-> (b) b
@@ -726,7 +727,7 @@
     fis'8-> (b) b gis'-> (b) b
     a'8-> (b) b ais'-> (b) b
 
-    \break
+    %\break
 
     b'8-> (b) b cis''-> \< (b') b'
     d''8-> (b') b' \! e''-> (b') b' \!
@@ -736,7 +737,7 @@
     d' cis' b) fis'-> (e' d'
     cis'8 b) r g'-> \> (fis' e'
 
-    \break
+    %\break
 
     \bar "||"
     \time 5/8
@@ -746,7 +747,7 @@
     fis8 r r r4.
     R2.*3
 
-    \break  % page 12
+    %\break  % page 12
 
     b8 \p (fis b,) b, (fis b)
     b8 (fis b,) b, \> (fis b)
@@ -757,7 +758,7 @@
     b8 \> (fis b,) b, (fis b) \!
     b8 \< (fis b,) b, (fis b) \!
 
-    \break
+    %\break
 
     b8 \> (fis b,) b, (fis \! b)
     b8 (fis b,) b, (fis b)
@@ -769,7 +770,7 @@
     \mark \default  % 21
     b8 \p (fis b,) b, (fis b)
 
-    \break
+    %\break
 
     b8 (fis b,) b, (fis b)
     b8 (fis b,) b, (fis b)
@@ -778,14 +779,14 @@
     fis,8-> (b, fis) fis (b, fis,)
     fis,8 (b, fis) r4.
 
-    \break
+    %\break
 
     fis,8-> (b, fis) fis (b, fis,)
     fis,8 (b, fis) b,4-- \< ~b,16 b,-> \!
     fis,8-> (b, fis) r4.
     fis,8-> (b, fis) b,4 \< ~b,16 b,-> \!
 
-    \break
+    %\break
 
     fis,8-> \txtDown "poco cresc" (b, fis) r4.
     \mark \default  % 22
@@ -794,7 +795,7 @@
     d'8-> d' d' f'-> f' f' \f
     gis'-> \< gis' gis' b'-> b' b'
 
-    \break
+    %\break
 
     d''-> d'' d'' f''-> f'' \! f''
     b'8-> \ff (fis'! b'-.) b'8-> (fis' b'-.)
@@ -802,7 +803,7 @@
     b'8-> \< (fis' b'-.) b'8-> (fis' b'-.)
     b'8-> (fis' b'-.) b'8-> (fis' b'-.) \!
 
-    \break
+    %\break
 
     \bar "||"
     r4. ^\markup "Moderato" a'4.---^ \fff
