@@ -1,3 +1,24 @@
+%%%%%%%%%%%%%%%%%%%
+% COMMON SETTINGS %
+%%%%%%%%%%%%%%%%%%%
+
+\header {
+  tagline = #(
+    strftime "transcribed by Rey Abolofia, %h %Y" (localtime (current-time))
+  )
+}
+
+\layout {
+  indent = #0
+  ragged-last = ##f
+  \compressEmptyMeasures
+  \clef treble
+}
+
+%%%%%%%%%%
+% MACROS %
+%%%%%%%%%%
+
 txtUp =
 #(define-music-function
   (text)
