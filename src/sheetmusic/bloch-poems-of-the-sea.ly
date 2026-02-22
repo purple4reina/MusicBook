@@ -95,10 +95,10 @@
     \tremolo 6 { bes,16 \> (g,) \! }
 
     \break
+
     \bar "||"
     \key d \major
     \mark \default  % 4
-
     \tremolo 6 { bes,16 \pp (g,) }
     \tremolo 4 { bes,16 (g,) } \tremolo 2 { des16 (bes,) }
     \tremolo 2 { des16 (bes,) } \tremolo 2 { bes, \< (g,) } \tremolo 2 { des (bes,) \! }
@@ -117,9 +117,9 @@
     g''2-> \f \< e''8.-> \! r16
 
     \break
+
     \bar "||"
     \time 4/4
-
     e''4-> \f \< e''8.-> r16 e''4-> e''8.-> \! r16
     \bar "||"
     \time 3/4
@@ -129,19 +129,19 @@
     cis''2-^ \startTrillSpan \< \grace { bis'32 \stopTrillSpan (cis'') } \t{ d''8-^ d'' d'' } \t{ es''8-^ es'' es'' }
 
     \break
+
     \bar "||"
     \time 3/4
-
     \t{ e!8-^ \fff \txtUp "Meno mosso" (bes, a,) } \t{ e-^ \txtDown "dim" (bes, a,) } \t{ e-^ (bes, a,) \! }
     \t{ e8-^ \> (bes, a,) } \t{ e-^ (bes, a,) } \t{ e-^ (bes, a,) \! }
     \t{ e \mf (bes, a, } \t{ e bes, a, } \t{ e bes, a,) }
     R2.*12
-
     \fermataBar
+
     \break  % page 4
+
     \time 6/4
     \key es \major
-
     \partial 2. { g2. \p \txtUp "Listesso tempo" \txtDown "espr" }
     a2. \< es \>
     a2. \< c'
@@ -149,17 +149,18 @@
     ~es'2. \fermata <>\! r4 c' \txtUp "Solo" \p \< (d') \!
 
     \break
+
     \bar "||"
     \time 9/4
     \mark \default  % 6
-
     es'4.-- \txtUp "Semplice" (d'8 c'4) bes2. \< (~bes4. c') \! \txtDown "poco"
     es'4-- \> (d' c' ~c'2. ~c'4) \! r r
     a2.-- \mp \< aes-- a4-- \> (g2--) \!
 
+    \break
+
     \bar "||"
     \key c \major
-
     f1. \> ~f4 \! r r
     R2.*3
     \bar "||"
@@ -171,10 +172,10 @@
     e'1.-- \> ~e'2. \!
 
     \break
+
     \bar "||"
     \time 3/4
     \key f \major
-
     R2. ^\markup { "Tempo Iº" \italic "  (poco agitato)" }
     \bar "||"
     \time 2/4
@@ -233,8 +234,8 @@
     R2.*7
 
     \break  % page 5
-    \mark \default  % 10
 
+    \mark \default  % 10
     g,4 \p \< bes,4.-- \! (c8) \>
     g,2 \! r4
     R2. ^\markup { \italic "rall" }
@@ -281,9 +282,9 @@
     R2.*9
 
     \break
+
     \bar "||"
     \time 4/4
-
     r2 \fermata r4
     \mark \default  % 2
     \bar "||"
@@ -301,8 +302,8 @@
     r4
 
     \break
-    \time 3/4
 
+    \time 3/4
     R2.
     r4 \mf a4-- \< (b--
     ~b4 \txtUp "poco rit" \> gis8) \! r r4
@@ -311,9 +312,9 @@
     a'2.) \f \> <>\!
 
     \break
+
     \bar "||"
     \time 4/4
-
     R1*2
     \mark \default  % 4
     \bar "||"
@@ -397,9 +398,9 @@
     fis'8-> \ff (b') \> b' b'4-> (cis''8) \!
 
     \break
+
     \bar "||"
     \time 9/8
-
     b'4-> (fis'8) b'4-> (e'8) b'4-> (cis''8)
     \bar "||"
     \time 6/8
@@ -468,9 +469,9 @@
     b'8-> \f (fis' \< b') fis'-> (b' fis') \!
 
     \break
+
     \bar "||"
     \time 9/8
-
     b'8-> (e') e' e'-> r r r4.
     \bar "||"
     \time 6/8
@@ -478,6 +479,8 @@
     e8 g, e b e g,
     e b e) r4.
     R2.
+
+    \break
 
     r4. g,8 (e b
     e8 g, e b e g,
@@ -526,10 +529,10 @@
     R2.*4 _\markup { \italic "          poco calmando" }
 
     \break  % page 8
+
     \bar "||"
     \mark \default  % 8
     \key d \major
-
     g,2. \p
     ~g,2.
     ~g,2.
