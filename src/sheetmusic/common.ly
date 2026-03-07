@@ -39,6 +39,8 @@ txtDown =
 
 markBoxNum = \set Score.rehearsalMarkFormatter = \format-mark-box-numbers
 
+markNum    = \set Score.rehearsalMarkFormatter = \format-mark-numbers
+
 t = \tuplet 3/2 \etc
 
 tremolo = \repeat tremolo \etc
