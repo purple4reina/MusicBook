@@ -18,6 +18,111 @@
 
 \score {
   \layout {
+    indent = #10
+  }
+  \transpose bes a' {
+    \markNum
+    \override Score.SpacingSpanner.spacing-increment = 0.5
+    \override Hairpin.to-barline = ##f
+    \set Staff.instrumentName = \markup \bold "Bass"
+
+    \key f \major
+    \time 4/4
+
+    \mark 4
+    R1*4
+    R1
+    \bar "||"
+    R1*3
+    R1
+    \mark 5
+    f8-. \mf g16-. a-. g8-. f-. g16-. a-. g-. a-. e-. f-. e-. f-.
+    c8-. \pp f16-. g-. f8-. e-. cis16-. d-. cis-. d-. b,-. c-. b,-. c-.
+    R1*7
+
+    \break
+
+    R1 ^\markup { \italic "poco rit" }
+    \mark 6
+    \key bes \major
+    bes4. ^"Tempo I" \pp (a8 g f es d)
+    c8 (bes16) \< r bes4. (fis8-> \! g16 a bes \> c'
+    d'8) \! r r4 r2
+  }
+}
+
+\markup \vspace #2  % extra space after title
+
+\score {
+  \layout {
+    indent = #140
+  }
+  \transpose bes a' {
+    \markNum
+    \override Score.SpacingSpanner.spacing-increment = 0.5
+    \override Hairpin.to-barline = ##f
+    \set Staff.instrumentName = \markup \bold "                                                                                                                                   Bass"
+
+    \key bes \major
+    \time 4/4
+
+    \mark 8
+    R1*4
+
+    \break
+
+    d'16 \f (es' f' es' d' c' bes a g a bes a g f es d
+    c16 d es d c g, \txtDown "dim" c g, c d es d c g, c es
+    d \p es d es d es d es d es d es d es \txtDown "dim" d es
+    d8-.) g-. d-. g-. d-. g-. d-. \ppp g-.
+  }
+}
+
+\markup \vspace #2  % extra space after title
+
+\score {
+  \layout {
+    indent = #10
+  }
+  \transpose bes a' {
+    \markNum
+    \override Score.SpacingSpanner.spacing-increment = 0.25
+    \override Hairpin.to-barline = ##f
+    \set Staff.instrumentName = \markup \bold "Bass"
+
+    \key bes \major
+    \time 4/4
+
+    R1*6
+    \mark 10
+    \key c \major
+    R1*2
+    g8. \p [(d16 c8 a)] g2
+    ~g1
+    ~g8. [d16 (c8 f)] g2
+    ~g1
+    ~g1
+    ~g1
+    ~g1
+    ~g4 r r2
+    R1*4
+
+    \break
+
+    c'8. \p [(a16 e8 f')] e'2
+    ~e'4. c'8 \txtDown "dim" (g4. f8)
+    e8. [(c16 g,8 a] g2) ~
+    \mark 11
+    g1 \ppp
+    ~g1
+    R1*7
+  }
+}
+
+\markup \vspace #2  % extra space after title
+
+\score {
+  \layout {
     indent = #60
     ragged-last = ##f
   }
@@ -83,7 +188,7 @@
     \time 4/4
     \markNum
     \override Score.SpacingSpanner.spacing-increment = 0.20
-    \set Staff.instrumentName = \markup \bold "                                                               In Eb"
+    \set Staff.instrumentName = \markup \bold "                                                        In Eb, then Bass"
 
     \mark 15
     R1*8
@@ -120,7 +225,17 @@
     \mark 17
     d''16 \ff e'' d'' e'' d'' e'' d'') cis'' (d'' cis'' d'' cis'' d'') a' (bes' a'
     bes'16 a' bes') eis' (fis' eis' fis' eis' fis') cis'! (d' cis' d'8-.) r
-    \bar "||"
+    R1*14 ^\markup { \bold "to bass clarinet" }
+
+    \break
+
+    \transpose bes a {
+      d8-. \pp d-. d-. d-. d-. d-. d-. ges-. (
+      %\override Score.SpacingSpanner.spacing-increment = 10
+      bes,4 ^\> ces des2) \! _\markup { \dynamic "ppp" }
+      \fermataBar
+      \mark 18
+    }
   }
 }
 
@@ -179,6 +294,55 @@
     R4.*11
     \bar "||"
     \mark 13
+  }
+}
+
+\markup \vspace #2  % extra space after title
+
+\score {
+  \layout {
+    indent = #10
+  }
+  \transpose ais a' {
+    \markNum
+    \set Staff.instrumentName = \markup \bold "                  Bass"
+
+    %\key g \major
+    \time 4/4
+
+    \mark 7
+    b,1 \ff
+    ~b,1
+    ~b,1 \<
+    e,1 \ff
+    ~e,1
+    ~e,1
+    ~e,1
+    e,1 \p \<
+    eis,!1 \p \<
+    fis,1 \ff \>
+    R1*3 \! _\markup { \italic "rit" }
+    \mark 8
+    R1*3
+    gis2 \p \txtDown "molto cresc" (g
+    fis1) \ff
+    R1
+
+    %\break
+
+    r4 gis8-> (g-> a,2->) \>
+    ~a,1 \p \<
+    eis!1 \ff \>
+    (e1) \p
+    ~e1
+    (a,1)
+    ~a,1
+    ~a,1
+    a,1 \txtUp "morendo"
+    ~a,1 \ppp
+    R1
+    \mark 9
+    \bar "||"
   }
 }
 
