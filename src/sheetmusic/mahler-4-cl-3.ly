@@ -14,7 +14,7 @@
   }
 }
 
-\markup \vspace #2  % extra space after title
+\markup \vspace #1  % extra space after title
 
 \score {
   \layout {
@@ -51,7 +51,7 @@
   }
 }
 
-\markup \vspace #2  % extra space after title
+%\markup \vspace #2  % extra space after title
 
 \score {
   \layout {
@@ -78,65 +78,43 @@
   }
 }
 
-\markup \vspace #4  % extra space after title
+\markup \vspace #1  % extra space after title
 
 \score {
   \layout {
     indent = #10
   }
-  \transpose bes a' {
+  \transpose c c' {
     \markNum
     \override Score.SpacingSpanner.spacing-increment = 0.25
     \override Hairpin.to-barline = ##f
-    \set Staff.instrumentName = \markup \bold "Bass"
+    \set Staff.instrumentName = \markup \column { \bold "Bass," \bold "then Eb" }
 
-    \key bes \major
-    \time 4/4
+    \transpose bes a {
+      \key bes \major
+      \time 4/4
 
-    R1*6
-    \mark 10
-    \key c \major
-    R1*2
-    g8. \p [(d16 c8 a)] g2
-    ~g1
-    ~g8. [d16 (c8 f)] g2
-    ~g1
-    ~g1
-    ~g1
-    ~g1
-    ~g4 r r2
-    R1*4
+      R1*6
+      \mark 10
+      \key c \major
+      R1*2
+      g8. \p [(d16 c8 a)] g2
+      ~g1
+      ~g8. [d16 (c8 f)] g2
+      ~g1
+      ~g1
+      ~g1
+      ~g1
+      ~g4 r r2
+      R1*4
 
-    \break
+      \break
 
-    c'8. \p [(a16 e8 f')] e'2
-    ~e'4. c'8 \txtDown "dim" (g4. f8)
-    e8. [(c16 g,8 a] g2) ~
-    \mark 11
-    g1 \ppp
-    ~g1
-    R1*7
-  }
-}
-
-\pageBreak
-\markup \vspace #2  % extra space after title
-
-\score {
-  \layout {
-    indent = #60
-    ragged-last = ##f
-  }
-  \transpose c c' {
-    \key fis \major
-    \time 4/4
-    \markNum
-    \override Score.SpacingSpanner.spacing-increment = 0.20
-    \set Staff.instrumentName = \markup \bold "                                                               In Eb"
-
-    \mark 11
-    \new CueVoice {
-      g1\repeatTie \ppp ^"bass clarinet"
+      c'8. \p [(a16 e8 f')] e'2
+      ~e'4. c'8 \txtDown "dim" (g4. f8)
+      e8. [(c16 g,8 a] g2) ~
+      \mark 11
+      g1 \ppp
       ~g1
     }
     R1*3
@@ -178,7 +156,8 @@
   }
 }
 
-\markup \vspace #2  % extra space after title
+\pageBreak
+%\markup \vspace #2  % extra space after title
 
 \score {
   \layout {
@@ -240,8 +219,7 @@
   }
 }
 
-\pageBreak
-\markup \vspace #1  % extra space after title
+%\markup \vspace #1  % extra space after title
 
 \score {
   \layout {
@@ -275,7 +253,7 @@
   }
 }
 
-\markup \vspace #2  % extra space after title
+%\markup \vspace #2  % extra space after title
 
 \score {
   \layout {
@@ -299,7 +277,7 @@
   }
 }
 
-\markup \vspace #2  % extra space after title
+%\markup \vspace #2  % extra space after title
 
 \score {
   \layout {
