@@ -78,7 +78,7 @@
   }
 }
 
-\markup \vspace #2  % extra space after title
+\markup \vspace #4  % extra space after title
 
 \score {
   \layout {
@@ -119,6 +119,7 @@
   }
 }
 
+\pageBreak
 \markup \vspace #2  % extra space after title
 
 \score {
@@ -239,7 +240,8 @@
   }
 }
 
-\markup \vspace #2  % extra space after title
+\pageBreak
+\markup \vspace #1  % extra space after title
 
 \score {
   \layout {
