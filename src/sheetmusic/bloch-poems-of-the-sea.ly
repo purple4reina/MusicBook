@@ -90,21 +90,21 @@
     \mark \default  % 3
     \t{ e \txtDown "dim" (des c \> } \t{ e des c } \t{ e \pp des c) \! }
     R2.*6
-    \tremolo 6 { bes,16 \p \txtUp "Poco piu agitato" (g,) \txtDown "dim" }
-    \tremolo 6 { bes,16 (g,) }
-    \tremolo 6 { bes,16 \> (g,) \! }
+    bes,16 \p \txtUp "Poco piu agitato" (g, bes, \txtDown "dim" g, bes, g, bes, g, bes, g, bes, g,)
+    bes,16 (g, bes, g, bes, g, bes, g, bes, g, bes, g,)
+    bes,16 \> (g, bes, g, bes, g, bes, g, bes, g, bes, g,) \!
 
     %\break
 
     \bar "||"
     \key d \major
     \mark \default  % 4
-    \tremolo 6 { bes,16 \pp (g,) }
-    \tremolo 4 { bes,16 (g,) } \tremolo 2 { des16 (bes,) }
-    \tremolo 2 { des16 (bes,) } \tremolo 2 { bes, \< (g,) } \tremolo 2 { des (bes,) \! }
-    \tremolo 6 { e16 \txtDown "cresc poco a poco" (cis) }
-    \tremolo 6 { e16 (cis) }
-    \tremolo 2 { e16 (cis) \< } \tremolo 2 { g16 (e) } \tremolo 2 { bes16 (g) \! }
+    bes,16 \pp (g, bes, g, bes, g, bes, g, bes, g, bes, g,)
+    bes,16 \pp (g, bes, g, bes, g, bes, g,) des (bes, des bes,)
+    des16 (bes, des bes,) bes, \< (g, bes, g,) des (bes, des bes,) \!
+    e16 \txtDown "cresc poco a poco" (cis e cis e cis e cis e cis e cis)
+    e16 (cis e cis e cis e cis e cis e cis)
+    e16 (cis e \< cis) g (e g e) bes (g bes g) \!
 
     %\break
 
@@ -194,9 +194,7 @@
     \tuplet 5/4 {
         g,16 \p \< (fis, g, a, ais,
       }
-      \tuplet 5/4 {
-        bes,16) r r r r \!
-      }
+      bes,16) r r8 \!
       des32 \< (c des d es e f fis \!
     g32) r32 r16 r8 r4 r4
 
@@ -249,6 +247,8 @@
     \bar "|."
   }
 }
+
+\pageBreak
 
 \markup \vspace #2  % extra space after title
 \score {
@@ -746,6 +746,8 @@
     \time 6/8
     fis8 r r r4.
     R2.*3
+
+    \pageBreak
 
     %\break  % page 12
 
