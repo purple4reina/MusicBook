@@ -25,6 +25,7 @@
     \clef treble
     \key c \major
     \time 6/8
+    \tempo "Allegro Vivace" 4. = 132
 
     \set Score.rehearsalMarkFormatter = #format-mark-box-numbers
     \mark #31
@@ -69,7 +70,9 @@
       c8-. b,-. c-. d-. e-. d-.
       c8-. b,-. c-. d-. e-. d-.
       c8-. b,-. c-. d-. e-. d-.
-      c8-.
+      c8-. c,-. e,-. g,-. e, -. g,-.
+      c4 r8 \grace { g,16 (a, b, } c4) \ff r8
+      \grace { g,16 (a, b, } c4) r8 r4 r8
     }
   }
 }
