@@ -14,7 +14,7 @@
     indent = #10
     ragged-last = ##t
   }
-  \transpose c c' {
+  \transpose bes c'' {
     \key f \major
     \time 2/2
     \tempo "Vivacissimo"
@@ -82,7 +82,7 @@
   \layout {
     ragged-last = ##t
   }
-  \transpose c c' {
+  \transpose bes c'' {
     \key f \major
     \time 2/2
 
