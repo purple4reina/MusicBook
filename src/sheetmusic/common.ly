@@ -13,6 +13,7 @@
   ragged-last = ##f
   \compressEmptyMeasures
   \clef treble
+  \override MultiMeasureRest.expand-limit = #1
 }
 
 %%%%%%%%%%
