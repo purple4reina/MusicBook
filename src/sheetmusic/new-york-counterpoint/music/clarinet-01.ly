@@ -117,23 +117,23 @@ clarinet_I = \transpose c c'' {
   \boop
   \mark 38 \boop \boop
 
-  \boop \boop \boop \break \boop \boop \boop
+  \boop \break \boop \boop \boop \boop \break \boop
 
-  \mark 39 \boop \break \boop \boop
-
-  \boop \boop \break \boop
-
-  \mark 40 \boop \boop \boop \break \boop
-
-  \boop \boop \boop \break \boop
-
-  \mark 41 \boop \boop \boop \break \boop
-
-  \boop \boop \boop \break \boop
-
-  \mark 42 \beep \beep \beep \break
+  \mark 39 \beep \beep \beep \break
 
   \beep \beep \beep
+
+  \mark 40 \boop \break \boop \boop \boop
+
+  \boop \break \boop \boop \boop
+
+  \mark 41 \boop \break \boop \boop \boop
+
+  \boop \break \boop \boop \boop
+
+  \mark 42 \beep \break \beep \beep
+
+  \beep \beep \break \beep
 
   \mark 43 \beep
   d'4-- \fadeOut ~d'8 r g c r f, r bes r aes
