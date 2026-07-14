@@ -1,32 +1,6 @@
-\header {
-  title      = "New York Counterpoint"
-  composer   = "Steve Reich"
-  arranger   = "Ed. Rey Abolofia"
-  instrument = "Live Clarinet in B♭"
-  tagline    = #f
-}
+\include "common.ly"
 
-\layout {
-  indent = #0
-  ragged-last = ##f
-  \compressEmptyMeasures
-  \clef treble
-  \override MultiMeasureRest.expand-limit = #1
-  \numericTimeSignature
-}
-
-\paper {
-  print-all-headers = ##t
-  system-system-spacing.basic-distance = #16
-}
-
-fadeIn = _\markup { \italic "fade in" } \<
-fadeOut = _\markup { \italic "fade out" } \>
-sim = ^\markup { \italic "sim." }
-
-\markup \vspace #1  % extra space after title
-
-clarinetLive = \transpose c c''' {
+clarinet_Live = \transpose c c''' {
   \key aes \major
   \time 3/2
 
@@ -225,18 +199,6 @@ clarinetLive = \transpose c c''' {
   \bar "||"
 
   \pageBreak
-}
-
-\score {
-  \midi { \tempo 4 = 184 }
-  \layout {}
-  \header {
-    title      = "I"
-    composer   = #f
-    arranger   = #f
-    instrument = #f
-  }
-  \clarinetLive
 }
 
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.
