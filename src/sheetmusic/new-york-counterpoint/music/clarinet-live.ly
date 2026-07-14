@@ -175,7 +175,7 @@ clarinet_Live = \transpose c c''' {
   f,,8 c, r f,, bes,, r g,, c, r g, c, r
 
   f,,8 c, r f,, bes,, r g,, c, r g, c, aes,
-  \mark 40 g,8 c, r f,, bes,, c, g,, r aes, g, c, r
+  \mark 41 g,8 c, r f,, bes,, c, g,, r aes, g, c, r
   f,,8 c, r f,, bes,, r g,, c, r g, c, aes,
 
   g,8 c, r f,, bes,, c, g,, r aes, g, c, r

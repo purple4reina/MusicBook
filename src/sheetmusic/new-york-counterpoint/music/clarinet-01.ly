@@ -84,38 +84,38 @@ clarinet_I = \transpose c c'' {
   \mark 15 \boop \boop \boop
   \mark 16 \boop \break \boop
 
-  \mark 17 \boop
-  \mark 18 \boop \boop \break
+  \mark 17 \boop \boop
+  \mark 18 \boop \break \boop
   \mark 19 \boop
 
-  \mark 20 \boop \boop \boop \break
-  \mark 21 \boop \boop \boop
-  \mark 22 \boop \break \boop
+  \mark 20 \boop \boop \break \boop
+  \mark 21 \boop \boop \boop \break
+  \mark 22 \boop \boop
 
-  \mark 23 \boop \boop
-  \mark 24 \boop \break
-  \mark 25 \boop \boop \boop
+  \mark 23 \boop \boop \break
+  \mark 24 \boop
+  \mark 25 \boop \boop \boop \break
 
-  \mark 26 \boop \break \boop
+  \mark 26 \boop \boop
   \mark 27 \boop
-  \mark 28 \boop \boop
+  \mark 28 \boop \break \boop
 
-  \mark 29 \boop \break \boop
-  \mark 30 \boop
-  \mark 31 \boop \boop \break \boop
+  \mark 29 \boop \boop
+  \mark 30 \boop \break
+  \mark 31 \boop \boop \boop
 
-  \mark 32 \boop \boop
-  \mark 33 \boop \break \boop
-  \mark 34 \boop \boop
+  \mark 32 \boop \break \boop
+  \mark 33 \boop \boop
+  \mark 34 \boop \break \boop
 
-  \mark 35 \boop \break \boop
-  \mark 36 \boop \boop
-  \mark 37 \boop \break
+  \mark 35 \boop \boop
+  \mark 36 \boop \break \boop
+  \mark 37 \boop
 
-  \boop \boop \boop \boop \break \boop \boop
+  \boop \boop \break \boop \boop \boop \boop \break
 
   \boop
-  \mark 38 \boop \break \boop
+  \mark 38 \boop \boop
 
   \boop \boop \boop \break \boop \boop \boop
 
@@ -131,7 +131,7 @@ clarinet_I = \transpose c c'' {
 
   \boop \boop \boop \break \boop
 
-  \mark 42 \beep \beep \beep
+  \mark 42 \beep \beep \beep \break
 
   \beep \beep \beep
 
