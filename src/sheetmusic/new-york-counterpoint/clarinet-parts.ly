@@ -14,8 +14,8 @@
 %%% update these to print parts %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-clarinet_part = \clarinet_Live
-instrument    = "Live Clarinet in B♭"
+clarinet_part = \clarinet_I
+instrument    = "Clarinet I in B♭"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
