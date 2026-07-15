@@ -53,7 +53,7 @@ clarinet_III = \transpose c c'' {
   c \sim c c c c c c \mf c c c c c
   c c c c c c c c c c c c
 
-  \time 2/2 c c c \fadeOut c c c c c
+  \time 2/2 c \fadeOut c c c c c c c
   \mark 6 \time 3/2 c c c c c c c c \! r2
   r2 r2 r4 bes,8---. \fadeIn bes,---.
 
