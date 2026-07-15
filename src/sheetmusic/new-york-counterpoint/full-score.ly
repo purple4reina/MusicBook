@@ -1,6 +1,6 @@
 \include "music/clarinet-live.ly"
 \include "music/clarinet-01.ly"
-%\include "music/clarinet-02.ly"
+\include "music/clarinet-02.ly"
 %\include "music/clarinet-03.ly"
 %\include "music/clarinet-04.ly"
 %\include "music/clarinet-05.ly"
@@ -44,7 +44,7 @@
   <<
     \new Staff \with { instrumentName = "Live" } \clarinet_Live
     \new Staff \with { instrumentName = "Cl.1" } \clarinet_I
-    %\new Staff \with { instrumentName = "Cl.2" } \clarinet_II
+    \new Staff \with { instrumentName = "Cl.2" } \clarinet_II
     %\new Staff \with { instrumentName = "Cl.3" } \clarinet_III
     %\new Staff \with { instrumentName = "Cl.4" } \clarinet_IV
     %\new Staff \with { instrumentName = "Cl.5" } \clarinet_V
