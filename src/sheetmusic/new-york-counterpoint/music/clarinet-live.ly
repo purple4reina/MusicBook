@@ -15,13 +15,13 @@ clarinet_Live = \transpose c c''' {
   es8 \fadeOut es es es es es es es es es es es
 
   es8 es es es \! r2 r2
-  \mark 1 r4 c8---. \fadeIn c---. c---. c---. c \sim c c c c c
+  \mark 1 r4 c8---. \fadeIn c---. c---. c---. c---. c---. c \sim c c c
   c8 c c c c c c c c c c c
   c8 \mf c c c c c c c c c c c
 
   c8 \fadeOut c c c c c c c c c c c \!
   \time 2/2 r2 r2
-  \time 3/2 \mark 2 r4 bes,8---. \fadeIn bes,---. bes,---. bes,---. bes, \sim bes, bes, bes, bes, bes,
+  \time 3/2 \mark 2 r4 bes,8---. \fadeIn bes,---. bes,---. bes,---. bes,---.  bes,---. bes, \sim bes, bes, bes,
 
   bes,8 bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes,
   bes,8 \mf bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes,
@@ -29,7 +29,7 @@ clarinet_Live = \transpose c c''' {
   bes,8 \fadeOut bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes,
 
   bes,8 bes, bes, bes, \! r2 r2
-  \mark 3 r4 c8---. \fadeIn c---. c---. c---. c \sim c c c c c
+  \mark 3 r4 c8---. \fadeIn c---. c---. c---. c---. c---. c \sim c c c
   c c c c c c c c c \mf c c c
 
   c c c c c c c c c c c c
@@ -37,21 +37,21 @@ clarinet_Live = \transpose c c''' {
   c \fadeOut c c c c c c c c c c c \!
   \time 2/2 r2 r2
 
-  \mark 4 \time 3/2 r4 es8---. \fadeIn es---. es---. es---. es \sim es es es es es
+  \mark 4 \time 3/2 r4 es8---. \fadeIn es---. es---. es---. es---. es---. es \sim es es es
   es8 es es es es es es es es \mf es es es
   es8 es es es es es es es es es es es
   es8 es es es es es es es es es es es
 
   es8 \fadeOut es es es es es es es es es es es
   es es es es \! r2 r2
-  \mark 5 r4 c8---. \fadeIn c---. c---. c---. c \sim c c c c c
+  \mark 5 r4 c8---. \fadeIn c---. c---. c---. c---. c---. c \sim c c c
 
   c8 c c c c c c c c c c c
   c8 \mf c c c c c c c c c c c
   c8 \fadeOut c c c c c c c c c c c \!
   \time 2/2 r2 r2
 
-  \mark 6 \time 3/2 r4 bes,8---. \fadeIn bes,---. bes,---. bes,---. bes, \sim bes, bes, bes, bes, bes,
+  \mark 6 \time 3/2 r4 bes,8---. \fadeIn bes,---. bes,---. bes,---. bes,---.  bes,---. bes, \sim bes, bes, bes,
   bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes,
 
   bes, \mf bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes,
@@ -59,7 +59,7 @@ clarinet_Live = \transpose c c''' {
   bes, \fadeOut bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes,
 
   bes, bes, bes, bes, \! r2 r2
-  \mark 7 r4 c8---. \fadeIn c---. c---. c---. c \sim c c c c c
+  \mark 7 r4 c8---. \fadeIn c---. c---. c---. c---. c---. c \sim c c c
   c c c c c c c c c c c c
 
   c \mf c c c c c c c c c c c

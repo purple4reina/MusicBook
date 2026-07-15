@@ -10,7 +10,7 @@ clarinet_I = \transpose c c'' {
   \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
   \set Timing.beatStructure = 1,1,1
 
-  aes8---. \fadeIn aes---. aes---. aes---. aes---. aes---. aes \sim aes aes aes aes aes
+  aes8---. \fadeIn aes---. aes---. aes---. aes \sim aes aes aes aes aes aes aes
   aes8 aes aes aes aes aes aes aes aes aes aes aes
   aes8 \mf aes aes aes aes aes aes aes aes aes aes aes
 
@@ -24,7 +24,7 @@ clarinet_I = \transpose c c'' {
   aes \fadeOut aes aes aes aes aes aes aes aes aes aes aes \!
   \time 2/2 r2 r2
 
-  \mark 2 \time 3/2 r4 d8---. \fadeIn d---. d---. d---. d \sim d d d d d
+  \mark 2 \time 3/2 r4 d8---. \fadeIn d---. d---. d---. d---. d---. d \sim d d d
   d d d d d d d d d d d d
   d \mf d d d d d d d d d d d
 
@@ -32,7 +32,7 @@ clarinet_I = \transpose c c'' {
   d \fadeOut d d d d d d d d d d d
   d d d d \! r2 r2
 
-  \mark 3 r4 es8---. \fadeIn es---. es---. es---. es \sim es es es es es
+  \mark 3 r4 es8---. \fadeIn es---. es---. es---. es---. es---. es \sim es es es
   es es es es es es es es es \mf es es es
   es es es es es es es es es es es es
 
