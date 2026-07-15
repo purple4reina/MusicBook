@@ -3,7 +3,7 @@
 \include "music/clarinet-02.ly"
 \include "music/clarinet-03.ly"
 \include "music/clarinet-04.ly"
-%\include "music/clarinet-05.ly"
+\include "music/clarinet-05.ly"
 %\include "music/clarinet-06.ly"
 %\include "music/clarinet-07.ly"
 %\include "music/clarinet-08.ly"
@@ -50,7 +50,7 @@
     >>
     \new ChoirStaff <<
       \new Staff \with { instrumentName = "Cl.4" } \clarinet_IV
-      %\new Staff \with { instrumentName = "Cl.5" } \clarinet_V
+      \new Staff \with { instrumentName = "Cl.5" } \clarinet_V
       %\new Staff \with { instrumentName = "Cl.6" } \clarinet_VI
     >>
     \new ChoirStaff <<
