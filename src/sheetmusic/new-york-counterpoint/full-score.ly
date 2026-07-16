@@ -3,12 +3,7 @@ break = {}
 pageBreak = {}
 autoPageBreaksOff = {}
 
-% comment these lines out to remove the count-off measures
-countOff = {
-  \time 3/2
-  R1.*2
-  \bar "||"
-}
+countOffMeasures = 0
 
 \include "music/clarinet-live.ly"
 \include "music/clarinet-01.ly"
@@ -47,7 +42,9 @@ countOff = {
 addTicks =
 #(define-music-function (m) (ly:music?)
   #{<<
-    $m
+    \new Devnull {
+      \time 3/2 R1.*\countOffMeasures $m
+    }
     \new Devnull \with {
       \consists Drum_note_performer
       \consists Staff_performer
@@ -73,24 +70,23 @@ addTicks =
     arranger   = #f
     instrument = #f
   }
-  <<
-    \addTicks
-    \new Staff \with { instrumentName = "Live" } { \countOff \clarinet_Live }
+  \addTicks <<
+    \new Staff \with { instrumentName = "Live" } \clarinet_Live
     \new ChoirStaff <<
-      \new Staff \with { instrumentName = "Cl.1" } { \countOff \clarinet_I }
-      \new Staff \with { instrumentName = "Cl.2" } { \countOff \clarinet_II }
-      \new Staff \with { instrumentName = "Cl.3" } { \countOff \clarinet_III }
+      \new Staff \with { instrumentName = "Cl.1" } \clarinet_I
+      \new Staff \with { instrumentName = "Cl.2" } \clarinet_II
+      \new Staff \with { instrumentName = "Cl.3" } \clarinet_III
     >>
     \new ChoirStaff <<
-      \new Staff \with { instrumentName = "Cl.4" } { \countOff \clarinet_IV }
-      \new Staff \with { instrumentName = "Cl.5" } { \countOff \clarinet_V }
-      \new Staff \with { instrumentName = "Cl.6" } { \countOff \clarinet_VI }
+      \new Staff \with { instrumentName = "Cl.4" } \clarinet_IV
+      \new Staff \with { instrumentName = "Cl.5" } \clarinet_V
+      \new Staff \with { instrumentName = "Cl.6" } \clarinet_VI
     >>
     \new ChoirStaff <<
-      \new Staff \with { instrumentName = "Cl.7" } { \countOff \clarinet_VII }
-      \new Staff \with { instrumentName = "Bass Cl.8" } { \countOff \clarinet_VIII }
-      \new Staff \with { instrumentName = "Bass Cl.9" } { \countOff \clarinet_IX }
-      \new Staff \with { instrumentName = "Bass Cl.10" } { \countOff \clarinet_X }
+      \new Staff \with { instrumentName = "Cl.7" } \clarinet_VII
+      \new Staff \with { instrumentName = "Bass Cl.8" } \clarinet_VIII
+      \new Staff \with { instrumentName = "Bass Cl.9" } \clarinet_IX
+      \new Staff \with { instrumentName = "Bass Cl.10" } \clarinet_X
     >>
   >>
 }
