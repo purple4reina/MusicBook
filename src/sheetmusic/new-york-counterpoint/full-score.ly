@@ -38,7 +38,7 @@ autoPageBreaksOff = {}
 \markup \vspace #1  % extra space after title
 
 \score {
-  \midi { \tempo 4 = 184 }
+  \midi { \tempo 4 = 176 }  % tempo in score is 184
   \layout {}
   \header {
     title      = "I"
