@@ -13,7 +13,7 @@ autoPageBreaksOff = {}
 \include "music/clarinet-07.ly"
 \include "music/clarinet-08.ly"
 \include "music/clarinet-09.ly"
-%\include "music/clarinet-10.ly"
+\include "music/clarinet-10.ly"
 
 \header {
   title      = "New York Counterpoint"
@@ -62,7 +62,7 @@ autoPageBreaksOff = {}
       \new Staff \with { instrumentName = "Cl.7" } \clarinet_VII
       \new Staff \with { instrumentName = "Bass Cl.8" } \clarinet_VIII
       \new Staff \with { instrumentName = "Bass Cl.9" } \clarinet_IX
-      %\new Staff \with { instrumentName = "Bass Cl.10" } \clarinet_X
+      \new Staff \with { instrumentName = "Bass Cl.10" } \clarinet_X
     >>
   >>
 }
