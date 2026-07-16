@@ -3,6 +3,7 @@
 *.mid
 *.log
 *.swp
+*.wav
 *~
 .DS_Store
 _site
