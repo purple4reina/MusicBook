@@ -1,3 +1,8 @@
+% use auto-breaking when writing full score
+break = {}
+pageBreak = {}
+autoPageBreaksOff = {}
+
 \include "music/clarinet-live.ly"
 \include "music/clarinet-01.ly"
 \include "music/clarinet-02.ly"
