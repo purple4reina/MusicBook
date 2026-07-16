@@ -6,7 +6,7 @@
 \include "music/clarinet-05.ly"
 \include "music/clarinet-06.ly"
 \include "music/clarinet-07.ly"
-%\include "music/clarinet-08.ly"
+\include "music/clarinet-08.ly"
 %\include "music/clarinet-09.ly"
 %\include "music/clarinet-10.ly"
 
@@ -14,8 +14,8 @@
 %%% update these to print parts %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-clarinet_part = \clarinet_VII
-instrument    = "Clarinet VII in B♭"
+clarinet_part = \clarinet_VIII
+instrument    = "Clarinet and Bass Clarinet VIII in B♭"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

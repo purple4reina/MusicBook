@@ -11,7 +11,7 @@ autoPageBreaksOff = {}
 \include "music/clarinet-05.ly"
 \include "music/clarinet-06.ly"
 \include "music/clarinet-07.ly"
-%\include "music/clarinet-08.ly"
+\include "music/clarinet-08.ly"
 %\include "music/clarinet-09.ly"
 %\include "music/clarinet-10.ly"
 
@@ -60,7 +60,7 @@ autoPageBreaksOff = {}
     >>
     \new ChoirStaff <<
       \new Staff \with { instrumentName = "Cl.7" } \clarinet_VII
-      %\new Staff \with { instrumentName = "Bass Cl.8" } \clarinet_VIII
+      \new Staff \with { instrumentName = "Bass Cl.8" } \clarinet_VIII
       %\new Staff \with { instrumentName = "Bass Cl.9" } \clarinet_IX
       %\new Staff \with { instrumentName = "Bass Cl.10" } \clarinet_X
     >>
