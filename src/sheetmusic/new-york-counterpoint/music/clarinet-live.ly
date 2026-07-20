@@ -205,7 +205,109 @@ mvtI = \transpose c c''' {
   \pageBreak
 }
 
-mvtII = {}
+mvtII = \transpose c c'' {
+  \key b \major
+  \time 3/4
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+
+  \mark 44 R2.*4
+  \mark 45 r8 cis'-- \mf (~cis' b16 gis e) r8.
+  r4 r4 r4
+  r8 cis'-- (~cis' b16 gis e) r8.
+  r4 r4 r4
+
+  \mark 46 ais16 (fis cis'8-- ~cis' b16 gis e) r8.
+  ais16-- r8. r4 r4
+  ais16 (fis cis'8-- ~cis' b16 gis e) r8.
+  ais16-- r8. r4 r4
+  \mark 47 ais16 (fis cis'8-- ~cis' b16 gis e) r8.
+  ais16-- r8. fis16 (cis gis8-- ~gis fis16) r16
+
+  ais16 \fadeOut (fis cis'8-- ~cis' b16 gis e) r8.
+  ais16-- r8. fis16 (cis gis8-- ~gis fis16) \! r16
+  r4 r4 r4
+  r4 r4 r4
+  \mark 48 r4 cis'4-- \mf (b16 gis e) r16
+  r4 r4 r4
+  r4 cis'4-- (b16 gis e) r16
+  r4 r4 r4
+
+  \mark 49 r4 cis'4-- (b16 gis e) r16
+  r8 ais16-- r16 r8 fis16 (cis) r4
+  r4 cis'4-- \mf (b16 gis e) r16
+  r8 ais16-- r16 r8 fis16 (cis gis4--
+
+  \mark 50 \beamer b16) r ais (fis cis'4-- b16 gis e) r
+  r8 ais16-- r r8 fis16 (cis gis4--
+  \mark 51 \beamer b16) \fadeOut r ais (fis cis'4-- b16 gis e) r
+  r8 ais16-- r r8 fis16 (cis gis4--
+  \beamer b16) r ais (fis cis'4-- b16 gis e) r
+  r8 ais16-- r r8 fis16 (cis gis4--) \!
+
+  \mark 52 r4 r4 r4
+  r4 r4 r4
+  \mark 53 ais16 \fadeIn (fis ais fis \beamer b r b gis b gis ais) r
+  \beamer ais16-- r fis (cis fis cis gis8--) r ais16 (fis
+  \mark 54 ais16 fis ais fis \beamer b r b gis b gis ais) r
+
+  \beamer ais16-- \f r fis (cis fis cis gis8--) r ais16 (fis
+  ais16 fis ais fis \beamer b r b gis b gis ais) r
+  \beamer ais16-- r fis (cis fis cis gis8--) r ais16 (fis
+
+  ais16 fis ais fis \beamer b r b gis b gis ais) r
+  \beamer ais16-- \fadeOut r fis (cis fis cis gis8--) r ais16 (fis
+  \mark 55 ais16 fis ais fis \beamer b r b gis b gis ais) r
+
+  \beamer ais16-- r fis (cis gis cis gis8) \! r4
+  ais,16 \fadeIn (fis ais, fis \beamer gis,--) r gis, (e, b,, e, fis,) r
+  fis,16-. r8. e,4-- ~e,8 r
+
+  ais,16 \f (fis ais, fis \beamer gis,) r gis, (e, b,, e, fis,) r
+  fis,16-. r8. e,4-- ~e,8 r
+  \mark 56 ais,16 (fis ais, fis \beamer gis,) r gis, (e, b,, e, fis,) r
+  fis,16-. r8. e,4-- ~e,8 r
+
+  ais,16 (fis ais, fis \beamer gis,) r gis, (e, b,, e, fis,) r
+  fis,16-. r8. e,4-- ~e,8 r
+  ais,16 \fadeOut (fis ais, fis \beamer gis,) r gis, (e, b,, e, fis,) r
+  fis,16-. r8. e,4-- \! r
+
+  cis'8-- \fadeIn cis' ~cis' b16 (gis e gis ais) r
+  ais16-- r8. r8 gis8-- gis4--
+  \mark 57 cis'8-- _\markup { \dynamic "mf" } cis' ~cis' b16 (gis e gis ais) r
+  ais16-- r8. r8 gis8-- gis4--
+
+  cis'8-- \f cis'-- ~cis' b16 (gis e gis ais) r
+  ais16-- r8. r8 gis8-- gis4--
+  cis'8-- cis'-- ~cis' b16 (gis e gis ais) r
+  ais16-- \fadeOut r8. r8 gis8-- gis4--
+
+  \mark 58 cis'8-- cis' ~cis' b16 (gis e gis ais) r
+  ais16-- r8. r8 gis8-- gis4--
+  cis'8-- cis'-- ~cis' b16 (gis e gis ais) r
+  ais16-- r8. \! r4 r4
+
+  fis,16 \fadeIn (cis, fis, cis, \beamer gis,-. r b,, e, b,, e, fis,) r
+  \beamer fis,16-. r cis, (ais,, cis, ais,, e,8) r fis,16 (cis,
+  \mark 59 fis,16 cis, fis, cis, \beamer gis,-. r b,, e, b,, e, fis,) r
+
+  \beamer fis,16-. r cis, (ais,, cis, ais,, e,8) r fis,16 (cis,
+  fis,16 \f cis, fis, cis, \beamer gis,-. r b,, e, b,, e, fis,) r
+  \beamer fis,16-. r cis, (ais,, cis, ais,, e,8--) r fis,16 (cis,
+
+  fis,16 cis, fis, cis, \beamer gis,-. r b,, e, b,, e, fis,) r
+  \beamer fis,16-. r cis, \fadeOut (ais,, cis, ais,, e,8--) r fis,16 (cis,
+  fis,16 cis, fis, cis, \beamer gis,-. r b,, e, b,, e, fis,) r
+
+  \beamer fis,16-. r cis, (ais,, cis, ais,, e,8--) \! r4
+  \mark 60 R2.*6
+  \bar "||"
+
+  \pageBreak
+}
+
 mvtIII = {}
 
 clarinet_Live = #(make-part longName
