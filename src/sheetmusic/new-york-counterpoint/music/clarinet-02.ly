@@ -145,7 +145,75 @@ mvtI = \transpose c c'' {
   \pageBreak
 }
 
-mvtII = {}
+poop = {
+  ais16 (fis cis'8-- ~cis' b16 gis e) r8.
+  ais16-- r8. fis16 (cis gis8-- ~gis fis16) r
+}
+
+mvtII = \transpose c c'' {
+  \key b \major
+  \time 3/4
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+
+  \mark 44 R2.*4
+  \mark 45 R2.*4
+
+  \mark 46 R2.*4
+  \mark 47 R2.*2
+
+  ais16 \fadeIn (fis cis'8-- ~cis' b16 gis e) r8.
+  ais16-- r8. fis16 (cis gis8-- ~gis fis16) r
+  ais16 \mp (fis cis'8-- ~cis' b16 gis e) r8.
+  ais16-- r8. fis16 (cis gis8-- ~gis fis16) r
+
+  \mark 48 \poop \poop
+  \mark 49 \poop
+
+  \poop
+  \mark 50 \poop
+
+  \mark 51 \poop \poop
+  \mark 52 \poop
+
+  \mark 53 \poop
+  \mark 54 \poop
+
+  \poop \poop
+
+  \mark 55 \poop \poop
+
+  \poop
+  \mark 56 \poop
+
+  \poop \poop
+
+  \poop
+  \mark 57 \poop
+
+  \poop \poop
+
+  \mark 58 \poop \poop
+
+  \poop
+  \mark 59 \poop
+
+  \poop \poop
+
+  \poop
+  \mark 60 \poop
+
+  ais16 \fadeOut (fis cis'8-- ~cis' b16 gis e) r8.
+  ais16-- r8. fis16 (cis gis8-- ~gis fis16) r
+
+  ais16 (fis cis'8-- ~cis' b16 gis e) \! r8.
+  r4 r4 r4
+  \bar "||"
+
+  \pageBreak
+}
+
 mvtIII = {}
 
 clarinet_II = #(make-part longName
