@@ -39,6 +39,10 @@ instrument    = "Bass Clarinet X in B♭"
 \paper {
   print-all-headers = ##t
   system-system-spacing.basic-distance = #16
+  left-margin = #10
+  right-margin = #10
+  top-margin = #5
+  bottom-margin = #5
 }
 
 \markup \vspace #1  % extra space after title
