@@ -175,7 +175,80 @@ mvtI = \transpose c c' {
   \pageBreak
 }
 
-mvtII = {}
+mvtII = \transpose c c {
+  \key b \major
+  \time 3/4
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+
+  \mark 44 R2.*4
+  \mark 45 R2.*4
+  \mark 46 R2.*4
+  \mark 47 R2.*6
+  \mark 48 R2.*4
+  \mark 49 R2.*4
+  \mark 50 R2.*2
+  \mark 51 R2.*4
+  \mark 52 R2.*2
+  \mark 53 R2.*2
+
+  \mark 54 r4 r4 r8 cis'16 \fadeIn cis'
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' \f cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' cis' cis' cis' cis' cis' cis' \fadeOut cis' cis' cis' cis' cis'
+  cis' cis' cis' cis' \! r4 r4
+
+  \mark 55 r4 r4 r8 e16 \fadeIn e
+  e e e e e e e e e e e e
+  e \f e e e e e e e e e e e
+  e e e e e e e e e e e e
+
+  e \fadeOut e e e e e e e e e e e
+  e e e e \! r4 r4
+  \mark 56 r4 r4 r8 gis16 \fadeIn gis
+  gis gis gis gis gis gis gis gis gis gis gis gis
+
+  gis gis gis gis gis gis gis gis gis gis gis gis
+  gis \f gis gis gis gis gis gis gis gis gis gis gis
+  gis gis gis gis gis gis gis gis gis gis gis gis
+  gis gis gis gis gis \fadeOut gis gis gis gis gis gis gis
+
+  gis gis gis gis gis gis gis gis gis gis gis gis \!
+  r4 r4 r4
+  \mark 57 r4 r4 r8 cis'16 \fadeIn cis'
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' \f cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' cis' cis' cis' cis' \fadeOut cis' cis' cis' cis' cis' cis' cis'
+  cis' cis' cis' cis' \! r4 r4
+
+  \mark 58 r4 r4 e16 \fadeIn e e e
+  e e e e e e e e e e e e
+  e \f e e e e e e e e e e e
+  e e e e e e e e e e e e
+
+  e \fadeOut e e e e e e e e e e e
+  e e e e \! r4 r4
+  \mark 59 r4 r4 r8 gis16 \fadeIn gis
+  gis gis gis gis gis gis gis gis gis gis gis gis
+
+  gis gis gis gis gis gis gis gis gis gis gis gis
+  gis \f gis gis gis gis gis gis gis gis gis gis gis
+  gis gis gis gis gis gis gis gis gis gis gis gis
+  gis \fadeOut gis gis gis gis gis gis gis gis gis gis gis
+
+  gis gis gis gis gis gis gis gis \! r4
+  r4 r4 r4
+  \mark 60 R2.*6
+  \bar "||"
+
+  \pageBreak
+}
+
 mvtIII = {}
 
 clarinet_X = #(make-part longName
