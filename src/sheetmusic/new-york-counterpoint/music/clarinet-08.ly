@@ -3,6 +3,7 @@
 clarinet_VIII = \transpose c c' {
   \key aes \major
   \time 3/2
+  \transposition bes,
 
   \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
   \set Timing.beatStructure = 1,1,1
@@ -67,6 +68,7 @@ clarinet_VIII = \transpose c c' {
   es' \fadeOut es' es' es' es' es' es' es' es' es' es' es'
   es' es' es' es' es' es' es' es' es' es' es' es' \!
   r2 ^\markup { \bold "to Clarinet in B♭" } r2 r2
+  \transposition bes
 
   \mark 8 R1.*2
   \mark 9 R1.*3

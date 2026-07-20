@@ -6,6 +6,7 @@ beep = { es8 aes, r f, r g r bes f4-- ~f8 r }
 clarinet_VI = \transpose c c' {
   \key aes \major
   \time 3/2
+  \transposition bes
 
   \autoPageBreaksOff
   \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers

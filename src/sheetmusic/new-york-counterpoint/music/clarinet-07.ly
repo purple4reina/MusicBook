@@ -3,6 +3,7 @@
 clarinet_VII = \transpose c c'' {
   \key aes \major
   \time 3/2
+  \transposition bes
 
   \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
   \set Timing.beatStructure = 1,1,1

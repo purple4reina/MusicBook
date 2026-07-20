@@ -5,6 +5,7 @@ boop = { f,8 r f r bes g-- ~g4 r8 es aes, r }
 clarinet_V = \transpose c c' {
   \key aes \major
   \time 3/2
+  \transposition bes
 
   \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
   \set Timing.beatStructure = 1,1,1

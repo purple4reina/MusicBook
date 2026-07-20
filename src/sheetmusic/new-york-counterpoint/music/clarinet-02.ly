@@ -6,6 +6,7 @@ beep = { f,8 r aes r d' bes-- ~bes4 r8 g c r }
 clarinet_II = \transpose c c'' {
   \key aes \major
   \time 3/2
+  \transposition bes
 
   \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
   \set Timing.beatStructure = 1,1,1
