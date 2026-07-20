@@ -1,7 +1,8 @@
 \include "common.ly"
 
 longName  = "Bass Clarinet 8 in B♭"
-shortName = "Bass Cl.8"
+shortName = "Cl.8"
+shortNameMvtI = "Bass Cl.8"
 
 mvtI = \transpose c c' {
   \key aes \major
@@ -266,7 +267,7 @@ mvtII = \transpose c c' {
 mvtIII = {}
 
 clarinet_VIII = #(make-part longName
-  #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
+  #{ \new Staff \with { instrumentName = #shortNameMvtI } \mvtI #}
   #{ \new Staff \with { instrumentName = #shortName } \mvtII #}
   #{ \new Staff \with { instrumentName = #shortName } \mvtIII #}
 )
