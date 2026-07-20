@@ -5,6 +5,30 @@ autoPageBreaksOff = {}
 
 \include "music/clarinets.ly"
 
+ensemble =
+#(define-music-function (mvt) (procedure?)
+  #{
+    <<
+      $(mvt clarinet_Live)
+      \new ChoirStaff <<
+        $(mvt clarinet_I)
+        $(mvt clarinet_II)
+        $(mvt clarinet_III)
+      >>
+      \new ChoirStaff <<
+        $(mvt clarinet_IV)
+        $(mvt clarinet_V)
+        $(mvt clarinet_VI)
+      >>
+      \new ChoirStaff <<
+        $(mvt clarinet_VII)
+        $(mvt clarinet_VIII)
+        $(mvt clarinet_IX)
+        $(mvt clarinet_X)
+      >>
+    >>
+  #})
+
 \header {
   title      = "New York Counterpoint"
   composer   = "Steve Reich"
@@ -34,25 +58,27 @@ autoPageBreaksOff = {}
     arranger   = #f
     instrument = #f
   }
-  <<
-    #(part-I clarinet_Live)
-    \new ChoirStaff <<
-      #(part-I clarinet_I)
-      #(part-I clarinet_II)
-      #(part-I clarinet_III)
-    >>
-    \new ChoirStaff <<
-      #(part-I clarinet_IV)
-      #(part-I clarinet_V)
-      #(part-I clarinet_VI)
-    >>
-    \new ChoirStaff <<
-      #(part-I clarinet_VII)
-      #(part-I clarinet_VIII)
-      #(part-I clarinet_IX)
-      #(part-I clarinet_X)
-    >>
-  >>
+  \ensemble #part-I
+}
+
+\score {
+  \header {
+    title      = "II"
+    composer   = #f
+    arranger   = #f
+    instrument = #f
+  }
+  \ensemble #part-II
+}
+
+\score {
+  \header {
+    title      = "III"
+    composer   = #f
+    arranger   = #f
+    instrument = #f
+  }
+  \ensemble #part-III
 }
 
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.

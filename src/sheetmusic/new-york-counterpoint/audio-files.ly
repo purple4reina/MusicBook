@@ -2,6 +2,10 @@ countOffMeasures = 2
 
 \include "music/clarinets.ly"
 
+allParts = #(list clarinet_Live clarinet_I clarinet_II clarinet_III clarinet_IV
+                   clarinet_V clarinet_VI clarinet_VII clarinet_VIII clarinet_IX
+                   clarinet_X)
+
 addTicks =
 #(define-music-function (m) (ly:music?)
   #{<<
@@ -30,19 +34,7 @@ addTicks =
 \score {
   \midi { \tempo 4 = 176 }  % tempo in score is 184
   \addTicks
-  <<
-    #(part-I clarinet_Live)
-    #(part-I clarinet_I)
-    #(part-I clarinet_II)
-    #(part-I clarinet_III)
-    #(part-I clarinet_IV)
-    #(part-I clarinet_V)
-    #(part-I clarinet_VI)
-    #(part-I clarinet_VII)
-    #(part-I clarinet_VIII)
-    #(part-I clarinet_IX)
-    #(part-I clarinet_X)
-  >>
+  << #@(map part-I allParts) >>
 }
 
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.

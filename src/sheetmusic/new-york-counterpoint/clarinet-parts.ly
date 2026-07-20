@@ -50,4 +50,24 @@ clarinet_part = \clarinet_Live
   #(part-I clarinet_part)
 }
 
+\score {
+  \header {
+    title      = "II"
+    composer   = #f
+    arranger   = #f
+    instrument = #f
+  }
+  #(part-II clarinet_part)
+}
+
+\score {
+  \header {
+    title      = "III"
+    composer   = #f
+    arranger   = #f
+    instrument = #f
+  }
+  #(part-III clarinet_part)
+}
+
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.
