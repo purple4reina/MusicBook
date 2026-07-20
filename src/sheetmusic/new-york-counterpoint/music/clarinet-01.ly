@@ -147,7 +147,70 @@ mvtI = \transpose c c'' {
   \pageBreak
 }
 
-mvtII = {}
+poop = {
+  cis'4-- b16 gis e) r16 r8 ais16-- r
+  r8 fis16 (cis gis4-- \beamer b16) r ais (fis
+}
+
+mvtII = \transpose c c'' {
+  \key b \major
+  \time 3/4
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+
+  \mark 44 R2.*4
+  \mark 45 R2.*4
+
+  \mark 46 R2.*4
+  \mark 47 R2.*2
+
+  cis'4-- \fadeIn (b16 gis e) r16 r8 ais16-- r
+  r8 fis16 (cis gis4-- \beamer b16) r ais (fis
+  cis'4-- \mp b16 gis e) r16 r8 ais16-- r
+  r8 fis16 (cis gis4-- \beamer b16) r ais (fis
+
+  \mark 48 \poop \poop
+  \mark 49 \poop \poop
+  \mark 50 \poop
+
+  \mark 51 \poop \poop
+  \mark 52 \poop
+
+  \mark 53 \poop
+  \mark 54 \poop
+
+  \poop \poop
+
+  \mark 55 \poop \poop
+
+  \poop
+  \mark 56 \poop
+
+  \poop \poop
+
+  \poop
+  \mark 57 \poop
+
+  \poop \poop
+
+  \mark 58 \poop \poop
+
+  \poop
+  \mark 59 \poop
+
+  \poop \poop
+
+  \poop
+  \mark 60 \poop _\markup { \italic "(no fade out)" } \poop
+
+  cis'4-- b16 gis e) r16 r8 ais16-- r
+  r8 fis16 (cis gis4--) r4
+  \bar "||"
+
+  \pageBreak
+}
+
 mvtIII = {}
 
 clarinet_I = #(make-part longName
