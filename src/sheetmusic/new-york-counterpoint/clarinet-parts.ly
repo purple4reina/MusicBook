@@ -50,6 +50,8 @@ clarinet_part = \clarinet_Live
   #(part-I clarinet_part)
 }
 
+\markup \vspace #1  % extra space after title
+
 \score {
   \header {
     title      = "II"
@@ -59,6 +61,8 @@ clarinet_part = \clarinet_Live
   }
   #(part-II clarinet_part)
 }
+
+\markup \vspace #1  % extra space after title
 
 \score {
   \header {

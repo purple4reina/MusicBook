@@ -144,7 +144,93 @@ mvtI = \transpose c c'' {
   \pageBreak
 }
 
-mvtII = {}
+poop = {
+  cis'4-- b16 gis e) r r8 ais16-- r
+  r8 fis16 (cis gis4-- \beamer b16) r ais (fis
+}
+
+mvtII = \transpose c c'' {
+  \key b \major
+  \time 3/4
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+
+  \mark 44 cis'4-- \mp (b16 gis e) r r8 ais16-- r
+  r8 fis16 (cis gis4-- \beamer b16) r ais (fis
+  \poop
+  \mark 45 \poop \poop
+
+  \mark 46 \poop \poop
+  \mark 47 \poop
+
+  cis'4-- \fadeOut b16 gis e) r r8 ais16-- r
+  r8 fis16 (cis gis4-- \beamer b16) r ais (fis) \!
+  R2.*2
+
+  \mark 48 R2.*4
+  \mark 49 R2.*4
+  \mark 50 R2.*2
+  \mark 51 R2.*4
+  \mark 52 R2.*2
+
+  \mark 53 R2.*2
+  \mark 54 r4 r8 fis16 \fadeIn fis fis fis fis fis
+  fis fis fis fis fis fis fis fis fis fis fis fis
+
+  fis fis fis fis fis fis fis fis fis fis fis fis
+  fis \f fis fis fis fis fis fis fis fis fis fis fis
+  fis fis fis fis fis fis fis \fadeOut fis fis fis fis fis
+  fis fis fis fis fis fis fis fis \! r4
+
+  \mark 55 r4 r8 ais16 \fadeIn ais ais ais ais ais
+  ais ais ais ais ais ais ais ais ais ais ais ais
+  ais \f ais ais ais ais ais ais ais ais ais ais ais
+  ais ais ais ais ais ais ais ais ais ais ais ais
+
+  ais \fadeOut ais ais ais ais ais ais ais ais ais ais ais
+  ais ais ais ais ais ais ais ais \! r4
+  \mark 56 r4 r8 cis'16 \fadeIn cis' cis' cis' cis' cis'
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' \f cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' cis' cis' cis' cis' \fadeOut cis' cis' cis' cis' cis' cis' cis'
+
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' cis' cis' cis' \! r4 r4
+  \mark 57 r4 r8 fis16 \fadeIn fis fis fis fis fis
+  fis fis fis fis fis fis fis fis fis fis fis fis
+
+  fis fis fis fis fis fis fis fis fis fis fis fis
+  fis \f fis fis fis fis fis fis fis fis fis fis fis
+  fis fis fis fis fis \fadeOut fis fis fis fis fis fis fis
+  fis fis fis fis fis fis fis fis \! r4
+
+  \mark 58 r4 r8 ais16 \fadeIn ais ais ais ais ais
+  ais ais ais ais ais ais ais ais ais ais ais ais
+  ais \f ais ais ais ais ais ais ais ais ais ais ais
+  ais ais ais ais ais ais ais ais ais ais ais ais
+
+  ais \fadeOut ais ais ais ais ais ais ais ais ais ais ais
+  ais ais ais ais ais ais ais ais \! r4
+  \mark 59 r4 r8 cis'16 \fadeIn cis' cis' cis' cis' cis'
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' \f cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+  cis' \fadeOut cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis'
+
+  cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' cis' \!
+  r4 r4 r4
+  \mark 60 R2.*6
+  \bar "||"
+
+  \pageBreak
+}
+
 mvtIII = {}
 
 clarinet_VII = #(make-part longName
