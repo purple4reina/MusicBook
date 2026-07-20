@@ -145,7 +145,80 @@ mvtI = \transpose c c' {
   \pageBreak
 }
 
-mvtII = {}
+poop = {
+  fis16 (cis ais8-- ~ais gis16 e b,) r8.
+  fis16-- r8. cis16 (ais, e8-- ~e cis16) r
+}
+
+mvtII = \transpose c c' {
+  \key b \major
+  \time 3/4
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+
+  \mark 44 R2.*4
+  \mark 45 r8 ais-- \mf (~ais gis16 e b,) r8.
+  r4 r4 r4
+  r8 ais-- (~ais gis16 e b,) r8.
+  r4 r4 r4
+
+  \mark 46 fis16 (cis ais8-- ~ais gis16 e b,) r8.
+  fis16-- r8. r4 r4
+  fis16 (cis ais8-- ~ais gis16 e b,) r8.
+  fis16-- r8. r4 r4
+  \mark 47 \poop
+
+  fis16 \> (cis ais8-- ~ais gis16 e b,) r8.
+  fis16-- r8. cis16 (ais, e8-- ~e cis16) r
+  fis16 \mp (cis ais8-- ~ais gis16 e b,) r8.
+  fis16-- r8. cis16 (ais, e8-- ~e cis16) r
+
+  \mark 48 \poop \poop
+  \mark 49 \poop
+
+  \poop
+  \mark 50 \poop
+
+  \mark 51 \poop \poop
+  \mark 52 \poop
+
+  \mark 53 \poop
+  \mark 54 \poop
+
+  \poop \poop
+
+  \mark 55 \poop \poop
+
+  \poop
+  \mark 56 \poop
+
+  \poop \poop
+
+  \poop
+  \mark 57 \poop
+
+  \poop \poop
+
+  \mark 58 \poop \poop
+
+  \poop
+  \mark 59 \poop
+
+  \poop \poop
+
+  \poop
+  \mark 60 \poop
+  fis16 \fadeOut (cis ais8-- ~ais gis16 e b,) r8.
+  fis16-- r8. cis16 (ais, e8-- ~e cis16) r
+
+  fis16 (cis ais8-- ~ais gis16 e b,) \! r8.
+  r4 r4 r4
+  \bar "||"
+
+  \pageBreak
+}
+
 mvtIII = {}
 
 clarinet_V = #(make-part longName
