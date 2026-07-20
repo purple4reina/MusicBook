@@ -35,22 +35,22 @@ autoPageBreaksOff = {}
     instrument = #f
   }
   <<
-    \new Staff \with { instrumentName = "Live" } \clarinet_Live
+    #(part-I clarinet_Live)
     \new ChoirStaff <<
-      \new Staff \with { instrumentName = "Cl.1" } \clarinet_I
-      \new Staff \with { instrumentName = "Cl.2" } \clarinet_II
-      \new Staff \with { instrumentName = "Cl.3" } \clarinet_III
+      #(part-I clarinet_I)
+      #(part-I clarinet_II)
+      #(part-I clarinet_III)
     >>
     \new ChoirStaff <<
-      \new Staff \with { instrumentName = "Cl.4" } \clarinet_IV
-      \new Staff \with { instrumentName = "Cl.5" } \clarinet_V
-      \new Staff \with { instrumentName = "Cl.6" } \clarinet_VI
+      #(part-I clarinet_IV)
+      #(part-I clarinet_V)
+      #(part-I clarinet_VI)
     >>
     \new ChoirStaff <<
-      \new Staff \with { instrumentName = "Cl.7" } \clarinet_VII
-      \new Staff \with { instrumentName = "Bass Cl.8" } \clarinet_VIII
-      \new Staff \with { instrumentName = "Bass Cl.9" } \clarinet_IX
-      \new Staff \with { instrumentName = "Bass Cl.10" } \clarinet_X
+      #(part-I clarinet_VII)
+      #(part-I clarinet_VIII)
+      #(part-I clarinet_IX)
+      #(part-I clarinet_X)
     >>
   >>
 }

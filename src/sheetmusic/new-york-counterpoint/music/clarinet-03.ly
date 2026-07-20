@@ -1,9 +1,12 @@
 \include "common.ly"
 
+longName  = "Clarinet 3 in B♭"
+shortName = "Cl.3"
+
 boop = { g8 c r f, r bes r es' aes4-- ~aes8 r }
 beep = { g8 c r f, r bes r d' aes4-- ~aes8 r }
 
-clarinet_III = \transpose c c'' {
+mvtI = \transpose c c'' {
   \key aes \major
   \time 3/2
   \transposition bes
@@ -140,5 +143,14 @@ clarinet_III = \transpose c c'' {
   \bar "||"
   \pageBreak
 }
+
+mvtII = {}
+mvtIII = {}
+
+clarinet_III = #(make-part longName
+  #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
+  #{ \new Staff \with { instrumentName = #shortName } \mvtII #}
+  #{ \new Staff \with { instrumentName = #shortName } \mvtIII #}
+)
 
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.

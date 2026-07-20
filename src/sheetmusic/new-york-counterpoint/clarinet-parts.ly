@@ -4,8 +4,7 @@
 %%% update these to print parts %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-clarinet_part = \clarinet_X
-instrument    = "Bass Clarinet X in B♭"
+clarinet_part = \clarinet_Live
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -13,7 +12,7 @@ instrument    = "Bass Clarinet X in B♭"
   title      = "New York Counterpoint"
   composer   = "Steve Reich"
   arranger   = "Ed. Rey Abolofia"
-  instrument = \instrument
+  instrument = #(part-name clarinet_part)
   tagline    = #f
 }
 
@@ -24,6 +23,10 @@ instrument    = "Bass Clarinet X in B♭"
   \clef treble
   \override MultiMeasureRest.expand-limit = #1
   \numericTimeSignature
+  \context {
+    \Staff
+    \remove "Instrument_name_engraver"  % remove name from first line
+  }
 }
 
 \paper {
@@ -38,15 +41,13 @@ instrument    = "Bass Clarinet X in B♭"
 \markup \vspace #1  % extra space after title
 
 \score {
-  \midi { \tempo 4 = 184 }
-  \layout {}
   \header {
     title      = "I"
     composer   = #f
     arranger   = #f
     instrument = #f
   }
-  \clarinet_part
+  #(part-I clarinet_part)
 }
 
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.

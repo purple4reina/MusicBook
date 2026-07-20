@@ -31,17 +31,17 @@ addTicks =
   \midi { \tempo 4 = 176 }  % tempo in score is 184
   \addTicks
   <<
-    \new Staff \clarinet_Live
-    \new Staff \clarinet_I
-    \new Staff \clarinet_II
-    \new Staff \clarinet_III
-    \new Staff \clarinet_IV
-    \new Staff \clarinet_V
-    \new Staff \clarinet_VI
-    \new Staff \clarinet_VII
-    \new Staff \clarinet_VIII
-    \new Staff \clarinet_IX
-    \new Staff \clarinet_X
+    #(part-I clarinet_Live)
+    #(part-I clarinet_I)
+    #(part-I clarinet_II)
+    #(part-I clarinet_III)
+    #(part-I clarinet_IV)
+    #(part-I clarinet_V)
+    #(part-I clarinet_VI)
+    #(part-I clarinet_VII)
+    #(part-I clarinet_VIII)
+    #(part-I clarinet_IX)
+    #(part-I clarinet_X)
   >>
 }
 

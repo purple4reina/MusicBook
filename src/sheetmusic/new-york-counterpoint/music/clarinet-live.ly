@@ -1,6 +1,9 @@
 \include "common.ly"
 
-clarinet_Live = \transpose c c''' {
+longName  = "Live Clarinet in B♭"
+shortName = "Live"
+
+mvtI = \transpose c c''' {
   \key aes \major
   \time 3/2
 
@@ -200,5 +203,14 @@ clarinet_Live = \transpose c c''' {
 
   \pageBreak
 }
+
+mvtII = {}
+mvtIII = {}
+
+clarinet_Live = #(make-part longName
+  #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
+  #{ \new Staff \with { instrumentName = #shortName } \mvtII #}
+  #{ \new Staff \with { instrumentName = #shortName } \mvtIII #}
+)
 
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.
