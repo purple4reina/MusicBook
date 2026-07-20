@@ -175,7 +175,80 @@ mvtI = \transpose c c' {
   \pageBreak
 }
 
-mvtII = {}
+mvtII = \transpose c c'' {
+  \key b \major
+  \time 3/4
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+
+  \mark 44 R2.*4
+  \mark 45 R2.*4
+  \mark 46 R2.*4
+  \mark 47 R2.*6
+  \mark 48 R2.*4
+  \mark 49 R2.*4
+  \mark 50 R2.*2
+  \mark 51 R2.*4
+  \mark 52 R2.*2
+  \mark 53 R2.*2
+
+  \mark 54 r4 r4 r8 dis16 \fadeIn dis
+  dis dis dis dis dis dis dis dis dis dis dis dis
+
+  dis dis dis dis dis dis dis dis dis dis dis dis
+  dis \f dis dis dis dis dis dis dis dis dis dis dis
+  dis dis dis dis dis dis dis \fadeOut dis dis dis dis dis
+  dis dis dis dis \! r4 r4
+
+  \mark 55 r4 r4 r8 gis16 \fadeIn gis
+  gis gis gis gis gis gis gis gis gis gis gis gis
+  gis \f gis gis gis gis gis gis gis gis gis gis gis
+  gis gis gis gis gis gis gis gis gis gis gis gis
+
+  gis \fadeOut gis gis gis gis gis gis gis gis gis gis gis
+  gis gis gis gis \! r4 r4
+  \mark 56 r4 r4 r8 ais16 \fadeIn ais
+  ais ais ais ais ais ais ais ais ais ais ais ais
+
+  ais ais ais ais ais ais ais ais ais ais ais ais
+  ais \f ais ais ais ais ais ais ais ais ais ais ais
+  ais ais ais ais ais ais ais ais ais ais ais ais
+  ais ais ais ais ais \fadeOut ais ais ais ais ais ais ais
+
+  ais ais ais ais ais ais ais ais ais ais ais ais \!
+  r4 r4 r4
+  \mark 57 r4 r4 r8 dis16 \fadeIn dis
+  dis dis dis dis dis dis dis dis dis dis dis dis
+
+  dis dis dis dis dis dis dis dis dis dis dis dis
+  dis \f dis dis dis dis dis dis dis dis dis dis dis
+  dis dis dis dis dis \fadeOut dis dis dis dis dis dis dis
+  dis dis dis dis \! r4 r4
+
+  \mark 58 r4 r4 gis16 \fadeIn gis gis gis
+  gis gis gis gis gis gis gis gis gis gis gis gis
+  gis \f gis gis gis gis gis gis gis gis gis gis gis
+  gis gis gis gis gis gis gis gis gis gis gis gis
+
+  gis \fadeOut gis gis gis gis gis gis gis gis gis gis gis
+  gis gis gis gis \! r4 r4
+  \mark 59 r4 r4 r8 ais16 \fadeIn ais
+  ais ais ais ais ais ais ais ais ais ais ais ais
+
+  ais ais ais ais ais ais ais ais ais ais ais ais
+  ais \f ais ais ais ais ais ais ais ais ais ais ais
+  ais ais ais ais ais ais ais ais ais ais ais ais
+  ais \fadeOut ais ais ais ais ais ais ais ais ais ais ais
+
+  ais ais ais ais ais ais ais ais \! r4
+  r4 r4 r4
+  \mark 60 R2.*6
+  \bar "||"
+
+  \pageBreak
+}
+
 mvtIII = {}
 
 clarinet_IX = #(make-part longName
