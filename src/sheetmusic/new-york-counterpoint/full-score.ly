@@ -3,8 +3,6 @@ break = {}
 pageBreak = {}
 autoPageBreaksOff = {}
 
-countOffMeasures = 0
-
 \include "music/clarinet-live.ly"
 \include "music/clarinet-01.ly"
 \include "music/clarinet-02.ly"
@@ -39,38 +37,14 @@ countOffMeasures = 0
 
 \markup \vspace #1  % extra space after title
 
-addTicks =
-#(define-music-function (m) (ly:music?)
-  #{<<
-    \new Devnull {
-      \time 3/2 R1.*\countOffMeasures $m
-    }
-    \new Devnull \with {
-      \consists Drum_note_performer
-      \consists Staff_performer
-      \consists Dynamic_performer
-      midiInstrument = #"woodblock"
-    } \drummode {
-      <>\ff \repeat unfold
-      $(ly:moment-main-numerator
-        (ly:moment-div
-         (ly:music-length m)
-         (ly:make-moment 1 2)))
-      rb2
-    }
-  >>#}
-)
-
 \score {
-  \midi { \tempo 4 = 176 }  % tempo in score is 184
-  \layout {}
   \header {
     title      = "I"
     composer   = #f
     arranger   = #f
     instrument = #f
   }
-  \addTicks <<
+  <<
     \new Staff \with { instrumentName = "Live" } \clarinet_Live
     \new ChoirStaff <<
       \new Staff \with { instrumentName = "Cl.1" } \clarinet_I
