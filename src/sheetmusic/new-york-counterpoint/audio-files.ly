@@ -1,16 +1,6 @@
 countOffMeasures = 2
 
-\include "music/clarinet-live.ly"
-\include "music/clarinet-01.ly"
-\include "music/clarinet-02.ly"
-\include "music/clarinet-03.ly"
-\include "music/clarinet-04.ly"
-\include "music/clarinet-05.ly"
-\include "music/clarinet-06.ly"
-\include "music/clarinet-07.ly"
-\include "music/clarinet-08.ly"
-\include "music/clarinet-09.ly"
-\include "music/clarinet-10.ly"
+\include "music/clarinets.ly"
 
 addTicks =
 #(define-music-function (m) (ly:music?)
