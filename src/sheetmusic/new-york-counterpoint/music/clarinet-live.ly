@@ -138,6 +138,7 @@ mvtI = \transpose c c''' {
   es,,8 aes,,, r f,,, r g,, r c, f,,4-- ~f,,8 \! r
   \mark 35 r2 r2 r2
   r2 r2 r2
+  \pageBreak
   \mark 36 es4-- \fadeIn aes,8 r es bes,-- ~bes,4 aes,-- ~aes,8 aes,
   es4-- aes,8 r es bes,-- ~bes,4 aes,-- ~aes,8 aes,
 
@@ -308,7 +309,100 @@ mvtII = \transpose c c'' {
   \pageBreak
 }
 
-mvtIII = {}
+motif_A = {
+  es'8 r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r
+}
+motif_B = {
+  es'8 r b r des' aes des' b r es r aes
+  es'4-- ~es'8 r b des' b aes r b es b
+}
+motif_C = {
+  es'8 aes b es' aes b r des' aes es b aes
+  es'4-- ~es'8 r b des' r aes des' b es r
+}
+
+mvtIII = \transpose c c'' {
+  \key aes \major
+  \time 3/2
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+  \set Timing.beatStructure = 1,1,1
+
+  \mark 61 R1.*4
+
+  \mark 62 r2 r4 f8 \f b, r es r4
+  r4 aes-- ~ aes8 r es f r2
+  r2 r4 f8 b, r es r4
+  r4 aes-- ~ aes8 r es f r2 \break
+
+  \mark 63 r4 aes8 r es r f b, r es r4
+  r8 des aes4-- ~aes8 r es f r b, r4
+
+  \mark 64 r4 aes8 r es r f b, r es r4
+  r8 des aes4-- ~aes8 r es f r b, r es \break
+
+  \mark 65 g,8 r aes r es r f b, r es r g,
+  r8 des aes4-- ~aes8 r es f r b, r es
+
+  g,8 \fadeOut r aes r es r f b, r es r g,
+  r8 des aes4-- ~aes8 r es f r b, r es \! \break
+  r2 r2 r2
+  r2 r2 r2
+
+  \mark 66 es'8 \f r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r \break
+  \motif_A
+  es'8 \> r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r \break
+
+  \mark 67 es'8 \mf r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r
+  \motif_A \break
+  \mark 68 \motif_A
+
+  \mark 69 \motif_A \break
+  \mark 70 \motif_B
+  \motif_B \break \motif_B
+  \mark 71 \motif_B \break \motif_B
+  \mark 72 \motif_B \break \motif_B
+  \mark 73 \motif_C \break \motif_C
+  \mark 74 \motif_B \break \motif_B
+  \mark 75 \motif_C \break \motif_C
+  \mark 76 \motif_B \break \motif_B
+  \mark 77 \motif_C \break
+  \mark 78 \motif_B
+  \mark 79 \motif_B \break
+  \mark 80 \motif_C
+  \mark 81 \motif_C \break
+  \mark 82 \motif_B
+  \mark 83 \motif_B \break
+  \mark 84 \motif_C
+  \mark 85 \motif_C \break
+  \mark 86 \motif_B
+  \mark 87 \motif_B \break
+  \mark 88 \motif_A \motif_A \break \motif_A
+
+  \mark 89 ges'8 \mf r es' r b des' r es' r aes r des'
+  ges'8 r es' r b des' r es' r des' aes r \break
+  ges'8 r es' r b des' r es' r aes r des'
+  ges'8 r es' r b des' r es' r des' aes r
+  ges'8 r es' r b des' r es' r aes r des'
+  ges'8 r es' r b des' r es' r des' aes r \break
+
+  \mark 90 aes'8 r es' r aes es' r aes' r aes r es'
+  aes8 r aes' r aes es' r aes' r aes es' r
+  aes'8 r es' r aes es' r aes' r aes r es'
+  aes8 r aes' r aes es' r aes' r aes es' r
+  aes'8 r es' r aes es' r aes' r aes r es'
+  aes8 r aes' r aes es' r aes' r aes es' r
+  aes'8 r es' r aes es' r aes' r aes r es'
+  aes8 r aes' r aes es' r aes' r aes es' r
+
+  aes'8-^ r r4 r2 r2
+  \bar "|."
+}
 
 clarinet_Live = #(make-part longName
   #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
