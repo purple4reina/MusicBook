@@ -3,9 +3,19 @@ baseTempo = 88  % score says 92
 
 \include "music/clarinets.ly"
 
-allParts = #(list clarinet_Live clarinet_I clarinet_II clarinet_III clarinet_IV
-                   clarinet_V clarinet_VI clarinet_VII clarinet_VIII clarinet_IX
-                   clarinet_X)
+allParts = #(list
+  clarinet_Live
+  clarinet_I
+  clarinet_II
+  clarinet_III
+  clarinet_IV
+  clarinet_V
+  clarinet_VI
+  clarinet_VII
+  clarinet_VIII
+  clarinet_IX
+  clarinet_X
+)
 
 addTicks = #(
   define-music-function
