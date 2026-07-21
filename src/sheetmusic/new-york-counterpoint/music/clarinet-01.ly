@@ -211,7 +211,62 @@ mvtII = \transpose c c'' {
   \pageBreak
 }
 
-mvtIII = {}
+mvtIII = \transpose c c'' {
+  \key aes \major
+  \time 3/2
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+  \set Timing.beatStructure = 1,1,1
+
+  \mark 61 R1.*4
+  \mark 62 R1.*4
+  \mark 63 R1.*2
+  \mark 64 R1.*2
+  \mark 65 R1.*6
+  \mark 66 R1.*6
+  \mark 67 R1.*4
+  \mark 68 R1.*2
+  \mark 69 R1.*2
+  \mark 70 R1.*6
+  \mark 71 R1.*6
+  \mark 72 R1.*4
+  \mark 73 R1.*4
+  \mark 74 R1.*4
+  \mark 75 R1.*4
+  \mark 76 R1.*4
+  \mark 77 R1.*2
+  \mark 78 R1.*2
+  \mark 79 R1.*2
+  \mark 80 R1.*2
+  \mark 81 R1.*2
+  \mark 82 R1.*2
+  \mark 83 R1.*2
+  \mark 84 R1.*2
+  \mark 85 R1.*2
+  \mark 86 R1.*2
+  \mark 87 R1.*2
+  \mark 88 R1.*6
+
+  \mark 89 es'8 \mf r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r
+  es'8 r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r
+  es'8 r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r
+
+  \mark 90 es'8 r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r
+  es'8 r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r
+  es'8 r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r
+  es'8 r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r b es r
+
+  es'8-^ r r4 r2 r2
+  \bar "|."
+}
 
 clarinet_I = #(make-part longName
   #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
