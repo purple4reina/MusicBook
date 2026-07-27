@@ -212,7 +212,117 @@ mvtII = \transpose c c'' {
   \pageBreak
 }
 
-mvtIII = {}
+#(define lastPrintedKeyAlterations
+   (ly:music-property #{ \key aes \major #} 'pitch-alist))
+#(define (key-visibility key)
+   (let* ((alterations (ly:music-property key 'pitch-alist))
+          (visibility (if (equal? lastPrintedKeyAlterations alterations)
+                           all-invisible all-visible)))
+     (set! lastPrintedKeyAlterations alterations)
+     visibility))
+#(define (no-dynamic fn)
+   (define-music-function () () #{ $fn {} #}))
+#(define (key-phrase key musicOne musicTwo)
+   (define-music-function (dynamic) (ly:music?) #{
+     \once \set Staff.explicitKeySignatureVisibility = #(key-visibility key)
+     $key
+     $musicOne $dynamic $musicTwo
+   #}))
+
+dFlatAesEsGAes = #(
+  key-phrase #{ \key aes \major #}
+  #{ b8 #}
+  #{
+    r8 g r aes es r g r des r f
+    b4-- ~b8 r g aes r es r g des r
+  #}
+)
+FlatAesEsGAes = #(no-dynamic dFlatAesEsGAes)
+
+dSharpAEGisE = #(
+  key-phrase #{ \key e \major #}
+  #{ b8 #}
+  #{
+    r8 gis r a e r gis r cis r e
+    b4-- ~b8 r gis a r e r gis cis r
+  #}
+)
+SharpAEGisE = #(no-dynamic dSharpAEGisE)
+
+dFlatEsGGAes = #(
+  key-phrase #{ \key aes \major #}
+  #{
+    b8 r8 g r es g r aes r des r f
+    b4-- ~
+  #}
+  #{ b8 r g aes r es r g des r #}
+)
+FlatEsGGAes = #(no-dynamic dFlatEsGGAes)
+
+dSharpEGisGisA = #(
+  key-phrase #{ \key e \major #}
+  #{ b8 #}
+  #{
+    r8 gis r e gis r a r cis r e
+    b4-- ~b8 r gis a r e r gis cis r
+  #}
+)
+SharpEGisGisA = #(no-dynamic dSharpEGisGisA)
+
+dSharpAEGisA = #(
+  key-phrase #{ \key e \major #}
+  #{ b8 #}
+  #{
+    r8 gis r a e r gis r cis r e
+    b4-- ~b8 r gis a r e r gis cis r
+  #}
+)
+SharpAEGisA = #(no-dynamic dSharpAEGisA)
+
+mvtIII = \transpose c c' {
+  \key aes \major
+  \time 3/2
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+  \set Timing.beatStructure = 1,1,1
+
+  \mark 61 R1.*4
+  \mark 62 R1.*4
+  \mark 63 R1.*2
+  \mark 64 R1.*2
+  \mark 65 R1.*2
+
+  \dFlatAesEsGAes \fadeIn \break \dFlatAesEsGAes \mf
+  \mark 66 \FlatAesEsGAes \break \FlatAesEsGAes \FlatAesEsGAes \break
+  \mark 67 \FlatAesEsGAes \FlatAesEsGAes \break
+  \mark 68 \FlatAesEsGAes
+  \mark 69 \FlatAesEsGAes \break
+  \mark 70 \FlatAesEsGAes \FlatAesEsGAes \break \FlatAesEsGAes
+  \mark 71 \SharpAEGisE \break \SharpAEGisE \SharpAEGisE \break
+  \mark 72 \SharpAEGisE \SharpAEGisE \break
+  \mark 73 \FlatEsGGAes \FlatEsGGAes \pageBreak
+  \mark 74 \FlatAesEsGAes \FlatAesEsGAes \break
+  \mark 75 \SharpEGisGisA \SharpEGisGisA \break
+  \mark 76 \SharpAEGisA \SharpAEGisA \break
+  \mark 77 \FlatEsGGAes
+  \mark 78 \FlatAesEsGAes \break
+  \mark 79 \SharpAEGisA
+  \mark 80 \SharpEGisGisA \break
+  \mark 81 \FlatEsGGAes
+  \mark 82 \FlatAesEsGAes \break
+  \mark 83 \SharpAEGisA
+  \mark 84 \SharpEGisGisA \break
+  \mark 85 \dFlatEsGGAes \fadeOut
+  \mark 86 \FlatAesEsGAes \!
+
+  \mark 87 R1.*2
+  \mark 88 R1.*6
+  \mark 89 R1.*6
+  \mark 90 R1.*9
+  \bar "|."
+  \pageBreak
+}
 
 clarinet_III = #(make-part longName
   #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
