@@ -33,7 +33,8 @@ addTicks = #(
           \consists Dynamic_performer
           midiInstrument = #"woodblock"
         } \drummode {
-          <>\ff \repeat unfold
+          \set Staff.midiMinimumVolume = #1
+          \repeat unfold
           $(ly:moment-main-numerator
             (ly:moment-div
              (ly:music-length music)
