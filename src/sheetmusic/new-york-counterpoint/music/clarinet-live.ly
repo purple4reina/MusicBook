@@ -261,7 +261,7 @@ mvtII = \transpose c c'' {
   \beamer ais16-- \fadeOut r fis (cis fis cis gis8--) r ais16 (fis
   \mark 55 ais16 fis ais fis \beamer b r b gis b gis ais) r
 
-  \beamer ais16-- r fis (cis gis cis gis8) \! r4
+  \beamer ais16-- r fis (cis fis cis gis8) \! r4
   ais,16 \fadeIn (fis ais, fis \beamer gis,--) r gis, (e, b,, e, fis,) r
   fis,16-. r8. e,4-- ~e,8 r
 
@@ -365,34 +365,34 @@ mvtIII = \transpose c c'' {
   \mark 69 \motif_A \break
   \mark 70 \motif_B
   \motif_B \break \motif_B
-  \mark 71 \motif_B \break \motif_B
-  \mark 72 \motif_B \break \motif_B
-  \mark 73 \motif_C \break \motif_C
-  \mark 74 \motif_B \break \motif_B
-  \mark 75 \motif_C \break \motif_C
-  \mark 76 \motif_B \break \motif_B
-  \mark 77 \motif_C \break
-  \mark 78 \motif_B
-  \mark 79 \motif_B \break
-  \mark 80 \motif_C
-  \mark 81 \motif_C \break
-  \mark 82 \motif_B
-  \mark 83 \motif_B \break
-  \mark 84 \motif_C
-  \mark 85 \motif_C \break
-  \mark 86 \motif_B
-  \mark 87 \motif_B \break
-  \mark 88 \motif_A \motif_A \break \motif_A
+  \mark 71 \motif_B \pageBreak \motif_B \motif_B \break
+  \mark 72 \motif_B \motif_B \break
+  \mark 73 \motif_C \motif_C \break
+  \mark 74 \motif_B \motif_B \break
+  \mark 75 \motif_C \motif_C \break
+  \mark 76 \motif_B \motif_B \break
+  \mark 77 \motif_C
+  \mark 78 \motif_B \break
+  \mark 79 \motif_B
+  \mark 80 \motif_C \pageBreak
+  \mark 81 \motif_C
+  \mark 82 \motif_B \break
+  \mark 83 \motif_B
+  \mark 84 \motif_C \break
+  \mark 85 \motif_C
+  \mark 86 \motif_B \break
+  \mark 87 \motif_B
+  \mark 88 \motif_A \break \motif_A \motif_A \break
 
   \mark 89 ges'8 \mf r es' r b des' r es' r aes r des'
-  ges'8 r es' r b des' r es' r des' aes r \break
-  ges'8 r es' r b des' r es' r aes r des'
   ges'8 r es' r b des' r es' r des' aes r
   ges'8 r es' r b des' r es' r aes r des'
   ges'8 r es' r b des' r es' r des' aes r \break
+  ges'8 r es' r b des' r es' r aes r des'
+  ges'8 r es' r b des' r es' r des' aes r
 
   \mark 90 aes'8 r es' r aes es' r aes' r aes r es'
-  aes8 r aes' r aes es' r aes' r aes es' r
+  aes8 r aes' r aes es' r aes' r aes es' r \break
   aes'8 r es' r aes es' r aes' r aes r es'
   aes8 r aes' r aes es' r aes' r aes es' r
   aes'8 r es' r aes es' r aes' r aes r es'
