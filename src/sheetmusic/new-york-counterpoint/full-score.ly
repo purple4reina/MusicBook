@@ -47,6 +47,7 @@ ensemble =
 \paper {
   print-all-headers = ##t
   system-system-spacing.basic-distance = #16
+  page-count = ##f
 }
 
 \markup \vspace #1  % extra space after title
