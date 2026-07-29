@@ -213,7 +213,106 @@ mvtII = \transpose c c' {
   \pageBreak
 }
 
-mvtIII = {}
+#(define lastPrintedKeyAlterations
+   (ly:music-property #{ \key aes \major #} 'pitch-alist))
+#(define (key-visibility key)
+   (let* ((alterations (ly:music-property key 'pitch-alist))
+          (visibility (if (equal? lastPrintedKeyAlterations alterations)
+                           all-invisible all-visible)))
+     (set! lastPrintedKeyAlterations alterations)
+     visibility))
+#(define (no-dynamic fn)
+   (define-music-function () () #{ $fn {} #}))
+#(define (key-phrase key musicOne musicTwo)
+   (define-music-function (dynamic) (ly:music?) #{
+     \once \set Staff.explicitKeySignatureVisibility = #(key-visibility key)
+     $key
+     $musicOne $dynamic $musicTwo
+   #}))
+
+dFlatDesAesBDes = #(
+  key-phrase #{ \key aes \major #}
+  #{ es8 #}
+  #{
+    r8 es' r b r des' aes r b! r es
+    r8 aes es'4-- ~es'8 r b des' r aes r b!
+  #}
+)
+FlatDesAesBDes = #(no-dynamic dFlatDesAesBDes)
+
+dSharpCisGisBCis = #(
+  key-phrase #{ \key e \major #}
+  #{ dis8 #}
+  #{
+    r8 dis'8 r b r cis' gis r b r dis
+    r8 gis dis'4-- ~dis'8 r b cis' r gis r b
+  #}
+)
+SharpCisGisBCis = #(no-dynamic dSharpCisGisBCis)
+
+dFlatEsAesDesAesBDes = #(
+  key-phrase #{ \key aes \major #}
+  #{ es8 #}
+  #{
+    aes8 r es' r b r des' aes r b! r
+    es8 r aes es'8-- ~es'4 r8 b des' r aes r
+  #}
+)
+FlatEsAesDesAesBDes = #(no-dynamic dFlatEsAesDesAesBDes)
+
+dSharpDisGisCisGisBCis = #(
+  key-phrase #{ \key e \major #}
+  #{ dis8 #}
+  #{
+    gis8 r dis' r b r cis' gis r b r
+    dis8 r gis dis'8-- ~dis'4 r8 b cis' r gis r
+  #}
+)
+SharpDisGisCisGisBCis = #(no-dynamic dSharpDisGisCisGisBCis)
+
+mvtIII = \transpose c c'' {
+  \key aes \major
+  \time 3/2
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+  \set Timing.beatStructure = 1,1,1
+
+  \mark 61 R1.*4
+  \mark 62 R1.*4
+  \mark 63 R1.*2
+  \mark 64 R1.*2
+  \mark 65 R1.*6
+
+  \mark 66 \dFlatDesAesBDes \f \break \FlatDesAesBDes \dFlatDesAesBDes \fadeOut \break
+  \mark 67 \dFlatDesAesBDes \mf \FlatDesAesBDes \break
+  \mark 68 \FlatDesAesBDes
+  \mark 69 \FlatDesAesBDes \break
+  \mark 70 \FlatDesAesBDes \FlatDesAesBDes \break \FlatDesAesBDes
+  \mark 71 \SharpCisGisBCis \break \SharpCisGisBCis \SharpCisGisBCis \break
+  \mark 72 \SharpCisGisBCis \SharpCisGisBCis \break
+  \mark 73 \FlatEsAesDesAesBDes \FlatEsAesDesAesBDes \break
+  \mark 74 \FlatDesAesBDes \FlatDesAesBDes \break
+  \mark 75 \SharpDisGisCisGisBCis \SharpDisGisCisGisBCis \break
+  \mark 76 \SharpCisGisBCis \SharpCisGisBCis \break
+  \mark 77 \FlatEsAesDesAesBDes
+  \mark 78 \FlatDesAesBDes \break
+  \mark 79 \SharpCisGisBCis
+  \mark 80 \SharpDisGisCisGisBCis \break
+  \mark 81 \FlatEsAesDesAesBDes
+  \mark 82 \FlatDesAesBDes \break
+  \mark 83 \SharpCisGisBCis
+  \mark 84 \SharpDisGisCisGisBCis \break
+  \mark 85 \FlatEsAesDesAesBDes
+  \mark 86 \FlatDesAesBDes \break
+  \mark 87 \SharpCisGisBCis
+  \mark 88 \SharpCisGisBCis \break \SharpCisGisBCis \SharpCisGisBCis \break
+  \mark 89 \SharpCisGisBCis \SharpCisGisBCis \break \SharpCisGisBCis
+  \mark 90 \SharpCisGisBCis \break \SharpCisGisBCis \SharpCisGisBCis \break \SharpCisGisBCis
+  dis8-^ r r4 r2 r2
+  \bar "|."
+  \pageBreak
+}
 
 clarinet_IV = #(make-part longName
   #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
