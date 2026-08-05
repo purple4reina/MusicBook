@@ -17,6 +17,18 @@ beamer = #(define-music-function
               $four ]
          #})
 
+tplBeamer = #(define-music-function
+            (one two three)
+            (ly:music? ly:music? ly:music?) #{
+              $one [
+                \set stemLeftBeamCount = 1
+                \set stemRightBeamCount = 1
+              $two
+                \set stemLeftBeamCount = 1
+                \set stemRightBeamCount = 1
+              $three ]
+         #})
+
 #(if (not (defined? 'make-part))
      (eval '(begin
               (use-modules (srfi srfi-9))

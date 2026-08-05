@@ -333,6 +333,8 @@ mvtIII = \transpose c c' {
   \mark 88 R1.*6
   \mark 89 R1.*6
   \mark 90 R1.*9
+  \bar "|."
+  \pageBreak
 }
 
 clarinet_VIII = #(make-part longName

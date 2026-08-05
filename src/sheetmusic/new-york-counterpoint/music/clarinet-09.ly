@@ -249,7 +249,151 @@ mvtII = \transpose c c'' {
   \pageBreak
 }
 
-mvtIII = {}
+#(define lastPrintedKeyAlterations
+   (ly:music-property #{ \key aes \major #} 'pitch-alist))
+#(define (key-visibility key)
+   (let* ((alterations (ly:music-property key 'pitch-alist))
+          (visibility (if (equal? lastPrintedKeyAlterations alterations)
+                           all-invisible all-visible)))
+     (set! lastPrintedKeyAlterations alterations)
+     visibility))
+
+#(define (time-signature-fraction time)
+   (cons (ly:music-property time 'numerator)
+         (ly:music-property time 'denominator)))
+#(define lastPrintedTimeSignature
+   (time-signature-fraction #{ \time 3/2 #}))
+#(define (time-visibility time)
+   (let* ((fraction (time-signature-fraction time))
+          (visibility (if (equal? lastPrintedTimeSignature fraction)
+                           all-invisible all-visible)))
+     (set! lastPrintedTimeSignature fraction)
+     visibility))
+
+#(define (key-time-phrase key time musicOne musicTwo)
+   (define-music-function (dynamic) (ly:music?) #{
+     \once \set Staff.explicitKeySignatureVisibility = #(key-visibility key)
+     \once \override Staff.TimeSignature.break-visibility = #(time-visibility time)
+     $key
+     $time
+     $musicOne $dynamic $musicTwo
+   #}))
+
+dFlatEsEsAA = #(
+  key-time-phrase #{ \key aes \major #} #{ \time 3/2 #}
+  #{ es8 #}
+  #{
+    r8 es' r es es' r4 a8 r r a'
+    es'8 r es'' r a a' r4 a8 r r a'
+  #}
+)
+FlatEsEsAA = #(no-dynamic dFlatEsEsAA)
+
+dFlatEsEsAABeamer = #(
+  key-time-phrase #{ \key aes \major #} #{ \time 12/8 #}
+  #{ es8 #}
+  #{
+    r8 r es' r r \tplBeamer es es' r a r a'
+    es'8 r r a' r r \tplBeamer a a' r a r a'
+  #}
+)
+FlatEsEsAABeamer = #(no-dynamic dFlatEsEsAABeamer)
+
+dFlatAAA = #(
+  key-time-phrase #{ \key aes \major #} #{ \time 3/2 #}
+  #{ es'8 #}
+  #{
+    r8 es r r es' es r a' r a a'
+    r4 es'8 r r a' a r a' r a a'
+  #}
+)
+FlatAAAA = #(no-dynamic dFlatAAA)
+
+dSharpFisFisAA = #(
+  key-time-phrase #{ \key e \major #} #{ \time 3/2 #}
+  #{ fis8 #}
+  #{
+    r8 fis' r fis fis' r4 cis'8 r r cis''
+    fis'8 r fis'' r a a' r4 a8 r r a'
+  #}
+)
+SharpFisFisAA = #(no-dynamic dSharpFisFisAA)
+
+dSharpCisCisAA = #(
+  key-time-phrase #{ \key e \major #} #{ \time 3/2 #}
+  #{ fis'8 #}
+  #{
+    r8 fis r r fis' fis r cis'' r cis' cis''
+    r4 fis'8 r r a' a r a' r a a'
+  #}
+)
+SharpCisCisAA = #(no-dynamic dSharpCisCisAA)
+
+dSharpCisCisAABeamer = #(
+  key-time-phrase #{ \key e \major #} #{ \time 12/8 #}
+  #{ fis8 #}
+  #{
+    r8 r fis' r r \tplBeamer cis' cis'' r cis' r cis''
+    fis'8 r r fis'' r r \tplBeamer a a' r a r a'
+  #}
+)
+SharpCisCisAABeamer = #(no-dynamic dSharpCisCisAABeamer)
+
+mvtIII = \transpose c c {
+  \key aes \major
+  \time 3/2
+  \transposition bes,
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+  \set Timing.beatStructure = 1,1,1
+
+  \mark 61 R1.*4
+  \mark 62 R1.*4
+  \mark 63 R1.*2
+  \mark 64 R1.*2
+  \mark 65 R1.*6
+  \mark 66 R1.*6
+
+  \mark 67 r2 es8 \f es' r4 a8 r r a'
+  es'8 r es'' r r2 r2
+  r2 es8 es' r4 a8 r r a'
+  es'8 r es'' r r2 r2 \break
+  \mark 68 r4 es'8 r es es' r4 a8 r r a'
+  es'8 r es'' r r2 r2
+  \mark 69 r4 es'8 r es es' r4 a8 r r a'
+  es'8 r es'' r a a' r4 a8 r r a' \break
+
+  \mark 70 \FlatEsEsAA \FlatEsEsAA \break \dFlatEsEsAA \>
+  \mark 71 \dSharpFisFisAA \mf \break \SharpFisFisAA \SharpFisFisAA \break
+  \mark 72 \SharpCisCisAA \SharpCisCisAA \break
+  \mark 73 \FlatEsEsAABeamer \FlatEsEsAABeamer \break
+  \mark 74 \FlatAAAA \FlatAAAA \break
+  \mark 75 \SharpCisCisAABeamer \SharpCisCisAABeamer \break
+  \mark 76 \SharpFisFisAA \SharpFisFisAA \break
+  \mark 77 \FlatEsEsAABeamer \noBreak
+  \mark 78 \FlatAAAA \break
+  \mark 79 \SharpCisCisAA
+  \mark 80 \SharpCisCisAABeamer \break
+
+  \once \set Staff.explicitKeySignatureVisibility = #(key-visibility #{ \key aes \major #})
+  \key aes \major
+  \mark 81 es8 r r es' r r \tplBeamer es es' r a r a'
+  es'8 \fadeOut r r a' r r a a' r a r a' \noBreak
+
+  \mark 82 \FlatAAAA \break
+  \mark 83 \SharpCisCisAA
+  \mark 84 fis8 r r fis' r r cis' cis'' r cis' r cis''
+  fis' r r fis'' r r a a' r a r r \! \break
+
+  \mark 85 R1.*2
+  \mark 86 R1.*2
+  \mark 87 R1.*2
+  \mark 88 R1.*6
+  \mark 89 R1.*6
+  \mark 90 R1.*9
+  \bar "|."
+  \pageBreak
+}
 
 clarinet_IX = #(make-part longName
   #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
