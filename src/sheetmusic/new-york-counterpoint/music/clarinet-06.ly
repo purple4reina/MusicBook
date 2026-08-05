@@ -1,5 +1,9 @@
 \include "common.ly"
 
+\paper {
+  page-count = 6
+}
+
 longName  = "Clarinet 6 in B♭"
 shortName = "Cl.6"
 
@@ -187,7 +191,118 @@ mvtII = \transpose c c' {
   \pageBreak
 }
 
-mvtIII = {}
+#(define lastPrintedKeyAlterations
+   (ly:music-property #{ \key aes \major #} 'pitch-alist))
+#(define (key-visibility key)
+   (let* ((alterations (ly:music-property key 'pitch-alist))
+          (visibility (if (equal? lastPrintedKeyAlterations alterations)
+                           all-invisible all-visible)))
+     (set! lastPrintedKeyAlterations alterations)
+     visibility))
+#(define (no-dynamic fn)
+   (define-music-function () () #{ $fn {} #}))
+#(define (key-phrase key musicOne musicTwo)
+   (define-music-function (dynamic) (ly:music?) #{
+     \once \set Staff.explicitKeySignatureVisibility = #(key-visibility key)
+     $key
+     $musicOne $dynamic $musicTwo
+   #}))
+
+dFlatAesEsGAes = #(
+  key-phrase #{ \key aes \major #}
+  #{ des8 #}
+  #{
+    r8 b r g r aes es r g r des
+    r8 f b4-- ~b8 r g aes r es r g
+  #}
+)
+FlatAesEsGAes = #(no-dynamic dFlatAesEsGAes)
+
+dSharpAEGisA = #(
+  key-phrase #{ \key e \major #}
+  #{ cis #}
+  #{
+    r8 b r gis r a e r gis r cis
+    r8 fis b4-- ~b8 r gis a r e r gis
+  #}
+)
+SharpAEGisA = #(no-dynamic dSharpAEGisA)
+
+dFlatDesEsAesEsGAes = #(
+  key-phrase #{ \key aes \major #}
+  #{ des8 #}
+  #{
+    es8 r b r g r aes es r g r
+    des8 r f b8-- ~b4 r8 g aes r es r
+  #}
+)
+FlatDesEsAesEsGAes = #(no-dynamic dFlatDesEsAesEsGAes)
+
+dSharpCisEAEGisA = #(
+  key-phrase #{ \key e \major #}
+  #{ cis8 #}
+  #{
+    e8 r b r gis r a e r gis r
+    cis8 r fis b-- ~b4 r8 gis a r e r
+  #}
+)
+SharpCisEAEGisA = #(no-dynamic dSharpCisEAEGisA)
+
+mvtIII = \transpose c c' {
+  \key aes \major
+  \time 3/2
+  \transposition bes
+
+  \autoPageBreaksOff
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+  \set Timing.beatStructure = 1,1,1
+
+  \mark 61 R1.*4
+
+  \mark 62 r2 r4 aes8 \f es r g r4
+  r4 b4-- ~b8 r g aes r2
+  r2 r4 aes8 es r g r4
+  r4 b4-- ~b8 r g aes r2 \break
+
+  \mark 63 r4 b8 r g r aes es r g r4
+  r8 f b4-- ~b8 r g aes r es r4
+  \mark 64 r4 b8 r g r aes es r g r4
+  r8 f b4-- ~b8 r g aes r es r g \break
+
+  \mark 65 \FlatAesEsGAes \dFlatAesEsGAes \fadeOut \break \dFlatAesEsGAes \mf
+  \mark 66 \FlatAesEsGAes \break \FlatAesEsGAes \FlatAesEsGAes \break
+  \mark 67 \FlatAesEsGAes \FlatAesEsGAes \break
+  \mark 68 \FlatAesEsGAes
+  \mark 69 \FlatAesEsGAes \break
+  \mark 70 \FlatAesEsGAes \FlatAesEsGAes \break \FlatAesEsGAes
+  \mark 71 \SharpAEGisA \break \SharpAEGisA \SharpAEGisA \pageBreak
+  \mark 72 \SharpAEGisA \SharpAEGisA \break
+  \mark 73 \FlatDesEsAesEsGAes \FlatDesEsAesEsGAes \break
+  \mark 74 \FlatAesEsGAes \FlatAesEsGAes \break
+  \mark 75 \SharpCisEAEGisA \SharpCisEAEGisA \break
+  \mark 76 \SharpAEGisA \SharpAEGisA \break
+  \mark 77 \FlatDesEsAesEsGAes
+  \mark 78 \FlatAesEsGAes \break
+  \mark 79 \SharpAEGisA
+  \mark 80 \SharpCisEAEGisA \break
+  \mark 81 \FlatDesEsAesEsGAes
+  \mark 82 \FlatAesEsGAes \break
+  \mark 83 \SharpAEGisA
+  \mark 84 \SharpCisEAEGisA \break
+
+  \once \set Staff.explicitKeySignatureVisibility = #(key-visibility #{ \key aes \major #})
+  \key aes \major
+  \mark 85 des8 es r b r g r aes es r g r
+  des8 \fadeOut r f b-- ~b4 r8 g aes r es r
+  \mark 86 \FlatAesEsGAes \! \break
+
+  \mark 87 R1.*2
+  \mark 88 R1.*6
+  \mark 89 R1.*6
+  \mark 90 R1.*9
+  \bar "|."
+  \pageBreak
+}
 
 clarinet_VI = #(make-part longName
   #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
