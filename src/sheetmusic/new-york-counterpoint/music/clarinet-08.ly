@@ -137,7 +137,7 @@ mvtI = \transpose c c' {
   g g g g g g g g g \f g g g
   g g g g g g g g g g g g
 
-  g g g g g g g \fadeOut g g g g g
+  g g g g g g g \fadeOut g g g g g \pageBreak
   g g g g g g g g g g g g \!
   r2 r2 r2
 
@@ -264,7 +264,76 @@ mvtII = \transpose c c' {
   \pageBreak
 }
 
-mvtIII = {}
+#(define lastPrintedKeyAlterations
+   (ly:music-property #{ \key aes \major #} 'pitch-alist))
+#(define (key-visibility key)
+   (let* ((alterations (ly:music-property key 'pitch-alist))
+          (visibility (if (equal? lastPrintedKeyAlterations alterations)
+                           all-invisible all-visible)))
+     (set! lastPrintedKeyAlterations alterations)
+     visibility))
+
+dFlatAesEsGAes = #(
+  key-phrase #{ \key aes \major #}
+  #{ f8 #}
+  #{
+    r8 g r aes es r g r des r f
+    b4-- ~b8 r g aes r es r g des r
+  #}
+)
+FlatAesEsGAes = #(no-dynamic dFlatAesEsGAes)
+
+dFlatAesEsGAesB = #(
+  key-phrase #{ \key aes \major #}
+  #{ b8 #}
+  #{
+    r8 g r aes es r g r des r f
+    b4-- ~b8 r g aes r es r g des r
+  #}
+)
+FlatAesEsGAesB = #(no-dynamic dFlatAesEsGAesB)
+
+mvtIII = \transpose c c' {
+  \key aes \major
+  \time 3/2
+  \transposition bes,
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+  \set Timing.beatStructure = 1,1,1
+
+  \mark 61 \dFlatAesEsGAes \mf \FlatAesEsGAes
+  \mark 62 \FlatAesEsGAesB \FlatAesEsGAesB
+  \mark 63 \FlatAesEsGAesB
+  \mark 64 \FlatAesEsGAesB
+  \mark 65 \FlatAesEsGAesB \dFlatAesEsGAesB \fadeOut \!
+
+  R1.*2
+  \mark 66 R1.*6
+  \mark 67 R1.*4
+  \mark 68 R1.*2
+  \mark 69 R1.*2
+  \mark 70 R1.*6
+  \mark 71 R1.*6
+  \mark 72 R1.*4
+  \mark 73 R1.*4
+  \mark 74 R1.*4
+  \mark 75 R1.*4
+  \mark 76 R1.*4
+  \mark 77 R1.*2
+  \mark 78 R1.*2
+  \mark 79 R1.*2
+  \mark 80 R1.*2
+  \mark 81 R1.*2
+  \mark 82 R1.*2
+  \mark 83 R1.*2
+  \mark 84 R1.*2
+  \mark 85 R1.*2
+  \mark 86 R1.*2
+  \mark 87 R1.*2
+  \mark 88 R1.*6
+  \mark 89 R1.*6
+  \mark 90 R1.*9
+}
 
 clarinet_VIII = #(make-part longName
   #{ \new Staff \with { instrumentName = #shortNameMvtI } \mvtI #}
