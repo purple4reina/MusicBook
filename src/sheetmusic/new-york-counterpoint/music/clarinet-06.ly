@@ -1,7 +1,7 @@
 \include "common.ly"
 
 \paper {
-  page-count = 6
+  page-count = #f
 }
 
 longName  = "Clarinet 6 in B♭"

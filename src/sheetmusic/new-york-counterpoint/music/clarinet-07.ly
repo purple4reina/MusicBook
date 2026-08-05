@@ -231,7 +231,90 @@ mvtII = \transpose c c'' {
   \pageBreak
 }
 
-mvtIII = {}
+#(define lastPrintedKeyAlterations
+   (ly:music-property #{ \key aes \major #} 'pitch-alist))
+#(define (key-visibility key)
+   (let* ((alterations (ly:music-property key 'pitch-alist))
+          (visibility (if (equal? lastPrintedKeyAlterations alterations)
+                           all-invisible all-visible)))
+     (set! lastPrintedKeyAlterations alterations)
+     visibility))
+
+dFlatFBEsF = #(
+  key-phrase #{ \key aes \major #}
+  #{ aes8 #}
+  #{
+    r8 es r f b, r es r g, r des
+    aes4-- ~aes8 r es f r b, r es g, r
+  #}
+)
+FlatFBEsF = #(no-dynamic dFlatFBEsF)
+
+dSharpBCisBCis = #(
+  key-phrase #{ \key b \major #}
+  #{ gis8 #}
+  #{
+    r8 fis' r dis' r b cis' r dis' r gis
+    r8 cis' fis' r dis' r b cis' r dis' r cis'
+  #}
+)
+SharpBCisBCis = #(no-dynamic dSharpBCisBCis)
+
+dSharpGisDisGisDis = #(
+  key-phrase #{ \key b \major #}
+  #{ gis8 #}
+  #{
+    r8 gis' r dis' r gis dis' r gis' r gis
+    r8 dis' gis r gis' r gis dis' r gis' r dis'
+  #}
+)
+SharpGisDisGisDis = #(no-dynamic dSharpGisDisGisDis)
+
+mvtIII = \transpose c c'' {
+  \key aes \major
+  \time 3/2
+  \transposition bes
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+  \set Timing.beatStructure = 1,1,1
+
+  \mark 61 \dFlatFBEsF \mf \FlatFBEsF \break
+  \mark 62 \FlatFBEsF \FlatFBEsF \break
+  \mark 63 \FlatFBEsF
+  \mark 64 \FlatFBEsF \break
+  \mark 65 \FlatFBEsF \dFlatFBEsF \fadeOut \! \break
+
+  R1.*2
+  \mark 66 R1.*6
+  \mark 67 R1.*4
+  \mark 68 R1.*2
+  \mark 69 R1.*2
+  \mark 70 R1.*6
+  \mark 71 R1.*6
+  \mark 72 R1.*4
+  \mark 73 R1.*4
+  \mark 74 R1.*4
+  \mark 75 R1.*4
+  \mark 76 R1.*4
+  \mark 77 R1.*2
+  \mark 78 R1.*2
+  \mark 79 R1.*2
+  \mark 80 R1.*2
+  \mark 81 R1.*2
+  \mark 82 R1.*2
+  \mark 83 R1.*2
+  \mark 84 R1.*2
+  \mark 85 R1.*2
+  \mark 86 R1.*2
+  \mark 87 R1.*2
+  \mark 88 R1.*6 \break
+
+  \mark 89 \SharpBCisBCis \SharpBCisBCis \break \SharpBCisBCis
+  \mark 90 \SharpGisDisGisDis \break \SharpGisDisGisDis \SharpGisDisGisDis \break \SharpGisDisGisDis
+  gis8-^ r r4 r 2 r2
+  \bar "|."
+  \pageBreak
+}
 
 clarinet_VII = #(make-part longName
   #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
