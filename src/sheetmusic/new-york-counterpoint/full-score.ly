@@ -56,34 +56,21 @@ ensemble =
   #(set-paper-size "letter" 'landscape)
 }
 
-\score {
-  \header {
-    title      = "I"
-    composer   = #f
-    arranger   = #f
-    instrument = #f
-  }
-  \ensemble #part-I
-}
+mvt = #(define-scheme-function (mvt part) (string? procedure?)
+  #{
+    \score {
+      \header {
+        title      = $mvt
+        composer   = #f
+        arranger   = #f
+        instrument = #f
+      }
+      \ensemble $part
+    }
+  #})
 
-\score {
-  \header {
-    title      = "II"
-    composer   = #f
-    arranger   = #f
-    instrument = #f
-  }
-  \ensemble #part-II
-}
-
-\score {
-  \header {
-    title      = "III"
-    composer   = #f
-    arranger   = #f
-    instrument = #f
-  }
-  \ensemble #part-III
-}
+\mvt "I" #part-I
+\mvt "II" #part-II
+\mvt "III" #part-III
 
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.
