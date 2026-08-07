@@ -54,6 +54,14 @@ ensemble =
   system-system-spacing.basic-distance = #16
   page-count = ##f
   #(set-paper-size "letter" 'landscape)
+
+  oddHeaderMarkup = ##f
+  evenHeaderMarkup = ##f
+  oddFooterMarkup = \markup {
+    \fill-line {
+      "" \if \should-print-page-number \fromproperty #'page:page-number-string
+    }
+  }
 }
 
 mvt = #(define-scheme-function (mvt part) (string? procedure?)
