@@ -1,4 +1,4 @@
-% use auto-breaking when writing full score
+origBreak = \break
 break = {}
 pageBreak = {}
 autoPageBreaksOff = {}
@@ -26,6 +26,9 @@ ensemble =
         $(mvt clarinet_IX)
         $(mvt clarinet_X)
       >>
+      \new Devnull {
+        $(mvt breaks)
+      }
     >>
   #})
 
@@ -44,13 +47,14 @@ ensemble =
   \numericTimeSignature
 }
 
+#(set-global-staff-size 14)
+
 \paper {
   print-all-headers = ##t
   system-system-spacing.basic-distance = #16
   page-count = ##f
+  #(set-paper-size "letter" 'landscape)
 }
-
-\markup \vspace #1  % extra space after title
 
 \score {
   \header {
