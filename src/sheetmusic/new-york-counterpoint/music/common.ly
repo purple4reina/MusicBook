@@ -40,3 +40,6 @@ tplBeamer = #(define-music-function
                 (mvtII part-II)
                 (mvtIII part-III)))
            (current-module)))
+
+#(if (not (defined? 'origBreak))
+     (module-define! (current-module) 'origBreak break))
