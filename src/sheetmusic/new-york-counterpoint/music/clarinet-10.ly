@@ -142,6 +142,7 @@ mvtI = \transpose c c' {
   \mark 40 r2 r2 r2
   r4 bes,8 \fadeIn bes, bes, bes, bes, bes, bes, bes, bes, bes,
   bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes,
+  \pageBreak
   bes, \f bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes,
 
   bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes, bes,
@@ -249,7 +250,130 @@ mvtII = \transpose c c {
   \pageBreak
 }
 
-mvtIII = {}
+#(define lastPrintedKeyAlterations
+   (ly:music-property #{ \key aes \major #} 'pitch-alist))
+#(define (key-visibility key)
+   (let* ((alterations (ly:music-property key 'pitch-alist))
+          (visibility (if (equal? lastPrintedKeyAlterations alterations)
+                           all-invisible all-visible)))
+     (set! lastPrintedKeyAlterations alterations)
+     visibility))
+
+#(define (time-signature-fraction time)
+   (cons (ly:music-property time 'numerator)
+         (ly:music-property time 'denominator)))
+#(define lastPrintedTimeSignature
+   (time-signature-fraction #{ \time 3/2 #}))
+#(define (time-visibility time)
+   (let* ((fraction (time-signature-fraction time))
+          (visibility (if (equal? lastPrintedTimeSignature fraction)
+                           all-invisible all-visible)))
+     (set! lastPrintedTimeSignature fraction)
+     visibility))
+
+#(define (key-time-phrase key time musicOne musicTwo)
+   (define-music-function (dynamic) (ly:music?) #{
+     \once \set Staff.explicitKeySignatureVisibility = #(key-visibility key)
+     \once \override Staff.TimeSignature.break-visibility = #(time-visibility time)
+     $key
+     $time
+     $musicOne $dynamic $musicTwo
+   #}))
+
+dFlatAAAA = #(
+  key-time-phrase #{ \key aes \major #} #{ \time 3/2 #}
+  #{ es,8 #}
+  #{
+    r8 r es es, r es r a, a r4
+    es8 r r es' a, r a r a, a r4
+  #}
+)
+FlatAAAA = #(no-dynamic dFlatAAAA)
+
+dSharpCisCisAA = #(
+  key-time-phrase #{ \key e \major #} #{ \time 3/2 #}
+  #{ fis,8 #}
+  #{
+    r8 r fis fis, r fis r cis cis' r4
+    fis8 r r fis' a, r a r a, a r4
+  #}
+)
+SharpCisCisAA = #(no-dynamic dSharpCisCisAA)
+
+dFlatEsEsAABeamer = #(
+  key-time-phrase #{ \key aes \major #} #{ \time 12/8 #}
+  #{ es,8 #}
+  #{
+    r8 r \tplBeamer es, es r es, r es a, r r
+    es8 r r \tplBeamer a, a r a, r a a, r r
+  #}
+)
+FlatEsEsAABeamer = #(no-dynamic dFlatEsEsAABeamer)
+
+dSharpFisFisFisFisBeamer = #(
+  key-time-phrase #{ \key e \major #} #{ \time 12/8 #}
+  #{ fis,8 #}
+  #{
+    r8 r \tplBeamer fis, fis r cis r cis' cis r r
+    fis8 r r \tplBeamer fis fis' r a, r a a, r r
+  #}
+)
+SharpFisFisFisFisBeamer = #(no-dynamic dSharpFisFisFisFisBeamer)
+
+mvtIII = \transpose c c' {
+  \key aes \major
+  \time 3/2
+  \transposition bes,
+
+  \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
+  \set Timing.beatStructure = 1,1,1
+
+  \mark 61 R1.*4
+  \mark 62 R1.*4
+  \mark 63 R1.*2
+  \mark 64 R1.*2
+  \mark 65 R1.*6
+  \mark 66 R1.*6
+
+  \mark 67 r2 es,8 \f r es r a, a r4
+  es8 r r4 r2 r2
+  r2 es,8 r es r a, a r4
+  es8 r r4 r2 r2 \break
+  \mark 68 r4 r8 es es, r es r a, a r4
+  es8 r r es' r2 r2
+  \mark 69 r4 r8 es es, r es r a, a r4
+  es8 r r es' a, r a r a, a r4 \break
+
+  \mark 70 \FlatAAAA \FlatAAAA \break \dFlatAAAA \>
+  \mark 71 \dSharpCisCisAA \mf \break \SharpCisCisAA \SharpCisCisAA \break
+  \mark 72 \SharpCisCisAA \SharpCisCisAA \break
+  \mark 73 \FlatEsEsAABeamer \FlatEsEsAABeamer \pageBreak
+  \mark 74 \FlatAAAA \FlatAAAA \break
+  \mark 75 \SharpFisFisFisFisBeamer \SharpFisFisFisFisBeamer \break
+  \mark 76 \SharpCisCisAA \SharpCisCisAA \break
+  \mark 77 \FlatEsEsAABeamer \noBreak
+  \mark 78 \FlatAAAA \break
+  \mark 79 \SharpCisCisAA
+  \mark 80 \SharpFisFisFisFisBeamer \break
+
+  \once \set Staff.explicitKeySignatureVisibility = #(key-visibility #{ \key aes \major #})
+  \key aes \major
+  \mark 81 es,8 r r \tplBeamer es, es r es, r es a, r r
+  es8 \fadeOut r r \tplBeamer a, a r a, r a a, r r
+
+  \mark 82 \FlatAAAA \break
+  \mark 83 \SharpCisCisAA
+  \mark 84 \SharpFisFisFisFisBeamer \! \break
+
+  \mark 85 R1.*2
+  \mark 86 R1.*2
+  \mark 87 R1.*2
+  \mark 88 R1.*6
+  \mark 89 R1.*6
+  \mark 90 R1.*9
+  \bar "|."
+  \pageBreak
+}
 
 clarinet_X = #(make-part longName
   #{ \new Staff \with { instrumentName = #shortName } \mvtI #}

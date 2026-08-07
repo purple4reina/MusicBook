@@ -32,6 +32,7 @@ clarinet_part = \clarinet_Live
 \paper {
   print-all-headers = ##t
   system-system-spacing.basic-distance = #14
+  ragged-last-bottom = ##f
   left-margin = #10
   right-margin = #10
   top-margin = #5
