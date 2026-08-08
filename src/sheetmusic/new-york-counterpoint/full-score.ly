@@ -5,6 +5,9 @@ autoPageBreaksOff = {}
 
 \include "music/clarinets.ly"
 
+gitSha = #(let ((sha (getenv "GIT_SHA")))
+            (if (or (not sha) (string-null? sha)) "unknown" sha))
+
 ensemble =
 #(define-music-function (mvt) (procedure?)
   #{
@@ -58,8 +61,13 @@ ensemble =
   oddHeaderMarkup = ##f
   evenHeaderMarkup = ##f
   oddFooterMarkup = \markup {
-    \fill-line {
-      "" \if \should-print-page-number \fromproperty #'page:page-number-string
+    \column {
+      \fill-line {
+        "" \if \should-print-page-number \fromproperty #'page:page-number-string
+      }
+      \fill-line {
+        \if \on-last-page \right-align \tiny \concat { "rev " #gitSha }
+      }
     }
   }
 }

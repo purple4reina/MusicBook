@@ -1,5 +1,8 @@
 \include "music/clarinets.ly"
 
+gitSha = #(let ((sha (getenv "GIT_SHA")))
+            (if (or (not sha) (string-null? sha)) "unknown" sha))
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% update these to print parts %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,6 +40,17 @@ clarinet_part = \clarinet_Live
   right-margin = #10
   top-margin = #5
   bottom-margin = #5
+
+  oddFooterMarkup = \markup {
+    \column {
+      \fill-line {
+        \if \on-first-page-of-part \fromproperty #'header:copyright
+      }
+      \fill-line {
+        \if \on-last-page \right-align \tiny \concat { "rev " #gitSha }
+      }
+    }
+  }
 }
 
 \markup \vspace #1  % extra space after title
