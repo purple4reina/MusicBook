@@ -316,10 +316,17 @@ mvtIII = \transpose c c'' {
   \pageBreak
 }
 
+uniqI = { s1 }
+uniqII = { s1 }
+uniqIII = { s1 }
+
 clarinet_VII = #(make-part longName
   #{ \new Staff \with { instrumentName = #shortName } \mvtI #}
   #{ \new Staff \with { instrumentName = #shortName } \mvtII #}
   #{ \new Staff \with { instrumentName = #shortName } \mvtIII #}
+  #{ \uniqI #}
+  #{ \uniqII #}
+  #{ \uniqIII #}
 )
 
 \version "2.25.12"  % necessary for upgrading to future LilyPond versions.
