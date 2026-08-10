@@ -33,15 +33,12 @@ tplBeamer = #(define-music-function
      (eval '(begin
               (use-modules (srfi srfi-9))
               (define-record-type <part>
-                (make-part longName mvtI mvtII mvtIII uniqI uniqII uniqIII)
+                (make-part longName mvtI mvtII mvtIII)
                 part?
                 (longName part-name)
                 (mvtI part-I)
                 (mvtII part-II)
-                (mvtIII part-III)
-                (uniqI uniq-I)
-                (uniqII uniq-II)
-                (uniqIII uniq-III)))
+                (mvtIII part-III)))
            (current-module)))
 
 #(if (not (defined? 'origBreak))

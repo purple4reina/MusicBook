@@ -38,7 +38,4 @@ breaks = #(make-part "breaks"
   #{ \breaksI #}
   #{ \breaksII #}
   #{ \breaksIII #}
-  #{ #}
-  #{ #}
-  #{ #}
 )
