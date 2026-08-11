@@ -382,7 +382,14 @@ mvtIII = \transpose c c'' {
   \mark 85 \motif_C
   \mark 86 \motif_B \break
   \mark 87 \motif_B
-  \mark 88 \motif_A \break \motif_A \motif_A \break
+  \mark 88 \motif_A \break \motif_A
+  es'8 r b r des' aes r b r es r aes
+  es'4-- ~es'8 r b des' r aes r
+    \tweak Parentheses.font-size 8
+    \tweak Parentheses.extra-offset #'(0 . -2)
+    \parenOpen b
+    \tweak Parentheses.font-size 8
+    \parenClose es r \break
 
   \mark 89 ges'8 \mf r es' r b des' r es' r aes r des'
   ges'8 r es' r b des' r es' r des' aes r

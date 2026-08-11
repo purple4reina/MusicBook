@@ -29,6 +29,18 @@ tplBeamer = #(define-music-function
               $three ]
          #})
 
+% one pair of parentheses enclosing several notes.  \parenthesize only ever
+% marks a single event, so put the left half of the pair on the first note
+% and the right half on the last:  \parenOpen b \parenClose es
+#(define ((paren-half side) grob)
+   (let ((both (parentheses-interface::calc-parenthesis-stencils grob)))
+     (if (eq? side 'left)
+         (list (car both) empty-stencil)
+         (list empty-stencil (cadr both)))))
+
+parenOpen  = \tweak Parentheses.stencils #(paren-half 'left)  \parenthesize \etc
+parenClose = \tweak Parentheses.stencils #(paren-half 'right) \parenthesize \etc
+
 #(if (not (defined? 'make-part))
      (eval '(begin
               (use-modules (srfi srfi-9))
