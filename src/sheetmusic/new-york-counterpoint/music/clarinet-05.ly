@@ -48,7 +48,7 @@ mvtI = \transpose c c' {
   \time 2/2 f f f f f \fadeOut f f f
 
   \mark 4 \time 3/2 f f f f f f f f f f f f \!
-  r2 r2 f4 des8 \fadeIn des
+  r2 r2 r4 des8 \fadeIn des
   des des des des des des des des des des des des
 
   des \f des des des des des des des des des des des

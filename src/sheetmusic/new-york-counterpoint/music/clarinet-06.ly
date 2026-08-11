@@ -269,7 +269,7 @@ mvtIII = \transpose c c' {
   \mark 64 r4 b8 r g r aes es r g r4
   r8 f b4-- ~b8 r g aes r es r g \break
 
-  \mark 65 \FlatAesEsGAes \dFlatAesEsGAes \fadeOut \break \dFlatAesEsGAes \mf
+  \mark 65 \FlatAesEsGAes \dFlatAesEsGAes \> \break \dFlatAesEsGAes \mf
   \mark 66 \FlatAesEsGAes \break \FlatAesEsGAes \FlatAesEsGAes \break
   \mark 67 \FlatAesEsGAes \FlatAesEsGAes \break
   \mark 68 \FlatAesEsGAes

@@ -284,7 +284,7 @@ mvtIII = \transpose c c'' {
   \mark 64 R1.*2
   \mark 65 R1.*6
 
-  \mark 66 \dFlatDesAesBDes \f \break \FlatDesAesBDes \dFlatDesAesBDes \fadeOut \break
+  \mark 66 \dFlatDesAesBDes \f \break \FlatDesAesBDes \dFlatDesAesBDes \> \break
   \mark 67 \dFlatDesAesBDes \mf \FlatDesAesBDes \break
   \mark 68 \FlatDesAesBDes
   \mark 69 \FlatDesAesBDes \break

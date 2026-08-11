@@ -202,7 +202,7 @@ mvtII = \transpose c c'' {
 
   \poop
   \mark 60 \poop
-  \mark 52 \beamer b16) \fadeOut r ais (fis cis'4-- b16 gis e) r
+  \beamer b16) \fadeOut r ais (fis cis'4-- b16 gis e) r
   r8 ais16-- r r8 fis16 (cis gis4--
 
   \beamer b16) r ais (fis cis'4-- b16 gis e) \! r
