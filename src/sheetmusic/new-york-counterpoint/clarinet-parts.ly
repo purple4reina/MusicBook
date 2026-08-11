@@ -11,6 +11,47 @@ clarinet_part = \clarinet_Live
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%% ...or leave the above alone and pick a part on the command line:
+%%%   lilypond clarinet-parts.ly -dpart=live
+%%%   lilypond clarinet-parts.ly -dpart=1
+%%%   lilypond clarinet-parts.ly -dpart=01
+%%% lilypond warns "no such internal option: part" -- harmless, it still
+%%% hands the value over
+
+#(define clarinet-part-alist
+   `(("live" . ,clarinet_Live)
+     ("1"    . ,clarinet_I)
+     ("2"    . ,clarinet_II)
+     ("3"    . ,clarinet_III)
+     ("4"    . ,clarinet_IV)
+     ("5"    . ,clarinet_V)
+     ("6"    . ,clarinet_VI)
+     ("7"    . ,clarinet_VII)
+     ("8"    . ,clarinet_VIII)
+     ("9"    . ,clarinet_IX)
+     ("10"   . ,clarinet_X)))
+
+% -dpart=live arrives as a symbol and -dpart=01 as the number 1, so flatten
+% whatever turns up to a string before looking it up
+#(define (normalize-part-name value)
+   (string-downcase (format #f "~a" value)))
+
+% without -dpart the option is #f, which leaves the part chosen above alone
+clarinet_part =
+#(let* ((requested (ly:get-option 'part))
+        (chosen (if (not requested)
+                    clarinet_part
+                    (let ((found (assoc (normalize-part-name requested)
+                                        clarinet-part-alist)))
+                      (if (not found)
+                          (ly:error "unknown part ~a -- expected one of: ~a"
+                                    requested
+                                    (string-join (map car clarinet-part-alist)
+                                                 ", ")))
+                      (cdr found)))))
+   (ly:message "printing part: ~a" (part-name chosen))
+   chosen)
+
 \header {
   title      = "New York Counterpoint"
   composer   = "Steve Reich"
