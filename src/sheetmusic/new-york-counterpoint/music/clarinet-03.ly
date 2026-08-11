@@ -214,10 +214,12 @@ mvtII = \transpose c c'' {
 
 #(define lastPrintedKeyAlterations
    (ly:music-property #{ \key aes \major #} 'pitch-alist))
+% a repeat of the current key stays hidden mid-line, but must still print at
+% the start of every line -- all-invisible would swallow those reprints too
 #(define (key-visibility key)
    (let* ((alterations (ly:music-property key 'pitch-alist))
           (visibility (if (equal? lastPrintedKeyAlterations alterations)
-                           all-invisible all-visible)))
+                           begin-of-line-visible all-visible)))
      (set! lastPrintedKeyAlterations alterations)
      visibility))
 #(define (no-dynamic fn)
