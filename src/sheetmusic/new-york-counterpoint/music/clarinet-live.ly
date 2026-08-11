@@ -403,7 +403,7 @@ mvtIII = \transpose c c'' {
   aes'8 r es' r aes es' r aes' r aes r es'
   aes8 r aes' r aes es' r aes' r aes es' r
   aes'8 r es' r aes es' r aes' r aes r es'
-  aes8 r aes' r aes es' r aes' r aes es' r
+  aes8 r aes' r aes es' r aes' r aes es' r \break
   aes'8 r es' r aes es' r aes' r aes r es'
   aes8 r aes' r aes es' r aes' r aes es' r
 
