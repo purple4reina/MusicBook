@@ -23,6 +23,7 @@
   print-page-number = ##f
   left-margin = 7.5\mm
   right-margin = 7.5\mm
+  system-system-spacing = #'((basic-distance . 15))
 }
 
 \markup \vspace #1  % extra space after title
