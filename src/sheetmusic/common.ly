@@ -38,9 +38,9 @@ txtDown =
   #}
 )
 
-markBoxNum = \set Score.rehearsalMarkFormatter = \format-mark-box-numbers
-
 markNum    = \set Score.rehearsalMarkFormatter = \format-mark-numbers
+markBoxNum = \set Score.rehearsalMarkFormatter = \format-mark-box-numbers
+markCirNum = \set Score.rehearsalMarkFormatter = \format-mark-circle-numbers
 
 t = \tuplet 3/2 \etc
 
