@@ -161,7 +161,7 @@
         <option value="20">20×</option>
       </select>
     </div>
-    <label class="chk" id="synclabel"><input type="checkbox" id="sync"> play recording in sync</label>
+    <label class="chk" id="synclabel"><input type="checkbox" id="sync" checked> play recording in sync</label>
     <span class="hint" id="syncnote"></span>
   </div>
 
@@ -530,6 +530,11 @@ function enterSync(){
 function exitSync(){
   syncAudio=false; audio.pause(); setSpeedEnabled(true); setSpeedFromSel(); syncNote.textContent="";
 }
+function startLoadingAudio(){
+  syncNote.textContent="— loading recording…";
+  audio.preload="auto"; audio.load();
+  clearTimeout(audioTimer); audioTimer=setTimeout(failAudio,12000);
+}
 
 function setPlaying(v){
   playing=v; playBtn.textContent=v?"Pause":"Play";
@@ -555,16 +560,12 @@ playBtn.addEventListener("click",function(){
 speedSel.addEventListener("change",setSpeedFromSel);
 syncChk.addEventListener("change",function(){
   if(syncChk.checked){
-    if(audioReady){ enterSync(); }
-    else {
-      syncNote.textContent="— loading recording…";
-      audio.preload="auto"; audio.load();
-      clearTimeout(audioTimer); audioTimer=setTimeout(failAudio,12000);
-    }
+    if(audioReady){ enterSync(); } else { startLoadingAudio(); }
   } else {
     exitSync();
   }
 });
+if(syncChk.checked){ startLoadingAudio(); }
 
 document.getElementById("preset").addEventListener("change",function(e){
   if(e.target.value==="custom"){ presetName="custom"; return; }
