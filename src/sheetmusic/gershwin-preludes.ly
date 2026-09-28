@@ -21,6 +21,8 @@
   % do not stretch lines to fill the page
   ragged-bottom = ##t
   print-page-number = ##f
+  left-margin = 7.5\mm
+  right-margin = 7.5\mm
 }
 
 \markup \vspace #1  % extra space after title
@@ -84,6 +86,8 @@
 
       \markCirNum
 
+      \once \override Score.RehearsalMark.break-align-symbols = #'(key-signature)
+      \once \override Score.RehearsalMark.extra-offset = #'(-5.5 . -3)
       \mark 45
       \transpose c c' {
         ges16-. fes-. des-. es-. ges-. fes-. des-. es-.
