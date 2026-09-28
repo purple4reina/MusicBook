@@ -17,6 +17,12 @@
   }
 }
 
+\paper {
+  % do not stretch lines to fill the page
+  ragged-bottom = ##t
+  print-page-number = ##f
+}
+
 \markup \vspace #1  % extra space after title
 
 \score {
@@ -62,6 +68,39 @@
         }
       }
     \bar "|."
+    \pageBreak
+  }
+}
+
+\bookpart {
+  \paper {
+    % extra breathing room between the two systems on this page only
+    system-system-spacing.basic-distance = #15
+  }
+  \score {
+    \transpose c c'' {
+      \key aes \major
+      \time 2/4
+
+      \markCirNum
+
+      \mark 45
+      \transpose c c' {
+        ges16-. fes-. des-. es-. ges-. fes-. des-. es-.
+        ges16-. fes-. des-. es-. ges-. fes-. des-. es-.
+        ges16-. \mf fes-. des-. es-. ges-. fes-. des-. es-.
+        ges16-. _\markup { \italic "cresc." } fes-. des-. es-. ges-. [\once \set stemRightBeamCount = #1 fes-.
+        \tuplet 3/2 { \once \set stemLeftBeamCount = #1 des16 (es ges] }
+
+        \break
+
+        fes16-.) \ff r r8 r4
+      }
+      \mark 50
+      r4 r8 des'!-> \ff
+      \tuplet 3/2 { c'16 (des' \once \set stemRightBeamCount = #1 c'-.) }
+      \once \set stemLeftBeamCount = #1 f16-. aes-. g-. c8 f16-.
+    }
   }
 }
 
